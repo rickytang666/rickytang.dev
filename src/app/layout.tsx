@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import Background from "@/components/background";
+import { ThemeProvider } from "@/components/theme-provider";
 
 // fonts
 import { Figtree, JetBrains_Mono, Bodoni_Moda } from "next/font/google";
@@ -113,43 +113,26 @@ export default function RootLayout({
       lang="en"
       className={`${figtree.variable} ${jetbrainsMono.variable} ${bodoniModa.variable}`}
       suppressHydrationWarning
-      style={{
-        transition: "background-color 0.5s ease-in-out, color 0.5s ease-in-out",
-      }}
     >
       <head>
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body
-        style={{ margin: 0, paddingTop: "6rem" }}
-        className="flex flex-col justify-center items-center min-h-screen"
+        className="flex flex-col justify-center items-center min-h-screen pt-24"
       >
-        <Background />
-        <Navbar />
-        <div className="relative flex flex-col flex-1 w-full px-5 sm:px-10 md:px-12 lg:px-16 pt-14 sm:pt-16 md:pt-18 lg:pt-20 pb-6 sm:pb-8 md:pb-10">
-          <div className="flex-1">{children}</div>
-        </div>
-        <Footer />
-
-        {/* Theme initialization */}
-        <Script id="theme-init" strategy="beforeInteractive">
-          {`
-            (function() {
-              // Check for saved theme preference
-              var savedTheme = localStorage.getItem('rickytang-theme');
-              
-              if (savedTheme === 'light') {
-                document.documentElement.classList.remove('dark');
-              } else if (savedTheme === 'dark') {
-                document.documentElement.classList.add('dark');
-              } else {
-                // Default to system theme
-                var systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-                document.documentElement.classList.toggle('dark', systemTheme === 'dark');
-              }
-            })();
-          `}
-        </Script>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Background />
+          <Navbar />
+          <div className="relative flex flex-col flex-1 w-full px-5 sm:px-10 md:px-12 lg:px-16 pt-14 sm:pt-16 md:pt-18 lg:pt-20 pb-6 sm:pb-8 md:pb-10">
+            <div className="flex-1">{children}</div>
+          </div>
+          <Footer />
+        </ThemeProvider>
       </body>
       {/* Google Analytics (next third parties) */}
       <GoogleAnalytics gaId="G-ZY5XWJ2B3D" />

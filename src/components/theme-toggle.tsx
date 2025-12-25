@@ -2,40 +2,16 @@
 
 import * as React from "react";
 import { IconSun, IconMoon, IconDeviceDesktop } from "@tabler/icons-react";
-
-type ThemeMode = "system" | "light" | "dark";
+import { useTheme } from "next-themes";
 
 export function ThemeToggle() {
-  const [currentTheme, setCurrentTheme] = React.useState<ThemeMode>("system");
+  const { setTheme, theme } = useTheme();
   const [mounted, setMounted] = React.useState(false);
 
   // Ensure component is mounted to avoid hydration mismatch
   React.useEffect(() => {
     setMounted(true);
-    // Check initial theme from localStorage or default to system
-    const savedTheme = localStorage.getItem("rickytang-theme") as ThemeMode;
-    if (savedTheme && ["system", "light", "dark"].includes(savedTheme)) {
-      setCurrentTheme(savedTheme);
-    }
   }, []);
-
-  const handleThemeChange = (theme: ThemeMode) => {
-    if (!mounted) return;
-
-    setCurrentTheme(theme);
-    localStorage.setItem("rickytang-theme", theme);
-
-    // Apply theme
-    if (theme === "system") {
-      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
-        .matches
-        ? "dark"
-        : "light";
-      document.documentElement.classList.toggle("dark", systemTheme === "dark");
-    } else {
-      document.documentElement.classList.toggle("dark", theme === "dark");
-    }
-  };
 
   // Don't render until mounted to avoid hydration mismatch
   if (!mounted) {
@@ -67,9 +43,9 @@ export function ThemeToggle() {
     <div className="flex items-center gap-1 p-1 bg-sidebar text-foreground rounded-full border border-sidebar-border shadow-sm">
       {/* System Theme */}
       <button
-        onClick={() => handleThemeChange("system")}
+        onClick={() => setTheme("system")}
         className={`p-2 rounded-full transition-all duration-300 ${
-          currentTheme === "system"
+          theme === "system"
             ? "bg-primary text-primary-foreground shadow-sm"
             : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
         }`}
@@ -81,9 +57,9 @@ export function ThemeToggle() {
 
       {/* Light Theme */}
       <button
-        onClick={() => handleThemeChange("light")}
+        onClick={() => setTheme("light")}
         className={`p-2 rounded-full transition-all duration-300 ${
-          currentTheme === "light"
+          theme === "light"
             ? "bg-primary text-primary-foreground shadow-sm"
             : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
         }`}
@@ -95,9 +71,9 @@ export function ThemeToggle() {
 
       {/* Dark Theme */}
       <button
-        onClick={() => handleThemeChange("dark")}
+        onClick={() => setTheme("dark")}
         className={`p-2 rounded-full transition-all duration-300 ${
-          currentTheme === "dark"
+          theme === "dark"
             ? "bg-primary text-primary-foreground shadow-sm"
             : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
         }`}
