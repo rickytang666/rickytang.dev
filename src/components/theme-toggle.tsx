@@ -47,12 +47,12 @@ export function ThemeToggle() {
         className={`p-2 rounded-full transition-all duration-300 ${
           theme === "system"
             ? "bg-primary text-primary-foreground shadow-sm"
-            : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+            : "text-sidebar-foreground hover:text-sidebar-primary hover:bg-sidebar-accent"
         }`}
         aria-label="System theme"
         title="Use system theme"
       >
-        <IconDeviceDesktop stroke={2} className="h-5 w-5" />
+        <IconDeviceDesktop stroke={2.5} className="h-5 w-5" />
       </button>
 
       {/* Light Theme */}
@@ -61,12 +61,12 @@ export function ThemeToggle() {
         className={`p-2 rounded-full transition-all duration-300 ${
           theme === "light"
             ? "bg-primary text-primary-foreground shadow-sm"
-            : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+            : "text-sidebar-foreground hover:text-sidebar-primary hover:bg-sidebar-accent"
         }`}
         aria-label="Light theme"
         title="Light theme"
       >
-        <IconSun stroke={2} className="h-5 w-5" />
+        <IconSun stroke={2.5} className="h-5 w-5" />
       </button>
 
       {/* Dark Theme */}
@@ -75,12 +75,12 @@ export function ThemeToggle() {
         className={`p-2 rounded-full transition-all duration-300 ${
           theme === "dark"
             ? "bg-primary text-primary-foreground shadow-sm"
-            : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+            : "text-sidebar-foreground hover:text-sidebar-primary hover:bg-sidebar-accent"
         }`}
         aria-label="Dark theme"
         title="Dark theme"
       >
-        <IconMoon stroke={2} className="h-5 w-5" />
+        <IconMoon stroke={2.5} className="h-5 w-5" />
       </button>
     </div>
   );

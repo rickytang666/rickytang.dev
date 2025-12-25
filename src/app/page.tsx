@@ -46,14 +46,14 @@ export default function Home() {
                 width={22}
                 height={22}
               />
-              <Link href={externalLinks.softwareEngineering}>UWaterloo</Link>
+              <Link href={externalLinks.softwareEngineering} className="font-semibold">UWaterloo</Link>
             </div>
           </h3>
           <h3 className="flex flex-wrap gap-2 items-center justify-center mb-4 text-sm sm:text-lg md:text-lg lg:text-xl text-foreground text-center">
             <span>Contributing to intelligent drones at</span>
             <div className="inline-flex items-center gap-1">
               <Image src="/home/warg.png" alt="WARG" width={18} height={18} />
-              <Link href={externalLinks.warg}>WARG</Link>
+              <Link href={externalLinks.warg} className="font-semibold">WARG</Link>
             </div>
           </h3>
           <p className="mb-4 text-sm sm:text-base md:text-lg text-foreground text-center">

@@ -4,11 +4,8 @@ import Image from "next/image";
 import { Inline } from "yet-another-react-lightbox/plugins";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
-import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
+import { IconArrowLeft, IconArrowRight, IconExternalLink, IconBrandGithub } from "@tabler/icons-react";
 import { Project } from "../data/projects";
-
-// Icons
-import { IconBrandGithub, IconDeviceDesktop } from "@tabler/icons-react";
 
 interface ProjectCardProps {
   project: Project;
@@ -76,7 +73,7 @@ export default function ProjectCard({
   const slides = project.images.map((src) => ({ src }));
 
   return (
-    <div className="card bg-card hover:shadow-[0_10px_20px_-10px_color-mix(in_oklch,var(--card-shadow-color),transparent_60%)] active:shadow-[0_10px_20px_-10px_color-mix(in_oklch,var(--card-shadow-color),transparent_60%)] focus:shadow-[0_10px_20px_-10px_color-mix(in_oklch,var(--card-shadow-color),transparent_60%)] transition-all duration-500 w-full rounded-xl border-1 border-border hover:border-primary active:border-primary focus:border-primary">
+    <div className="card bg-card transition-all duration-500 w-full rounded-xl border-[1.5px] border-border hover:border-primary">
       <div
         ref={containerRef}
         className="p-3 overflow-hidden"
@@ -109,7 +106,7 @@ export default function ProjectCard({
                   <span className="text-white bg-black/50 rounded-full w-10 h-10 flex items-center justify-center absolute right-1 top-1/2 transform -translate-y-1/2 z-10">
                     <IconArrowRight
                       stroke={2}
-                      className="w-6 h-6 text-primary"
+                      className="w-6 h-6 text-teal-300"
                     />
                   </span>
                 ),
@@ -117,7 +114,7 @@ export default function ProjectCard({
                   <span className="text-white bg-black/50 rounded-full w-10 h-10 flex items-center justify-center absolute left-1 top-1/2 transform -translate-y-1/2 z-10">
                     <IconArrowLeft
                       stroke={2}
-                      className="w-6 h-6 text-primary"
+                      className="w-6 h-6 text-teal-300"
                     />
                   </span>
                 ),
@@ -187,24 +184,24 @@ export default function ProjectCard({
             href={project.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1 text-base font-semibold text-[color-mix(in_oklch,var(--primary)_50%,var(--foreground)_50%)] px-4 py-2 rounded-lg hover:bg-primary/15 hover:text-primary transition-colors duration-200"
+            className="flex items-center gap-1 text-base font-semibold px-4 py-2 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors duration-200"
           >
             <span>
               <IconBrandGithub stroke={2} className="w-5 h-5" />
             </span>
-            <span>Source</span>
+            <span>source</span>
           </a>
           {project.website && (
             <a
               href={project.website}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1 text-base font-semibold text-[color-mix(in_oklch,var(--live-demo)_50%,var(--foreground)_50%)] p-2 rounded-lg hover:bg-[color-mix(in_oklch,var(--live-demo-hover),transparent_85%)] hover:text-[var(--live-demo-hover)] transition-colors duration-200"
+              className="flex items-center gap-1 text-base font-semibold px-4 py-2 rounded-lg hover:bg-accent/10 hover:text-accent transition-colors duration-200"
             >
               <span>
-                <IconDeviceDesktop stroke={2} className="w-5 h-5" />
+                <IconExternalLink stroke={2} className="w-5 h-5" />
               </span>
-              <span>Live Demo</span>
+              <span>live demo</span>
             </a>
           )}
         </div>

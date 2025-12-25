@@ -76,42 +76,76 @@ body {
 }
 
 :root {
+  /* layout & spacing */
   --radius: 0.5rem;
-  --background: oklch(94.315% 0.01278 197.403);
-  --foreground: oklch(0.2699 0.0080 240.1576);
-  --card: oklch(0.9878 0.0044 179.7377);
-  --card-foreground: oklch(0.1908 0.0020 106.5859);
-  --popover: oklch(1.0000 0 0);
-  --popover-foreground: oklch(0.2671 0.0196 98.9390);
-  --primary: oklch(63.394% 0.11181 180.162);
-  --primary-foreground: oklch(1.0000 0 0);
-  --secondary: oklch(0.8238 0.0811 180.8273);
-  --secondary-foreground: oklch(0.4334 0.0177 98.6048);
-  --muted: oklch(0.9014 0.0426 192.7656);
-  --muted-foreground: oklch(0.5922 0.0251 254.4776);
-  --accent: oklch(0.8746 0.0680 180.8525);
-  --accent-foreground: oklch(0.2671 0.0196 98.9390);
-  --destructive: oklch(0.1908 0.0020 106.5859);
-  --border: oklch(0.8804 0.0066 185.2513);
-  --input: oklch(0.7589 0.0151 180.5622);
-  --ring: oklch(0.7572 0.1209 179.2842);
-  --chart-1: oklch(0.5109 0.0861 186.3914);
-  --chart-2: oklch(0.6268 0.2325 303.9004);
-  --chart-3: oklch(0.5960 0.1274 163.2254);
-  --chart-4: oklch(0.6417 0.2059 25.1146);
-  --chart-5: oklch(0.5922 0.0251 254.4776);
-  --sidebar: oklch(0.957 0.01 195);
-  --live-demo: oklch(0.57 0.25 310);
-  --live-demo-hover: oklch(0.72 0.20 310);
-  --card-shadow-color: oklch(0.86 0.12 178);
-  --sidebar-foreground: oklch(0.3590 0.0051 106.6524);
-  --sidebar-primary: oklch(0.5602 0.0986 172.1546);
-  --sidebar-primary-foreground: oklch(0.9881 0 0);
-  --sidebar-accent: oklch(0.8948 0.0377 177.6439);
-  --sidebar-accent-foreground: oklch(0.3250 0 0);
-  --sidebar-border: oklch(0.9401 0 0);
-  --sidebar-ring: oklch(0.7731 0 0);
-  --destructive-foreground: oklch(1.0000 0 0);
+  
+  /* base colors - solarized teal theme */
+  /* background: comfortable teal-tinted paper, like solarized's warm base */
+  --background: oklch(85.063% 0.03566 185.546);
+  /* foreground: rich dark teal-gray for excellent readability */
+  --foreground: oklch(20% 0.025 200);
+  
+  /* surface colors */
+  /* card: elevated surface with stronger teal presence */
+  --card: oklch(92.932% 0.03182 187.079);
+  --card-foreground: oklch(20% 0.025 200);
+  
+  /* popover: bright surface for contrast */
+  --popover: oklch(97% 0.02 185);
+  --popover-foreground: oklch(20% 0.025 200);
+  
+  /* brand colors */
+  /* primary: vibrant teal - your signature color for links, buttons, brand */
+  --primary: oklch(55% 0.16 185);
+  --primary-foreground: oklch(97.317% 0.01625 183.114);
+  
+  /* secondary: muted teal - for secondary actions, tags, badges */
+  --secondary: oklch(82% 0.06 185);
+  --secondary-foreground: oklch(25% 0.04 185);
+  
+  /* accent color */
+  /* accent: vibrant fuchsia - for CTAs, "live demo" badges, special highlights */
+  --accent: oklch(62% 0.24 320);
+  --accent-foreground: oklch(98% 0.01 320);
+  
+  /* neutral colors */
+  /* muted: subtle teal backgrounds for less prominent content */
+  --muted: oklch(88% 0.025 185);
+  --muted-foreground: oklch(45% 0.035 190);
+  
+  /* interaction colors */
+  /* border: visible teal borders that feel cohesive */
+  --border: oklch(78% 0.045 185);
+  
+  /* input: input borders with clear teal identity */
+  --input: oklch(72% 0.055 185);
+  
+  /* ring: focus rings - bright teal for accessibility */
+  --ring: oklch(55% 0.16 185);
+  
+  /* semantic colors */
+  /* destructive: warm red that complements teal */
+  --destructive: oklch(58% 0.20 25);
+  --destructive-foreground: oklch(98% 0.01 25);
+  
+  /* chart colors - harmonious palette */
+  --chart-1: oklch(55% 0.14 185); /* teal */
+  --chart-2: oklch(62% 0.22 320); /* fuchsia */
+  --chart-3: oklch(60% 0.15 160); /* green-teal */
+  --chart-4: oklch(58% 0.18 280); /* purple */
+  --chart-5: oklch(52% 0.16 220); /* blue */
+  
+  /* sidebar (if used) */
+  --sidebar: oklch(82.224% 0.06902 182.012);
+  --sidebar-foreground: oklch(25% 0.03 200);
+  --sidebar-primary: oklch(55% 0.16 185);
+  --sidebar-primary-foreground: oklch(98% 0.01 185);
+  --sidebar-accent: oklch(87.247% 0.03525 187.762);
+  --sidebar-accent-foreground: oklch(25% 0.04 185);
+  --sidebar-border: oklch(80% 0.04 185);
+  --sidebar-ring: oklch(55% 0.16 185);
+  
+  /* shadows */
   --shadow-color: #000000;
   --shadow-opacity: 0.17;
   --shadow-blur: 3px;
