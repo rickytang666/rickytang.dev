@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useSyncExternalStore, useMemo } from "react";
 import Image from "next/image";
 import { WheelPicker, WheelPickerWrapper } from "@/components/wheel-picker";
 import { cn } from "@/lib/utils";
@@ -20,13 +20,13 @@ export default function TechWheelPicker({
   skills,
   className,
 }: TechWheelPickerProps) {
-  const [selectedValue, setSelectedValue] = useState("");
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-    setSelectedValue(skills[0]?.name || "");
-  }, [skills]);
+  const initialValue = useMemo(() => skills[0]?.name || "", [skills]);
+  const [selectedValue, setSelectedValue] = useState(initialValue);
+  const isClient = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false
+  );
 
   const options = skills.map((skill) => ({
     value: skill.name,
