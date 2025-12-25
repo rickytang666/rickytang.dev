@@ -14,7 +14,7 @@ function WheelPickerWrapper({
   return (
     <WheelPickerPrimitive.WheelPickerWrapper
       className={cn(
-        "w-full h-full rounded-2xl border border-zinc-200 bg-white px-2 shadow-sm dark:border-zinc-700/80 dark:bg-zinc-900",
+        "w-full h-full rounded-2xl border border-zinc-200 bg-card px-2 shadow-sm dark:border-zinc-700/80",
         "*:data-rwp:first:*:data-rwp-highlight-wrapper:rounded-s-md",
         "*:data-rwp:last:*:data-rwp-highlight-wrapper:rounded-e-md",
         className
@@ -33,7 +33,7 @@ function WheelPicker({
       classNames={{
         optionItem: "text-zinc-400 dark:text-zinc-500",
         highlightWrapper:
-          "bg-teal-50 text-teal-600 dark:bg-zinc-800 dark:text-teal-200",
+          "bg-teal-100 text-teal-700 dark:bg-teal-900 dark:bg-opacity-20 dark:text-teal-100",
         ...classNames,
       }}
       {...props}
