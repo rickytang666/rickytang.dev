@@ -76,7 +76,7 @@ export default function ProjectCard({
   const slides = project.images.map((src) => ({ src }));
 
   return (
-    <div className="card bg-card hover:shadow-[0_10px_20px_-10px_rgba(94,234,212,0.4)] active:shadow-[0_10px_20px_-10px_rgba(94,234,212,0.4)] focus:shadow-[0_10px_20px_-10px_rgba(94,234,212,0.4)] transition-all duration-500 w-full rounded-xl border-1 border-border hover:border-primary active:border-primary focus:border-primary">
+    <div className="card bg-card hover:shadow-[0_10px_20px_-10px_color-mix(in_oklch,var(--card-shadow-color),transparent_60%)] active:shadow-[0_10px_20px_-10px_color-mix(in_oklch,var(--card-shadow-color),transparent_60%)] focus:shadow-[0_10px_20px_-10px_color-mix(in_oklch,var(--card-shadow-color),transparent_60%)] transition-all duration-500 w-full rounded-xl border-1 border-border hover:border-primary active:border-primary focus:border-primary">
       <div
         ref={containerRef}
         className="p-3 overflow-hidden"
@@ -199,7 +199,7 @@ export default function ProjectCard({
               href={project.website}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1 text-base font-semibold text-[color-mix(in_srgb,#c026d3_50%,var(--foreground)_50%)] p-2 rounded-lg hover:bg-fuchsia-400/15 hover:text-fuchsia-400 transition-colors duration-200"
+              className="flex items-center gap-1 text-base font-semibold text-[color-mix(in_oklch,var(--live-demo)_50%,var(--foreground)_50%)] p-2 rounded-lg hover:bg-[color-mix(in_oklch,var(--live-demo-hover),transparent_85%)] hover:text-[var(--live-demo-hover)] transition-colors duration-200"
             >
               <span>
                 <IconDeviceDesktop stroke={2} className="w-5 h-5" />

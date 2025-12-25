@@ -100,7 +100,10 @@ body {
   --chart-3: oklch(0.5960 0.1274 163.2254);
   --chart-4: oklch(0.6417 0.2059 25.1146);
   --chart-5: oklch(0.5922 0.0251 254.4776);
-  --sidebar: rgb(239, 245, 245);
+  --sidebar: oklch(0.957 0.01 195);
+  --live-demo: oklch(0.57 0.25 310);
+  --live-demo-hover: oklch(0.72 0.20 310);
+  --card-shadow-color: oklch(0.86 0.12 178);
   --sidebar-foreground: oklch(0.3590 0.0051 106.6524);
   --sidebar-primary: oklch(0.5602 0.0986 172.1546);
   --sidebar-primary-foreground: oklch(0.9881 0 0);
@@ -152,7 +155,7 @@ body {
   --chart-3: oklch(0.7891 0.1641 71.8423);
   --chart-4: oklch(0.6417 0.2059 25.1146);
   --chart-5: oklch(0.5922 0.0251 254.4776);
-  --sidebar: rgb(30, 32, 31);
+  --sidebar: oklch(0.21 0.01 195);
   --sidebar-foreground: oklch(0.8060 0.0153 175.6117);
   --sidebar-primary: oklch(0.3250 0 0);
   --sidebar-primary-foreground: oklch(0.9881 0 0);
