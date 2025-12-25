@@ -77,11 +77,10 @@ export default function ProjectCard({
       <div
         ref={containerRef}
         className="p-3 overflow-hidden"
-        style={wrapperStyle}
       >
         {project.images.length > 1 ? (
           /* Inline Carousel for multiple images */
-          <div className="w-full h-full relative p-2 bg-black rounded-xl flex items-center justify-center overflow-hidden">
+          <div className="w-full aspect-[16/11] relative p-2 bg-black rounded-xl flex items-center justify-center overflow-hidden">
             <Lightbox
               slides={slides}
               index={imgIdx}
@@ -103,18 +102,18 @@ export default function ProjectCard({
               }}
               render={{
                 iconNext: () => (
-                  <span className="text-white bg-black/50 rounded-full w-10 h-10 flex items-center justify-center absolute right-1 top-1/2 transform -translate-y-1/2 z-10">
+                  <span className="text-white bg-black/50 rounded-full w-8 h-8 flex items-center justify-center absolute right-1 top-1/2 transform -translate-y-1/2 z-10">
                     <IconArrowRight
                       stroke={2}
-                      className="w-6 h-6 text-teal-300"
+                      className="w-5 h-5 text-teal-300"
                     />
                   </span>
                 ),
                 iconPrev: () => (
-                  <span className="text-white bg-black/50 rounded-full w-10 h-10 flex items-center justify-center absolute left-1 top-1/2 transform -translate-y-1/2 z-10">
+                  <span className="text-white bg-black/50 rounded-full w-8 h-8 flex items-center justify-center absolute left-1 top-1/2 transform -translate-y-1/2 z-10">
                     <IconArrowLeft
                       stroke={2}
-                      className="w-6 h-6 text-teal-300"
+                      className="w-5 h-5 text-teal-300"
                     />
                   </span>
                 ),
@@ -123,18 +122,13 @@ export default function ProjectCard({
           </div>
         ) : (
           /* Simple image for single image */
-          <div className="w-full h-full relative p-2 bg-black rounded-xl flex items-center justify-center">
+          <div className="w-full aspect-[16/11] relative p-2 bg-black rounded-xl flex items-center justify-center">
             <Image
               src={currentImg}
               alt={project.title}
-              width={getNatural(currentImg)?.width || 800}
-              height={getNatural(currentImg)?.height || containerHeight}
+              fill
               style={{
-                width: "100%",
-                height: "auto",
-                maxHeight: "100%",
                 objectFit: "contain",
-                ...getImgStyle(getNatural(currentImg)),
               }}
               unoptimized
               onLoadingComplete={handleImgLoad(currentImg)}
@@ -144,14 +138,14 @@ export default function ProjectCard({
       </div>
 
       <div className="card-body px-4 sm:px-8 py-6 flex flex-col">
-        <h3 className="card-title text-2xl mb-2 text-card-foreground">
+        <h3 className="card-title text-xl mb-2 text-card-foreground">
           {project.title}
         </h3>
         <div className="flex-grow">
           {project.description.map((para, idx) => (
             <div
               key={idx}
-              className="text-sm sm:text-base mb-2 leading-relaxed text-foreground"
+              className="text-sm mb-2 leading-relaxed text-foreground"
             >
               {para}
             </div>

@@ -24,7 +24,7 @@ export const projects: Project[] = [
     ],
     description: [
       <>
-        Google Earth for game devs. It converts ANY real-world location into a game-ready 3D mesh in seconds—process that normally takes weeks of manual modeling. It pulls elevation data, satellite imagery, and building footprints from {" "}
+        Google Earth for game devs. Converts ANY real-world location into game-ready 3D meshes in seconds. Pulls elevation data and satellite imagery from {" "}
         <span className="inline-block">
           <Image src="/projects/mapbox_logo.png" className="inline align-middle mx-1" alt="mapbox logo" width={20} height={20} />
           <Link href="https://mapbox.com/">Mapbox</Link>
@@ -36,7 +36,7 @@ export const projects: Project[] = [
           <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Openstreetmap_logo.svg/960px-Openstreetmap_logo.svg.png?20220919103849" className="inline align-middle mx-1" alt="osm logo" width={20} height={20} />
           <Link href="https://openstreetmap.org/">OpenStreetMap</Link>
         </span>
-        , then generates textured .obj files that work directly in Unity/Blender/Unreal. Built with Next.js and FastAPI, it handles coordinate transformations, terrain mesh generation, and building extrusion to match real elevation data.
+        , then generates textured .obj files for Unity/Blender/Unreal.
       </>,
     ],
     images: [
@@ -58,7 +58,7 @@ export const projects: Project[] = [
     ],
     description: [
       <>
-        An AI doctor that conducts real-time video consultations with a 3D avatar. It detects your facial expressions during the chatting and adapts itself based on how you&apos;re feeling, making medical consultations more personalized and empathetic. Rendered the avatar using Three.js, with ElevenLabs and Gemini powering the conversations and generating post-consultation summaries. 🏆 Won Best AI Application Bulit with Cloudflare at {" "}
+        AI doctor with a 3D avatar that adapts to your facial expressions during consultations. Uses Three.js for rendering, ElevenLabs and Gemini for conversations and summaries. 🏆 Won Best AI Application Built with Cloudflare at {" "}
         <span className="inline-block">
           <Image src="/projects/hackwestern_logo.jpg" className="inline align-middle mx-1" alt="hackwestern logo" width={20} height={20} />
           <Link href="https://hackwestern.com/">Hack Western 2025.</Link>
@@ -123,7 +123,7 @@ export const projects: Project[] = [
     ],
     description: [
       <>
-        A tool that transforms 100+ pages of PDFs into interactive knowledge network for intuitive studying. Built with Next.js and FastAPI, utilizing multiple LLMs to extract concepts and map connections. You can click nodes for instant explanations or listen to auto-generated audio summaries while on the go.
+        Transforms PDFs into interactive knowledge networks. Click nodes for explanations or listen to auto-generated audio summaries. Uses multiple LLMs to extract concepts and map connections.
       </>,
     ],
     images: [
@@ -147,10 +147,7 @@ export const projects: Project[] = [
     ],
     description: [
       <>
-        Comprehensive fitness tracker that turns messy diary entries or verbal vents into structured
-        workout data using, consolidating processes across multiple platforms. Recognizes 40+ activities automatically so you don&apos;t have to fiddle
-        with dropdowns. Designed to help build habits without the tracking
-        hassle.
+        Fitness tracker that turns messy diary entries into structured workout data. Recognizes 40+ activities automatically—no dropdowns needed.
       </>,
     ],
     images: [
@@ -167,9 +164,7 @@ export const projects: Project[] = [
     stack: ["processing"],
     description: [
       <>
-        Desktop recipe manager that suggests meals based on what&apos;s expiring
-        in your fridge, built with Processing. Matches ingredients to recipes and tracks your cooking
-        habits with heatmaps. Helps you build up cooking habits and waste less food.
+        Recipe manager that suggests meals based on what's expiring in your fridge. Tracks cooking habits with heatmaps to reduce food waste.
       </>,
     ],
     images: [
@@ -253,13 +248,11 @@ export const projects: Project[] = [
     stack: ["processing"],
     description: [
       <>
-        Sprint simulator based on{" "}
+        100m sprint simulator based on{" "}
         <Link href="https://jmureika.lmu.build/track/index.html">
           Dr. Jonas Mureika&apos;s
         </Link>{" "}
-        physics models. Simulates a 100m race by accounting for wind, altitude, humidity,
-        and reaction times. Outputs realistic animations to visualize how
-        multiple different factors change the race.
+        physics models. Accounts for wind, altitude, humidity, and reaction times with realistic animations.
       </>,
     ],
     images: ["/projects/sim1.png"],

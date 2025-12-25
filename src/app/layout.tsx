@@ -127,7 +127,7 @@ export default function RootLayout({
         >
           <Background />
           <Navbar />
-          <div className="relative flex flex-col flex-1 w-full px-5 sm:px-10 md:px-12 lg:px-16 pt-14 sm:pt-16 md:pt-18 lg:pt-20 pb-6 sm:pb-8 md:pb-10">
+          <div className="relative flex flex-col flex-1 w-full my-20">
             <div className="flex-1">{children}</div>
           </div>
           <Footer />

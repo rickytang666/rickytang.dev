@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="container mx-auto lg:max-w-[85%]">
+    <div className="container mx-auto max-w-5xl px-5 xl:px-0">
       <h1 className="text-4xl sm:text-5xl md:text-5xl font-bold mb-12 text-center flex items-center justify-center gap-2 text-foreground">
         <IconUser
           stroke={2.5}
@@ -30,10 +30,10 @@ export default function AboutPage() {
         About Me
       </h1>
 
-      <div className="flex flex-col xl:flex-row gap-6 items-center">
+      <div className="flex flex-col items-center [@media(min-width:1160px)]:flex-row [@media(min-width:1160px)]:items-start gap-8">
         {/* Image Section */}
-        <div className="flex xl:flex-shrink-0 items-center justify-center w-full xl:w-auto">
-          <div className="relative w-full aspect-square max-w-[300px] [@media(min-width:500px)]:max-w-[400px] md:max-w-[600px] xl:w-[550px] xl:h-[550px] overflow-hidden saturate-120 transition-all duration-300">
+        <div className="w-full [@media(min-width:1160px)]:w-auto [@media(min-width:1160px)]:flex-shrink-0">
+          <div className="relative w-full aspect-square max-w-[300px] [@media(min-width:500px)]:max-w-[400px] md:max-w-[500px] [@media(min-width:1160px)]:w-[550px] [@media(min-width:1160px)]:h-[550px] mx-auto [@media(min-width:1160px)]:mx-0 overflow-hidden">
             <Image
               src="/about/myself.jpg"
               alt="Ricky Tang"
@@ -44,17 +44,16 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Content Section */}
-        <div className="flex-1 space-y-6 md:space-y-8 xl:ml-8">
-          {/* About Me - Paragraphs */}
+        {/* Content and Links Section */}
+        <div className="flex-1 flex flex-col gap-6">
           <div className="space-y-5">
-            <p className="leading-relaxed text-base md:text-lg text-foreground">
+            <p className="leading-relaxed text-foreground">
               My name is Ricky Tang, a Software Engineering student at
               University of Waterloo, working on autonomy team for drones at
               Waterloo Aerial Robotics Group (WARG).
             </p>
 
-            <p className="leading-relaxed text-base md:text-lg text-foreground">
+            <p className="leading-relaxed text-foreground">
               I build tools that solve issues I actually encounter, and they
               become part of my daily workflow. Whenever I see a cool and novel
               tech stack, I can&apos;t help myself but start a project with it
@@ -62,21 +61,21 @@ export default function AboutPage() {
               than repeating the same techs.
             </p>
 
-            <p className="leading-relaxed text-base md:text-lg text-foreground">
+            <p className="leading-relaxed text-foreground">
               Hackathons are where I thrive. I enjoy getting into flow state to
               ship something that works well and fix stuff with pressure.
               I&apos;m not satisfied until my projects become tools I actually
               use every day.
             </p>
 
-            <p className="leading-relaxed text-base md:text-lg text-foreground">
+            <p className="leading-relaxed text-foreground">
               Computer vision is where I get especially excited about: object
               detection, real-time image processing, spatial understanding.
               It&apos;s always satisfying to make machines understand the visual
               world via code.
             </p>
 
-            <div className="leading-relaxed text-base md:text-lg text-foreground">
+            <div className="leading-relaxed text-foreground">
               <p className="mb-2">Outside of school/coding, you can find me:</p>
               <ul className="list-disc list-outside space-y-1 ml-6">
                 <li>🏓 playing & watching table tennis</li>
@@ -125,18 +124,14 @@ export default function AboutPage() {
                 </li>
               </ul>
             </div>
-
-            <p className="leading-relaxed text-base md:text-lg text-foreground">
-              Feel free to reach out if you&apos;d like to connect!
-            </p>
           </div>
 
-          {/* Contact Buttons */}
-          <div className="flex flex-wrap gap-4 sm:gap-7 pt-4">
+          {/* Links Section - Independent */}
+          <div className="flex flex-wrap mt-4 font-semibold items-center gap-4 sm:gap-7 justify-center sm:justify-start">
             <a
               href={externalLinks.github}
               target="_blank"
-              className="text-base sm:text-lg flex items-center gap-1 text-foreground hover:text-primary active:text-primary focus:text-primary"
+              className="flex items-center gap-1 text-foreground hover:text-primary active:text-primary focus:text-primary"
             >
               <IconBrandGithub stroke={2} className="w-5 h-5" />
               GitHub
@@ -144,7 +139,7 @@ export default function AboutPage() {
             <a
               href={externalLinks.linkedin}
               target="_blank"
-              className="text-base sm:text-lg flex items-center gap-1 text-foreground hover:text-primary active:text-primary focus:text-primary"
+              className="flex items-center gap-1 text-foreground hover:text-primary active:text-primary focus:text-primary"
             >
               <IconBrandLinkedin stroke={2} className="w-5 h-5" />
               LinkedIn
@@ -152,7 +147,7 @@ export default function AboutPage() {
             <a
               href="/Ricky_Tang_resume.pdf"
               target="_blank"
-              className="text-base sm:text-lg flex items-center gap-1 text-foreground hover:text-primary active:text-primary focus:text-primary"
+              className="flex items-center gap-1 text-foreground hover:text-primary active:text-primary focus:text-primary"
             >
               <IconFileCv stroke={2} className="w-5 h-5" />
               Resume
@@ -160,7 +155,7 @@ export default function AboutPage() {
             <a
               href={`mailto:${externalLinks.email}`}
               target="_blank"
-              className="text-base sm:text-lg flex items-center gap-1 text-foreground hover:text-primary active:text-primary focus:text-primary"
+              className="flex items-center gap-1 text-foreground hover:text-primary active:text-primary focus:text-primary"
             >
               <IconMail stroke={2} className="w-5 h-5" />
               Email

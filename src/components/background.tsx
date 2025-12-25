@@ -1,7 +1,7 @@
 export default function Background() {
     return (
         <div className="fixed inset-0 h-full w-full pointer-events-none">
-            <svg className="h-full w-full opacity-[0.2]">
+            <svg className="h-full w-full opacity-[0.25]">
                 <pattern
                     id="dot-pattern"
                     x="0"
