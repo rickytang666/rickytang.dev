@@ -40,7 +40,7 @@ export function ThemeToggle() {
   }
 
   return (
-    <div className="flex items-center gap-1 p-1 bg-sidebar text-foreground rounded-full border border-sidebar-border shadow-sm">
+    <div className="flex items-center gap-1 p-1 bg-sidebar text-foreground rounded-full border-2 border-sidebar-border shadow-sm">
       {/* System Theme */}
       <button
         onClick={() => setTheme("system")}

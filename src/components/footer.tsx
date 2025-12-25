@@ -17,7 +17,7 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-sidebar text-foreground mt-auto relative z-10">
+    <footer className="w-full bg-sidebar border-t-2 border-sidebar-border text-foreground mt-auto relative z-10">
       <div className="max-w-2xl mx-auto py-3 xl:py-5 flex flex-col gap-5">
         {/* first row: name (left) and webring (right) */}
         <div className="w-full flex flex-col md:flex-row md:justify-between md:items-center gap-4">

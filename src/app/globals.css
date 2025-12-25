@@ -166,55 +166,92 @@ body {
 }
 
 .dark {
-  --background: oklch(0.2830 0.0029 196.9934);
-  --foreground: oklch(0.9640 0.0029 264.5419);
-  --card: oklch(0.2707 0.0029 196.9842);
-  --card-foreground: oklch(0.9878 0.0044 179.7377);
-  --popover: oklch(0.3028 0.0033 164.8524);
-  --popover-foreground: oklch(0.9211 0.0040 106.4781);
-  --primary: oklch(70.495% 0.11466 178.865);
-  --primary-foreground: oklch(1.0000 0 0);
-  --secondary: oklch(0.9878 0.0044 179.7377);
-  --secondary-foreground: oklch(0.3085 0.0035 106.6039);
-  --muted: oklch(0.2185 0.0049 173.9131);
-  --muted-foreground: oklch(0.7671 0.0171 172.4841);
-  --accent: oklch(0.2130 0.0078 95.4245);
-  --accent-foreground: oklch(0.9663 0.0080 98.8792);
-  --destructive: oklch(0.6318 0.2075 24.5694);
-  --border: oklch(0.2223 0.0060 271.1393);
-  --input: oklch(0.3488 0.0108 271.0979);
-  --ring: oklch(0.8071 0.1189 178.0520);
-  --chart-1: oklch(0.8762 0.1345 180.2721);
-  --chart-2: oklch(0.7028 0.1647 328.3029);
-  --chart-3: oklch(0.7891 0.1641 71.8423);
-  --chart-4: oklch(0.6417 0.2059 25.1146);
-  --chart-5: oklch(0.5922 0.0251 254.4776);
-  --sidebar: oklch(0.21 0.01 195);
-  --sidebar-foreground: oklch(0.8060 0.0153 175.6117);
-  --sidebar-primary: oklch(0.3250 0 0);
-  --sidebar-primary-foreground: oklch(0.9881 0 0);
-  --sidebar-accent: oklch(0.1680 0.0020 106.6177);
-  --sidebar-accent-foreground: oklch(0.7727 0.1006 169.8067);
-  --sidebar-border: oklch(0.9401 0 0);
-  --sidebar-ring: oklch(0.7731 0 0);
-  --destructive-foreground: oklch(1.0000 0 0);
+  /* layout & spacing */
   --radius: 0.5rem;
+  
+  /* base colors - comfortable dark theme */
+  /* background: soft dark gray with subtle teal hint for cohesion */
+  --background: oklch(30.558% 0.01102 196.764);
+  /* foreground: soft white with subtle teal tint for immersive feel */
+  --foreground: oklch(92% 0.012 190);
+  
+  /* surface colors */
+  /* card: elevated dark surface, clearly distinct from background */
+  --card: oklch(27.053% 0.00875 184.787);
+  --card-foreground: oklch(92% 0.012 190);
+  
+  /* popover: slightly lighter for layering */
+  --popover: oklch(37.055% 0.02404 196.26);
+  --popover-foreground: oklch(92% 0.012 190);
+  
+  /* brand colors */
+  /* primary: vibrant bright teal that pops against dark */
+  --primary: oklch(70% 0.15 185);
+  --primary-foreground: oklch(15% 0.01 240);
+  
+  /* secondary: muted teal for less prominent elements */
+  --secondary: oklch(25% 0.04 185);
+  --secondary-foreground: oklch(85% 0.06 185);
+  
+  /* accent color */
+  /* accent: bright fuchsia for CTAs and special highlights */
+  --accent: oklch(68% 0.24 320);
+  --accent-foreground: oklch(15% 0.01 240);
+  
+  /* neutral colors */
+  /* muted: subtle dark backgrounds with teal hint */
+  --muted: oklch(25% 0.012 195);
+  --muted-foreground: oklch(65% 0.015 190);
+  
+  /* interaction colors */
+  /* border: visible borders with subtle teal */
+  --border: oklch(38% 0.02 195);
+  
+  /* input: input borders slightly brighter with teal */
+  --input: oklch(42% 0.025 195);
+  
+  /* ring: bright teal focus rings for accessibility */
+  --ring: oklch(70% 0.15 185);
+  
+  /* semantic colors */
+  /* destructive: warm red for errors */
+  --destructive: oklch(60% 0.22 25);
+  --destructive-foreground: oklch(98% 0.01 25);
+  
+  /* chart colors - vibrant palette for dark mode */
+  --chart-1: oklch(70% 0.15 185); /* bright teal */
+  --chart-2: oklch(68% 0.24 320); /* bright fuchsia */
+  --chart-3: oklch(72% 0.16 160); /* bright green-teal */
+  --chart-4: oklch(65% 0.20 280); /* bright purple */
+  --chart-5: oklch(62% 0.18 220); /* blue */
+  
+  /* sidebar (if used) */
+  --sidebar: oklch(30.264% 0.02123 191.347);
+  --sidebar-foreground: oklch(88% 0.015 190);
+  --sidebar-primary: oklch(70% 0.15 185);
+  --sidebar-primary-foreground: oklch(28% 0.015 195);
+  --sidebar-accent: oklch(49.298% 0.04132 191.571);
+  --sidebar-accent-foreground: oklch(75% 0.08 185);
+  --sidebar-border: oklch(41.438% 0.03043 193.01);
+  --sidebar-ring: oklch(70% 0.15 185);
+  
+  /* shadows - darker for dark mode */
   --shadow-color: #000000;
-  --shadow-opacity: 0.17;
+  --shadow-opacity: 0.5;
   --shadow-blur: 3px;
   --shadow-spread: 0px;
   --shadow-offset-x: 0px;
   --shadow-offset-y: 1px;
   --letter-spacing: 0.025em;
   --spacing: 0.25rem;
-  --shadow-2xs: 0px 1px 3px 0px hsl(0 0% 0% / 0.09);
-  --shadow-xs: 0px 1px 3px 0px hsl(0 0% 0% / 0.09);
-  --shadow-sm: 0px 1px 3px 0px hsl(0 0% 0% / 0.17), 0px 1px 2px -1px hsl(0 0% 0% / 0.17);
-  --shadow: 0px 1px 3px 0px hsl(0 0% 0% / 0.17), 0px 1px 2px -1px hsl(0 0% 0% / 0.17);
-  --shadow-md: 0px 1px 3px 0px hsl(0 0% 0% / 0.17), 0px 2px 4px -1px hsl(0 0% 0% / 0.17);
-  --shadow-lg: 0px 1px 3px 0px hsl(0 0% 0% / 0.17), 0px 4px 6px -1px hsl(0 0% 0% / 0.17);
-  --shadow-xl: 0px 1px 3px 0px hsl(0 0% 0% / 0.17), 0px 8px 10px -1px hsl(0 0% 0% / 0.17);
-  --shadow-2xl: 0px 1px 3px 0px hsl(0 0% 0% / 0.43);
+  --shadow-2xs: 0px 1px 3px 0px hsl(0 0% 0% / 0.3);
+  --shadow-xs: 0px 1px 3px 0px hsl(0 0% 0% / 0.3);
+  --shadow-sm: 0px 1px 3px 0px hsl(0 0% 0% / 0.5), 0px 1px 2px -1px hsl(0 0% 0% / 0.5);
+  --shadow: 0px 1px 3px 0px hsl(0 0% 0% / 0.5), 0px 1px 2px -1px hsl(0 0% 0% / 0.5);
+  --shadow-md: 0px 1px 3px 0px hsl(0 0% 0% / 0.5), 0px 2px 4px -1px hsl(0 0% 0% / 0.5);
+  --shadow-lg: 0px 1px 3px 0px hsl(0 0% 0% / 0.5), 0px 4px 6px -1px hsl(0 0% 0% / 0.5);
+  --shadow-xl: 0px 1px 3px 0px hsl(0 0% 0% / 0.5), 0px 8px 10px -1px hsl(0 0% 0% / 0.5);
+  --shadow-2xl: 0px 1px 3px 0px hsl(0 0% 0% / 0.7);
 }
 
 @layer base {

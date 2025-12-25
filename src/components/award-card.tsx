@@ -16,7 +16,7 @@ export default function AwardCard({
   additionalInfo,
 }: AwardCardProps) {
   return (
-    <div className="card bg-card hover:shadow-[0_10px_20px_-10px_rgba(94,234,212,0.4)] active:shadow-[0_10px_20px_-10px_rgba(94,234,212,0.4)] focus:shadow-[0_10px_20px_-10px_rgba(94,234,212,0.4)] transition-all duration-500 w-full rounded-xl border-1 border-border hover:border-primary active:border-primary focus:border-primary flex p-5 justify-start items-center">
+    <div className="card bg-card transition-all duration-500 w-full rounded-xl border-1 border-border hover:border-primary flex p-5 justify-start items-center">
       <Image
         src={imgSrc}
         alt={imgAlt}
