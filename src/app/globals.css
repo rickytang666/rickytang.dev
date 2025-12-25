@@ -77,13 +77,13 @@ body {
 
 :root {
   --radius: 0.5rem;
-  --background: oklch(0.9574 0.0053 197.0674);
+  --background: oklch(94.315% 0.01278 197.403);
   --foreground: oklch(0.2699 0.0080 240.1576);
   --card: oklch(0.9878 0.0044 179.7377);
   --card-foreground: oklch(0.1908 0.0020 106.5859);
   --popover: oklch(1.0000 0 0);
   --popover-foreground: oklch(0.2671 0.0196 98.9390);
-  --primary: oklch(0.6997 0.1241 179.8573);
+  --primary: oklch(63.394% 0.11181 180.162);
   --primary-foreground: oklch(1.0000 0 0);
   --secondary: oklch(0.8238 0.0811 180.8273);
   --secondary-foreground: oklch(0.4334 0.0177 98.6048);
@@ -138,7 +138,7 @@ body {
   --card-foreground: oklch(0.9878 0.0044 179.7377);
   --popover: oklch(0.3028 0.0033 164.8524);
   --popover-foreground: oklch(0.9211 0.0040 106.4781);
-  --primary: oklch(0.7057 0.1133 179.4098);
+  --primary: oklch(70.495% 0.11466 178.865);
   --primary-foreground: oklch(1.0000 0 0);
   --secondary: oklch(0.9878 0.0044 179.7377);
   --secondary-foreground: oklch(0.3085 0.0035 106.6039);
@@ -194,7 +194,7 @@ body {
   }
 
   ::selection {
-    background-color: oklch(0.76 0.11 192 / 0.5);
-    color: var(--foreground);
+    background-color: oklch(91% 0.096 180.426 / 0.15);
+    color: var(--primary);
   }
 }
