@@ -24,7 +24,7 @@ export default function ProjectCard({
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [containerWidth, setContainerWidth] = useState<number>(0);
 
-  // Update container width on resize
+  // update container width on resize
   useEffect(() => {
     if (!containerRef.current) return;
     const observer = new ResizeObserver((entries) => {
@@ -36,7 +36,7 @@ export default function ProjectCard({
     return () => observer.disconnect();
   }, []);
 
-  // For vertical centering
+  // for vertical centering
   const getImgStyle = (
     imgNatural: { width: number; height: number } | undefined
   ) => {
@@ -50,7 +50,7 @@ export default function ProjectCard({
     return { top: 0 };
   };
 
-  // Carousel track style
+  // carousel track style
   const wrapperStyle: React.CSSProperties = {
     height: containerHeight,
   };
@@ -58,7 +58,7 @@ export default function ProjectCard({
   const currentImg = project.images[imgIdx];
   const getNatural = (src: string) => naturalMap[src];
 
-  // On image load, cache its natural size
+  // on image load, cache its natural size
   const handleImgLoad = (src: string) => (img: HTMLImageElement) => {
     setNaturalMap((prev) => {
       if (prev[src]) return prev;
@@ -69,17 +69,17 @@ export default function ProjectCard({
     });
   };
 
-  // Prepare slides for inline carousel
+  // prepare slides for inline carousel
   const slides = project.images.map((src) => ({ src }));
 
   return (
-    <div className="card bg-card transition-all duration-500 w-full rounded-xl border-[1.5px] border-border hover:border-primary">
+    <div className="card bg-card transition-all duration-200 w-full rounded-xl border-[1.5px] border-border hover:border-primary group">
       <div
         ref={containerRef}
         className="p-3 overflow-hidden"
       >
         {project.images.length > 1 ? (
-          /* Inline Carousel for multiple images */
+          /* inline carousel for multiple images */
           <div className="w-full aspect-[16/11] relative p-2 bg-black rounded-xl flex items-center justify-center overflow-hidden">
             <Lightbox
               slides={slides}
@@ -121,7 +121,7 @@ export default function ProjectCard({
             />
           </div>
         ) : (
-          /* Simple image for single image */
+          /* simple image for single */
           <div className="w-full aspect-[16/11] relative p-2 bg-black rounded-xl flex items-center justify-center">
             <Image
               src={currentImg}
@@ -138,7 +138,7 @@ export default function ProjectCard({
       </div>
 
       <div className="card-body px-4 sm:px-8 py-6 flex flex-col">
-        <h3 className="card-title text-xl mb-2 text-card-foreground">
+        <h3 className="card-title text-xl mb-2 text-card-foreground group-hover:text-primary transition-colors duration-200">
           {project.title}
         </h3>
         <div className="flex-grow">
@@ -151,7 +151,7 @@ export default function ProjectCard({
             </div>
           ))}
         </div>
-        {/* Tech Stack Section */}
+        {/* tech stacks */}
         <div className="flex flex-wrap gap-2 mb-3 align-middle">
           {project.stack.map((item, index) => {
             const isString = typeof item === "string";
