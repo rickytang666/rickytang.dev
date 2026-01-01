@@ -11,7 +11,7 @@ export default function AwardsSection() {
         <IconAward stroke={2} className="w-8 h-8 text-primary" />
         Awards
       </h2>
-      <div className="grid gap-4 grid-cols-[repeat(auto-fit,minmax(280px,1fr))]">
+      <div className="grid gap-4 grid-cols-[repeat(auto-fit,minmax(280px,1fr))] justify-center sm:justify-start">
         <AwardCard
           imgSrc="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Centre_for_Education_in_Mathematics_and_Computing_logo.svg/1600px-Centre_for_Education_in_Mathematics_and_Computing_logo.svg.png?20221128005800"
           imgAlt="Canadian Team Mathematics Competition"
