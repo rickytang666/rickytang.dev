@@ -5,7 +5,7 @@ import { Inline } from "yet-another-react-lightbox/plugins";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import { IconArrowLeft, IconArrowRight, IconExternalLink, IconBrandGithub } from "@tabler/icons-react";
-import { Project } from "@/data/projects";
+import { Project } from "@/types";
 
 interface ProjectCardProps {
   project: Project;

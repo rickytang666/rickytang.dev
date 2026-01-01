@@ -1,10 +1,4 @@
-export interface Award {
-  imgSrc: string;
-  imgAlt: string;
-  title: string;
-  result: string;
-  additionalInfo?: string;
-}
+import { Award } from "@/types";
 
 export const awards: Award[] = [
   {

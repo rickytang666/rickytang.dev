@@ -1,15 +1,7 @@
 import React from "react";
 import Link from "@/components/ui/link";
 import Image from "next/image";
-
-export interface Project {
-  title: string;
-  description: React.ReactNode[];
-  images: string[];
-  stack: string[];
-  github: string;
-  website?: string;
-}
+import { Project } from "@/types";
 
 export const projects: Project[] = [
   {
