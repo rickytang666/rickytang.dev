@@ -44,7 +44,7 @@ export default function SkillsSection() {
               key={category}
               onClick={() => setActiveTab(category)}
               className={cn(
-                "px-4 py-2 rounded-full text-sm sm:text-base font-medium transition-colors whitespace-nowrap",
+                "px-4 py-2 rounded-full text-sm sm:text-base font-semibold transition-colors whitespace-nowrap",
                 activeTab === category
                   ? "bg-secondary text-secondary-foreground"
                   : "bg-muted text-muted-foreground hover:bg-secondary hover:text-secondary-foreground border border-border"
@@ -56,11 +56,11 @@ export default function SkillsSection() {
         </div>
 
         {/* Content */}
-        <div className="flex flex-wrap gap-2 sm:gap-3">
+        <div className="flex flex-wrap gap-1 sm:gap-2 content-start">
           {skillsData[activeTab].map((skill, index) => (
             <div
               key={index}
-              className="px-3 py-1 rounded-lg bg-card text-card-foreground text-sm font-medium"
+              className="px-3 py-1 rounded-xl bg-card text-card-foreground text-xs sm:text-sm font-medium border-[1.5px] border-border hover:text-primary hover:border-primary/50 transition-colors duration-200"
             >
               {skill}
             </div>
