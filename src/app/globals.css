@@ -226,13 +226,13 @@ body {
   --chart-5: oklch(62% 0.18 220); /* blue */
   
   /* sidebar (if used) */
-  --sidebar: oklch(30.264% 0.02123 191.347);
+  --sidebar: oklch(24.464% 0.00446 197.211);
   --sidebar-foreground: oklch(88% 0.015 190);
   --sidebar-primary: oklch(70% 0.15 185);
   --sidebar-primary-foreground: oklch(28% 0.015 195);
   --sidebar-accent: oklch(49.298% 0.04132 191.571);
   --sidebar-accent-foreground: oklch(75% 0.08 185);
-  --sidebar-border: oklch(41.438% 0.03043 193.01);
+  --sidebar-border: oklch(41.838% 0.01891 196.592);
   --sidebar-ring: oklch(70% 0.15 185);
   
   /* shadows - darker for dark mode */

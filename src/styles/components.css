@@ -100,7 +100,7 @@
   text-decoration: underline;
   text-decoration-color: var(--primary);
   text-underline-offset: 6px;
-  text-decoration-thickness: 1.5px;
+  text-decoration-thickness: 2px;
   background: linear-gradient(90deg, 
   var(--primary) 0%, 
   var(--primary) 20%, 
@@ -135,5 +135,5 @@
   text-decoration: underline;
   text-decoration-color: var(--primary);
   text-underline-offset: 6px;
-  text-decoration-thickness: 1.5px;
+  text-decoration-thickness: 2px;
 }
