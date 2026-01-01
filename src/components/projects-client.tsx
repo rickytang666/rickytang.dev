@@ -3,7 +3,7 @@
 import { projects } from "@/data/projects";
 import ProjectCard from "@/components/project-card";
 
-// Icons
+// icons
 import { IconFolders } from "@tabler/icons-react";
 
 export default function ProjectsClient() {

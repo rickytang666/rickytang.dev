@@ -156,7 +156,7 @@ export default function ProjectCard({
           {project.stack.map((item, index) => (
             <div
               key={index}
-              className="px-2 py-1 rounded-md bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 text-xs font-medium border border-zinc-200 dark:border-zinc-700"
+              className="px-2 py-1 rounded-xl text-xs font-medium border-[1.5px] border-border hover:border-primary/50 bg-primary/25 hover:text-primary transition-colors duration-200"
             >
               {item}
             </div>

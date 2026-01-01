@@ -136,7 +136,7 @@ export const projects: Project[] = [
       "Next.js",
       "Supabase",
       "Gemini",
-      "Hugging Face",
+      "HuggingFace",
       "Tailwind CSS",
     ],
     description: [

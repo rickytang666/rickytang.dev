@@ -32,6 +32,7 @@ export const librariesAndTools = [
   "NumPy",
   "SciPy",
   "OpenCV",
+  "HuggingFace",
   "Three.js",
   "Jest",
   "PyTest",
