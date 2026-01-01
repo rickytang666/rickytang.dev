@@ -6,7 +6,7 @@ export interface Project {
   title: string;
   description: React.ReactNode[];
   images: string[];
-  stack: (string | { name: string; icon?: string })[];
+  stack: string[];
   github: string;
   website?: string;
 }
@@ -15,12 +15,12 @@ export const projects: Project[] = [
   {
     title: "Tark",
     stack: [
-      "nextjs",
-      "fastapi",
-      "scipy",
-      "leaflet",
-      "numpy",
-      "tailwindcss",
+      "Next.js",
+      "FastAPI",
+      "SciPy",
+      "Leaflet",
+      "NumPy",
+      "Tailwind CSS",
     ],
     description: [
       <>
@@ -48,13 +48,13 @@ export const projects: Project[] = [
   {
     title: "Auralis",
     stack: [
-      "nextjs",
-      "fastapi",
-      "cloudflare",
-      "threejs",
-      "railway",
-      "blender",
-      "tailwindcss",
+      "Next.js",
+      "FastAPI",
+      "Cloudflare",
+      "Three.js",
+      "Railway",
+      "Blender",
+      "Tailwind CSS",
     ],
     description: [
       <>
@@ -77,15 +77,9 @@ export const projects: Project[] = [
   {
     title: "Post-It",
     stack: [
-      "typescript",
-      {
-        name: "Lens Studio",
-        icon: "https://images.ctfassets.net/ub38vssza5h3/7xS0t5I5x02i9CmxVAKSpU/9ccb1c9adf7f4b9ee2a95a9213123e7b/Icon_Center_Image_Artwork.svg",
-      },
-      {
-        name: "Snap Spectacles",
-        icon: "https://developers.snap.com/img/spectacles/spectacles-app-logo.png",
-      },
+      "TypeScript",
+      "Lens Studio",
+      "Snap Spectacles",
     ],
     description: [
       <>
@@ -114,12 +108,12 @@ export const projects: Project[] = [
   {
     title: "BrainLattice",
     stack: [
-      "nextjs",
-      "fastapi",
-      "firebase",
-      "gcp",
-      "gemini",
-      "tailwindcss",
+      "Next.js",
+      "FastAPI",
+      "Firebase",
+      "GCP",
+      "Gemini",
+      "Tailwind CSS",
     ],
     description: [
       <>
@@ -139,11 +133,11 @@ export const projects: Project[] = [
   {
     title: "FitSage",
     stack: [
-      "nextjs",
-      "supabase",
-      "gemini",
-      "huggingface",
-      "tailwindcss",
+      "Next.js",
+      "Supabase",
+      "Gemini",
+      "Hugging Face",
+      "Tailwind CSS",
     ],
     description: [
       <>
@@ -161,7 +155,7 @@ export const projects: Project[] = [
   },
   {
     title: "CheFlow",
-    stack: ["processing"],
+    stack: ["Processing"],
     description: [
       <>
         Recipe manager that suggests meals based on what's expiring in your fridge. Tracks cooking habits with heatmaps to reduce food waste.
@@ -175,7 +169,7 @@ export const projects: Project[] = [
   },
   {
     title: "EcoHub",
-    stack: ["postgresql", "express", "nodejs", "react", "tailwindcss"],
+    stack: ["PostgreSQL", "Express", "Node.js", "React", "Tailwind CSS"],
     description: [
       <>
         Gamified tracker that rewards eco-friendly actions with points and users can redeem prizes. Inspired
@@ -189,7 +183,7 @@ export const projects: Project[] = [
   },
   {
     title: "Vanilla Flashcards",
-    stack: ["html", "css", "javascript"],
+    stack: ["HTML", "CSS", "JavaScript"],
     description: [
       <>
         Keyboard-first flashcard app for rapid study. Uses a merit-based grading
@@ -203,7 +197,7 @@ export const projects: Project[] = [
   },
   {
     title: "SwiftNotes",
-    stack: ["processing"],
+    stack: ["Processing"],
     description: [
       <>
         Local-first desktop notes app focused on speed and privacy. Saves
@@ -217,7 +211,7 @@ export const projects: Project[] = [
   },
   {
     title: "2-Player Tank Battle Game",
-    stack: ["python"],
+    stack: ["Python"],
     description: [
       <>
         Zero-dependency multiplayer tank game built from scratch with Python Tkinter (no
@@ -230,7 +224,7 @@ export const projects: Project[] = [
   },
   {
     title: "Movie Review Station",
-    stack: ["nodejs", "express", "mongodb"],
+    stack: ["Node.js", "Express", "MongoDB"],
     description: [
       <>
         Movie discovery site powered by the{" "}
@@ -245,7 +239,7 @@ export const projects: Project[] = [
   },
   {
     title: "World Championship 100m Sim",
-    stack: ["processing"],
+    stack: ["Processing"],
     description: [
       <>
         100m sprint simulator based on{" "}

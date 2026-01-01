@@ -152,33 +152,22 @@ export default function ProjectCard({
           ))}
         </div>
         {/* tech stacks */}
-        <div className="flex flex-wrap gap-2 mb-3 align-middle">
-          {project.stack.map((item, index) => {
-            const isString = typeof item === "string";
-            const name = isString ? item : item.name;
-            const iconUrl =
-              !isString && item.icon
-                ? item.icon
-                : `https://go-skill-icons.vercel.app/api/icons?i=${name.toLowerCase()}&theme=dark`;
-
-            return (
-              <Image
-                key={index}
-                src={iconUrl}
-                alt={name}
-                width={30}
-                height={30}
-                unoptimized
-              />
-            );
-          })}
+        <div className="flex flex-wrap gap-2 mb-4 align-middle">
+          {project.stack.map((item, index) => (
+            <div
+              key={index}
+              className="px-2 py-1 rounded-md bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 text-xs font-medium border border-zinc-200 dark:border-zinc-700"
+            >
+              {item}
+            </div>
+          ))}
         </div>
-        <div className="card-actions flex gap-2 mt-auto items-center justify-end pr-4">
+        <div className="card-actions flex gap-4 mt-auto items-center justify-end pr-4">
           <a
             href={project.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1 text-sm sm:text-base font-semibold px-4 py-2 rounded-lg hover:bg-primary/10 text-card-foreground hover:text-primary transition-colors duration-200"
+            className="flex items-center gap-1 text-sm sm:text-base font-semibold rounded-lg text-card-foreground hover:text-primary transition-colors duration-200"
           >
             <span>
               <IconBrandGithub stroke={2} className="w-5 h-5" />
@@ -190,7 +179,7 @@ export default function ProjectCard({
               href={project.website}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1 text-sm sm:text-base font-semibold px-4 py-2 rounded-lg hover:bg-accent/10 text-card-foreground hover:text-accent transition-colors duration-200"
+              className="flex items-center gap-1 text-sm sm:text-base font-semibold rounded-lg text-card-foreground hover:text-accent transition-colors duration-200"
             >
               <span>
                 <IconExternalLink stroke={2} className="w-5 h-5" />
