@@ -1,8 +1,9 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { IconAward } from "@tabler/icons-react";
-import AwardCard from "@/components/award-card";
+import { awards } from "@/data/awards";
 
 export default function AwardsSection() {
   return (
@@ -11,33 +12,32 @@ export default function AwardsSection() {
         <IconAward stroke={2} className="w-8 h-8 text-primary" />
         Awards
       </h2>
-      <div className="grid gap-4 grid-cols-[repeat(auto-fit,minmax(280px,1fr))] justify-center sm:justify-start">
-        <AwardCard
-          imgSrc="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Centre_for_Education_in_Mathematics_and_Computing_logo.svg/1600px-Centre_for_Education_in_Mathematics_and_Computing_logo.svg.png?20221128005800"
-          imgAlt="Canadian Team Mathematics Competition"
-          title="2025 Canadian Team Mathematics Competition"
-          result="3rd Place"
-        />
-        <AwardCard
-          imgSrc="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Centre_for_Education_in_Mathematics_and_Computing_logo.svg/1600px-Centre_for_Education_in_Mathematics_and_Computing_logo.svg.png?20221128005800"
-          imgAlt="Canadian Team Mathematics Competition"
-          title="2025 Euclid Mathematics Contest"
-          result="Top 5%"
-        />
-        <AwardCard
-          imgSrc="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Centre_for_Education_in_Mathematics_and_Computing_logo.svg/1600px-Centre_for_Education_in_Mathematics_and_Computing_logo.svg.png?20221128005800"
-          imgAlt="Canadian Team Mathematics Competition"
-          title="2024 Canadian Senior Mathematics Contest"
-          result="Top 2%"
-        />
-        <AwardCard
-          imgSrc="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Centre_for_Education_in_Mathematics_and_Computing_logo.svg/1600px-Centre_for_Education_in_Mathematics_and_Computing_logo.svg.png?20221128005800"
-          imgAlt="Canadian Team Mathematics Competition"
-          title="2024 Fermat Mathematics Contest"
-          result="Top 2%"
-          additionalInfo="Honour Roll"
-        />
-      </div>
+      <ul className="flex flex-col gap-6 ml-4 md:ml-6">
+        {awards.map((award, index) => (
+          <li key={index} className="flex items-center gap-3 text-foreground">
+            <div className="relative w-6 h-6 flex-shrink-0">
+              <Image
+                src={award.imgSrc}
+                alt={award.imgAlt}
+                fill
+                className="object-contain"
+              />
+            </div>
+            <span className="text-sm sm:text-base md:text-lg font-semibold">
+              <span>{award.title}</span>
+              {" — "}
+              <span className="text-primary">{award.result}</span>
+              {award.additionalInfo && (
+                <>
+                  {" ("}
+                  <span className="text-accent">{award.additionalInfo}</span>
+                  {")"}
+                </>
+              )}
+            </span>
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }
