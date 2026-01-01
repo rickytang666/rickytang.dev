@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="container mx-auto max-w-5xl px-5 xl:px-0">
+    <div className="container mx-auto max-w-5xl">
       <h1 className="text-4xl sm:text-5xl md:text-5xl font-bold mb-12 text-center flex items-center justify-center gap-2 text-foreground">
         <IconUser
           stroke={2.5}
