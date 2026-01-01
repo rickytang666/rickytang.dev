@@ -47,7 +47,7 @@ export default function SkillsSection() {
                 "px-4 py-2 rounded-full text-sm sm:text-base font-medium transition-colors whitespace-nowrap",
                 activeTab === category
                   ? "bg-secondary text-secondary-foreground"
-                  : "bg-transparent text-muted-foreground hover:bg-secondary/50 hover:text-secondary-foreground border border-border"
+                  : "bg-muted text-muted-foreground hover:bg-secondary hover:text-secondary-foreground border border-border"
               )}
             >
               {category}
@@ -60,7 +60,7 @@ export default function SkillsSection() {
           {skillsData[activeTab].map((skill, index) => (
             <div
               key={index}
-              className="px-4 py-2 rounded-md bg-zinc-800 text-zinc-100 text-sm sm:text-base font-medium"
+              className="px-3 py-1 rounded-lg bg-card text-card-foreground text-sm font-medium"
             >
               {skill}
             </div>

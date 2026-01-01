@@ -145,7 +145,7 @@ export default function ProjectCard({
           {project.description.map((para, idx) => (
             <div
               key={idx}
-              className="text-sm mb-2 leading-relaxed text-foreground"
+              className="text-sm mb-2 leading-relaxed text-card-foreground"
             >
               {para}
             </div>
@@ -178,7 +178,7 @@ export default function ProjectCard({
             href={project.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1 text-sm sm:text-base font-semibold px-4 py-2 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors duration-200"
+            className="flex items-center gap-1 text-sm sm:text-base font-semibold px-4 py-2 rounded-lg hover:bg-primary/10 text-card-foreground hover:text-primary transition-colors duration-200"
           >
             <span>
               <IconBrandGithub stroke={2} className="w-5 h-5" />
@@ -190,7 +190,7 @@ export default function ProjectCard({
               href={project.website}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1 text-sm sm:text-base font-semibold px-4 py-2 rounded-lg hover:bg-accent/10 hover:text-accent transition-colors duration-200"
+              className="flex items-center gap-1 text-sm sm:text-base font-semibold px-4 py-2 rounded-lg hover:bg-accent/10 text-card-foreground hover:text-accent transition-colors duration-200"
             >
               <span>
                 <IconExternalLink stroke={2} className="w-5 h-5" />
