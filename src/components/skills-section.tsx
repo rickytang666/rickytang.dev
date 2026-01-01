@@ -10,20 +10,20 @@ import {
 } from "@/data/tech-skills";
 import { cn } from "@/lib/utils";
 
-type Category = "Languages" | "Frameworks" | "Libraries & Tools" | "Databases & Cloud";
+type Category = "Languages" | "Frameworks" | "Libraries & Tools" | "DB & Cloud";
 
 const categories: Category[] = [
   "Languages",
   "Frameworks",
   "Libraries & Tools",
-  "Databases & Cloud",
+  "DB & Cloud",
 ];
 
 const skillsData: Record<Category, string[]> = {
   "Languages": languages,
   "Frameworks": frameworks,
   "Libraries & Tools": librariesAndTools,
-  "Databases & Cloud": databasesAndCloud,
+  "DB & Cloud": databasesAndCloud,
 };
 
 export default function SkillsSection() {
@@ -37,14 +37,29 @@ export default function SkillsSection() {
       </h2>
 
       <div className="flex flex-col gap-6">
-        {/* Tabs */}
-        <div className="flex flex-wrap gap-2 sm:gap-4 no-scrollbar">
+        {/* mobile dropdown */}
+        <div className="block sm:hidden">
+          <select
+            value={activeTab}
+            onChange={(e) => setActiveTab(e.target.value as Category)}
+            className="w-full p-2 rounded-md bg-muted border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+          >
+            {categories.map((category) => (
+              <option key={category} value={category}>
+                {category}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        {/* desktop tabs */}
+        <div className="hidden sm:flex flex-wrap gap-2 no-scrollbar">
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setActiveTab(category)}
               className={cn(
-                "px-4 py-2 rounded-full text-sm sm:text-base font-semibold transition-colors whitespace-nowrap",
+                "px-4 py-2 rounded-full text-sm sm:text-base md:text-lg font-semibold transition-colors whitespace-nowrap",
                 activeTab === category
                   ? "bg-secondary text-secondary-foreground"
                   : "bg-muted text-muted-foreground hover:bg-secondary hover:text-secondary-foreground border border-border"
@@ -60,7 +75,7 @@ export default function SkillsSection() {
           {skillsData[activeTab].map((skill, index) => (
             <div
               key={index}
-              className="px-3 py-1 rounded-xl bg-card text-card-foreground text-xs sm:text-sm font-medium border-[1.5px] border-border hover:text-primary hover:border-primary/50 transition-colors duration-200"
+              className="px-3 py-1 rounded-xl bg-card text-card-foreground text-xs md:text-sm font-medium border-[1.5px] border-border hover:text-primary hover:border-primary/50 transition-colors duration-200"
             >
               {skill}
             </div>
