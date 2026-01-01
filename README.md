@@ -12,8 +12,7 @@ Welcome to my personal website! You can find my side projects, get in touch, and
 
 ## Stack
 
-- **Next.js 15** + **React 19**
-- **Tailwind 4** + **DaisyUI** + **Shadcn**
+Next.js + Tailwind CSS + DaisyUI + shadcn/ui
 
 ## How to run
 
