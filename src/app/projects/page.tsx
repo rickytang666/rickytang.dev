@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import ProjectsClient from "@/components/projects-client";
+import ProjectsClient from "@/components/projects/projects-client";
 
 // separated this and projects-client to use metadata here
 

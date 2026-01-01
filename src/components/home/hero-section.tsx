@@ -2,8 +2,8 @@
 
 import React from "react";
 import Image from "next/image";
-import Link from "@/components/link";
-import ViewMoreButton from "@/components/view-more-button";
+import Link from "@/components/ui/link";
+import ViewMoreButton from "@/components/ui/view-more-button";
 import { externalLinks } from "@/data/links";
 import {
   IconBrandGithub,

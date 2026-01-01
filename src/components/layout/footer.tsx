@@ -1,6 +1,6 @@
-import { externalLinks } from "../data/links";
+import { externalLinks } from "@/data/links";
 import Image from "next/image";
-import SeWebringLogo from "./se-webring-logo";
+import SeWebringLogo from "@/components/ui/se-webring-logo";
 
 // icons
 import {

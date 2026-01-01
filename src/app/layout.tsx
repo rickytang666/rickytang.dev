@@ -3,10 +3,10 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
-import Navbar from "@/components/navbar";
-import Footer from "@/components/footer";
-import Background from "@/components/background";
-import { ThemeProvider } from "@/components/theme-provider";
+import Navbar from "@/components/layout/navbar";
+import Footer from "@/components/layout/footer";
+import Background from "@/components/layout/background";
+import { ThemeProvider } from "@/components/layout/theme-provider";
 
 // fonts
 import { Figtree, JetBrains_Mono, Source_Serif_4 } from "next/font/google";

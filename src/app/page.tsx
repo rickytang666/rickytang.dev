@@ -1,7 +1,7 @@
-import ProjectPreviewSection from "@/components/project-preview-section";
-import HeroSection from "@/components/hero-section";
-import SkillsSection from "@/components/skills-section";
-import AwardsSection from "@/components/awards-section";
+import ProjectPreviewSection from "@/components/home/project-preview-section";
+import HeroSection from "@/components/home/hero-section";
+import SkillsSection from "@/components/home/skills-section";
+import AwardsSection from "@/components/home/awards-section";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
