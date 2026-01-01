@@ -158,7 +158,7 @@ export const projects: Project[] = [
     stack: ["Processing"],
     description: [
       <>
-        Recipe manager that suggests meals based on what's expiring in your fridge. Tracks cooking habits with heatmaps to reduce food waste.
+        Recipe manager that suggests meals based on what&apos;s expiring in your fridge. Tracks cooking habits with heatmaps to reduce food waste.
       </>,
     ],
     images: [
