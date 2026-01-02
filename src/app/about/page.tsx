@@ -82,7 +82,7 @@ export default function AboutPage() {
                 <li>
                   tweaking{" "}
                   <Image
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/2023_Obsidian_logo.svg/1024px-2023_Obsidian_logo.svg.png?20230604143825"
+                    src="/about/obsidian_logo.png"
                     alt="⚒️"
                     width={20}
                     height={20}
@@ -93,7 +93,7 @@ export default function AboutPage() {
                 <li>
                   watching{" "}
                   <Image
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Diamond_League_Icon_logo.svg/409px-Diamond_League_Icon_logo.svg.png"
+                    src="/about/diamond_league_logo.png"
                     alt="🏃"
                     width={20}
                     height={20}
@@ -110,7 +110,7 @@ export default function AboutPage() {
                   </span>{" "}
                   <span className="inline-block">
                     <Image
-                      src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png"
+                      src="/about/github_logo.png"
                       alt="💻"
                       width={18}
                       height={18}

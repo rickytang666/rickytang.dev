@@ -25,7 +25,7 @@ export const projects: Project[] = [
         and
         {" "}
         <span className="inline-block">
-          <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Openstreetmap_logo.svg/960px-Openstreetmap_logo.svg.png?20220919103849" className="inline align-middle mx-1" alt="osm logo" width={20} height={20} />
+          <Image src="/projects/osm_logo.png" className="inline align-middle mx-1" alt="osm logo" width={20} height={20} />
           <Link href="https://openstreetmap.org/">OpenStreetMap</Link>
         </span>
         , then generates textured .obj files for Unity/Blender/Unreal.
@@ -77,7 +77,7 @@ export const projects: Project[] = [
       <>
         AR social experience for{" "}
         <span className="inline-block">
-          <Image src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c4/Snapchat_logo.svg/960px-Snapchat_logo.svg.png?20190813231721" alt="Snap Logo" className="inline align-middle mx-1" width={20} height={20} />
+          <Image src="/projects/snap_logo.png" alt="Snap Logo" className="inline align-middle mx-1" width={20} height={20} />
           <Link href="https://spectacles.com/">Snap Spectacles</Link>
         </span> where you
         leave persistent 3D notes in the real world. Includes spatial mapping
