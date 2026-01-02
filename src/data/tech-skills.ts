@@ -9,6 +9,8 @@ export const languages = [
   "HTML",
   "CSS",
   "Bash",
+  "PowerShell",
+  "LaTeX",
 ];
 
 export const frameworks = [

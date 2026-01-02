@@ -74,6 +74,7 @@ export default function ProjectCard({
 
   return (
     <div className="card bg-card transition-all duration-200 w-full rounded-xl border-[1.5px] border-border hover:border-primary group">
+      {/* image(s) */}
       <div
         ref={containerRef}
         className="p-3 overflow-hidden"
@@ -137,32 +138,35 @@ export default function ProjectCard({
         )}
       </div>
 
-      <div className="card-body px-4 sm:px-8 py-6 flex flex-col">
-        <h3 className="card-title text-xl mb-2 text-card-foreground group-hover:text-primary transition-colors duration-200">
+      <div className="card-body px-4 sm:px-8 py-6 flex flex-col gap-4">
+        {/* title */}
+        <h3 className="card-title text-xl text-card-foreground group-hover:text-primary transition-colors duration-200">
           {project.title}
         </h3>
-        <div className="flex-grow">
+        {/* desc */}
+        <div className="flex flex-col gap-4 flex-grow">
           {project.description.map((para, idx) => (
             <div
               key={idx}
-              className="text-sm mb-2 leading-relaxed text-card-foreground"
+              className="text-sm leading-relaxed text-card-foreground"
             >
               {para}
             </div>
           ))}
+          {/* tech stacks */}
+          <div className="flex flex-wrap gap-2 align-middle">
+            {project.stack.map((item, index) => (
+              <div
+                key={index}
+                className="px-1.5 py-1 rounded-xl font-mono font-medium text-[11px] text-foreground/90 border-[1.5px] border-border hover:border-primary/50 bg-primary/25 hover:text-primary transition-colors duration-200"
+              >
+                {item}
+              </div>
+            ))}
+          </div>
         </div>
-        {/* tech stacks */}
-        <div className="flex flex-wrap gap-2 mb-4 align-middle">
-          {project.stack.map((item, index) => (
-            <div
-              key={index}
-              className="px-2 py-1 rounded-xl text-xs font-medium border-[1.5px] border-border hover:border-primary/50 bg-primary/25 hover:text-primary transition-colors duration-200"
-            >
-              {item}
-            </div>
-          ))}
-        </div>
-        <div className="card-actions flex gap-4 mt-auto items-center justify-end pr-4">
+        {/* links */}
+        <div className="card-actions flex gap-4 items-center justify-end">
           <a
             href={project.github}
             target="_blank"

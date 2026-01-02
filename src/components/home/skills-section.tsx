@@ -70,12 +70,12 @@ export default function SkillsSection() {
           ))}
         </div>
 
-        {/* Content */}
+        {/* content */}
         <div className="flex flex-wrap gap-1 sm:gap-2 content-start">
           {skillsData[activeTab].map((skill, index) => (
             <div
               key={index}
-              className="px-3 py-1 rounded-xl bg-card text-card-foreground text-xs md:text-sm font-medium border-[1.5px] border-border hover:text-primary hover:border-primary/50 transition-colors duration-200"
+              className="px-2 py-1 rounded-xl bg-card text-card-foreground text-xs md:text-sm font-medium border-[1.5px] border-border hover:text-primary hover:border-primary/50 transition-colors duration-200"
             >
               {skill}
             </div>
