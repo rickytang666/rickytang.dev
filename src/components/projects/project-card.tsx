@@ -59,7 +59,8 @@ export default function ProjectCard({
   const getNatural = (src: string) => naturalMap[src];
 
   // on image load, cache its natural size
-  const handleImgLoad = (src: string) => (img: HTMLImageElement) => {
+  const handleImgLoad = (src: string) => (event: React.SyntheticEvent<HTMLImageElement>) => {
+    const img = event.currentTarget;
     setNaturalMap((prev) => {
       if (prev[src]) return prev;
       return {
@@ -132,7 +133,7 @@ export default function ProjectCard({
                 objectFit: "contain",
               }}
               unoptimized
-              onLoadingComplete={handleImgLoad(currentImg)}
+              onLoad={handleImgLoad(currentImg)}
             />
           </div>
         )}
