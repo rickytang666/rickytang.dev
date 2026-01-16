@@ -1,3 +1,3 @@
 #!/bin/bash
-npm run build
-npm run lint
+npm run --silent build
+npm run --silent lint
