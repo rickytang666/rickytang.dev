@@ -5,6 +5,35 @@ import { Project } from "@/types";
 
 export const projects: Project[] = [
   {
+    title: "Quota",
+    stack: [
+      "VS Code API",
+      "LangChain",
+      "Next.js",
+      "FastAPI",
+      "MongoDB",
+      "Gemini",
+      "GCP",
+    ],
+    description: [
+      <>
+        VS Code extension with real-time financial intelligence. Maximize cost efficiency before you even git commit: inline cost annotations, scale stimulations, and optimization suggestions for APIs, DB queries, and cloud/infra. Plus a web sandbox to plan architecture with LLM considering budget/scale. 🥇 Won 1st place overall at {" "}
+        <span className="inline-block">
+          <Image src="/projects/deltahacks_logo.svg" className="inline align-middle mx-1" alt="deltahacks logo" width={20} height={20} />
+          <Link href="https://deltahacks.com/">DeltaHacks 2026.</Link>
+        </span>
+      </>,
+    ],
+    images: [
+      "/projects/quota1.png",
+      "/projects/quota2.png",
+      "/projects/quota3.png",
+      "/projects/quota4.png",
+      "/projects/quota5.png",
+    ],
+    github: "https://github.com/dwseoh/Quota",
+  },
+  {
     title: "Tark",
     stack: [
       "Next.js",
