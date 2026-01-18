@@ -4,7 +4,30 @@ import Image from "next/image";
 import { Inline } from "yet-another-react-lightbox/plugins";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
-import { IconArrowLeft, IconArrowRight, IconExternalLink, IconBrandGithub } from "@tabler/icons-react";
+import { 
+  IconArrowLeft, 
+  IconArrowRight, 
+  IconExternalLink, 
+  IconBrandGithub,
+  IconBrandAppstore,
+  IconBrandGooglePlay,
+  IconCode
+} from "@tabler/icons-react";
+
+const getIconForLink = (name: string) => {
+  switch (name.toLowerCase()) {
+    case "github":
+      return IconBrandGithub;
+    case "app store":
+      return IconBrandAppstore;
+    case "google play":
+      return IconBrandGooglePlay;
+    case "devpost":
+      return IconCode;
+    default:
+      return IconExternalLink;
+  }
+};
 import { Project } from "@/types";
 
 interface ProjectCardProps {
@@ -168,30 +191,23 @@ export default function ProjectCard({
         </div>
         {/* links */}
         <div className="card-actions flex gap-4 items-center justify-end">
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1 text-sm sm:text-base font-semibold rounded-lg text-card-foreground hover:text-primary transition-colors duration-200"
-          >
-            <span>
-              <IconBrandGithub stroke={2} className="w-5 h-5" />
-            </span>
-            <span>source</span>
-          </a>
-          {project.website && (
-            <a
-              href={project.website}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1 text-sm sm:text-base font-semibold rounded-lg text-card-foreground hover:text-accent transition-colors duration-200"
-            >
-              <span>
-                <IconExternalLink stroke={2} className="w-5 h-5" />
-              </span>
-              <span>live demo</span>
-            </a>
-          )}
+          {project.links.map((link, idx) => {
+            const Icon = getIconForLink(link.name);
+            return (
+              <a
+                key={idx}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1 text-sm sm:text-base font-semibold rounded-lg text-card-foreground hover:text-primary transition-colors duration-200"
+              >
+                <span>
+                  <Icon stroke={2} className="w-5 h-5" />
+                </span>
+                <span>{link.name.toLowerCase()}</span>
+              </a>
+            );
+          })}
         </div>
       </div>
     </div>

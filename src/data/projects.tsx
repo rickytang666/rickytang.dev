@@ -19,7 +19,7 @@ export const projects: Project[] = [
       <>
         VS Code extension with real-time financial intelligence. Maximize cost efficiency before you even git commit: inline cost annotations, scale stimulations, and optimization suggestions for APIs, DB queries, and cloud/infra. Plus a web sandbox to plan architecture with LLM considering budget/scale. 🥇 Won 1st place overall at {" "}
         <span className="inline-block">
-          <Image src="/projects/deltahacks_logo.svg" className="inline align-middle mx-1" alt="deltahacks logo" width={20} height={20} />
+          <Image src="/projects/deltahacks_logo.svg" className="inline align-middle mx-1" alt="" width={20} height={20} />
           <Link href="https://deltahacks.com/">DeltaHacks 2026.</Link>
         </span>
       </>,
@@ -31,7 +31,12 @@ export const projects: Project[] = [
       "/projects/quota4.png",
       "/projects/quota5.png",
     ],
-    github: "https://github.com/dwseoh/Quota",
+    links: [
+      {
+        name: "GitHub",
+        url: "https://github.com/dwseoh/Quota",
+      },
+    ],
   },
   {
     title: "Tark",
@@ -47,14 +52,14 @@ export const projects: Project[] = [
       <>
         Google Earth for game devs. Converts ANY real-world location into game-ready 3D meshes in seconds. Pulls elevation data and satellite imagery from {" "}
         <span className="inline-block">
-          <Image src="/projects/mapbox_logo.png" className="inline align-middle mx-1" alt="mapbox logo" width={20} height={20} />
+          <Image src="/projects/mapbox_logo.png" className="inline align-middle mx-1" alt="" width={20} height={20} />
           <Link href="https://mapbox.com/">Mapbox</Link>
         </span>
         {" "}
         and
         {" "}
         <span className="inline-block">
-          <Image src="/projects/osm_logo.png" className="inline align-middle mx-1" alt="osm logo" width={20} height={20} />
+          <Image src="/projects/osm_logo.png" className="inline align-middle mx-1" alt="" width={20} height={20} />
           <Link href="https://openstreetmap.org/">OpenStreetMap</Link>
         </span>
         , then generates textured .obj files for Unity/Blender/Unreal.
@@ -64,7 +69,12 @@ export const projects: Project[] = [
       "/projects/tark1.png",
       "/projects/tark2.png",
     ],
-    github: "https://github.com/rickytang666/tark",
+    links: [
+      {
+        name: "GitHub",
+        url: "https://github.com/rickytang666/tark",
+      },
+    ],
   },
   {
     title: "Auralis",
@@ -81,7 +91,7 @@ export const projects: Project[] = [
       <>
         AI doctor with a 3D avatar that adapts to your facial expressions during consultations. Uses Three.js for rendering, ElevenLabs and Gemini for conversations and summaries. 🏆 Won Best AI Application Built with Cloudflare at {" "}
         <span className="inline-block">
-          <Image src="/projects/hackwestern_logo.jpg" className="inline align-middle mx-1" alt="hackwestern logo" width={20} height={20} />
+          <Image src="/projects/hackwestern_logo.jpg" className="inline align-middle mx-1" alt="" width={20} height={20} />
           <Link href="https://hackwestern.com/">Hack Western 2025.</Link>
         </span>
       </>,
@@ -92,8 +102,16 @@ export const projects: Project[] = [
       "/projects/auralis3.jpeg",
       "/projects/auralis4.jpeg",
     ],
-    github: "https://github.com/rickytang666/auralis",
-    website: "https://stop-googling-symptoms.tech/",
+    links: [
+      {
+        name: "GitHub",
+        url: "https://github.com/rickytang666/auralis",
+      },
+      {
+        name: "Website",
+        url: "https://stop-googling-symptoms.tech/",
+      },
+    ],
   },
   {
     title: "Post-It",
@@ -106,14 +124,14 @@ export const projects: Project[] = [
       <>
         AR social experience for{" "}
         <span className="inline-block">
-          <Image src="/projects/snap_logo.png" alt="Snap Logo" className="inline align-middle mx-1" width={20} height={20} />
+          <Image src="/projects/snap_logo.png" alt="" className="inline align-middle mx-1" width={20} height={20} />
           <Link href="https://spectacles.com/">Snap Spectacles</Link>
         </span> where you
         leave persistent 3D notes in the real world. Includes spatial mapping
         and voice controls so you can discover hidden messages from others.
         Built in 32 hours; semi-finalist at{" "}
         <span className="inline-block">
-          <Image src="/projects/htn_logo.jpg" alt="HTN Logo" className="inline align-middle mx-1" width={20} height={20} />
+          <Image src="/projects/htn_logo.jpg" alt="" className="inline align-middle mx-1" width={20} height={20} />
           <Link href="https://hackthenorth.com/">Hack the North 2025.</Link>
         </span>
       </>,
@@ -124,7 +142,44 @@ export const projects: Project[] = [
       "/projects/post3.jpg",
       "/projects/post4.jpg",
     ],
-    github: "https://github.com/rickytang666/post-it",
+    links: [
+      {
+        name: "GitHub",
+        url: "https://github.com/rickytang666/post-it",
+      },
+    ],
+  },
+  {
+    title: "Nebula",
+    stack: [
+      "React Native",
+      "FastAPI",
+      "Supabase",
+      "PGVector",
+      "GCP",
+      "Gemini",
+    ],
+    description: [
+      <>
+        A mobile notes app that lets you import notes from camera via <span className="inline-block">
+          <Image src="/projects/mistral_logo.png" alt="" className="inline align-middle mx-1" width={20} height={20} />
+          <Link href="https://gemini.google.com/">Mistral OCR</Link>
+        </span>, search your notes by semantic meaning, and chat with LLM about the notes. Supports rich text editing with markdown, retaining all math equations formatting.
+      </>,
+    ],
+    images: [
+      "/projects/nebula.png",
+    ],
+    links: [
+      {
+        name: "GitHub",
+        url: "https://github.com/rickytang666/nebula",
+      },
+      {
+        name: "App Store",
+        url: "https://testflight.apple.com/join/9H8gv9a8",
+      },
+    ],
   },
   {
     title: "BrainLattice",
@@ -148,8 +203,16 @@ export const projects: Project[] = [
       "/projects/brain4.png",
       "/projects/brain5.png",
     ],
-    github: "https://github.com/rickytang666/brainlattice",
-    website: "https://www.brainlattice.study/",
+    links: [
+      {
+        name: "GitHub",
+        url: "https://github.com/rickytang666/brainlattice",
+      },
+      {
+        name: "Website",
+        url: "https://www.brainlattice.study/",
+      },
+    ],
   },
   {
     title: "FitSage",
@@ -171,8 +234,16 @@ export const projects: Project[] = [
       "/projects/fit3.png",
       "/projects/fit4.png",
     ],
-    github: "https://github.com/rickytang666/fitsage",
-    website: "https://www.fitsage.tech/",
+    links: [
+      {
+        name: "GitHub",
+        url: "https://github.com/rickytang666/fitsage",
+      },
+      {
+        name: "Website",
+        url: "https://www.fitsage.tech/",
+      },
+    ],
   },
   {
     title: "CheFlow",
@@ -186,7 +257,12 @@ export const projects: Project[] = [
       "/projects/chef1.png",
       "/projects/chef2.png",
     ],
-    github: "https://github.com/rickytang666/cheflow",
+    links: [
+      {
+        name: "GitHub",
+        url: "https://github.com/rickytang666/cheflow",
+      },
+    ],
   },
   {
     title: "EcoHub",
@@ -200,7 +276,12 @@ export const projects: Project[] = [
       </>,
     ],
     images: ["/projects/eco1.png"],
-    github: "https://github.com/rickytang666/ecohub",
+    links: [
+      {
+        name: "GitHub",
+        url: "https://github.com/rickytang666/ecohub",
+      },
+    ],
   },
   {
     title: "Vanilla Flashcards",
@@ -213,8 +294,16 @@ export const projects: Project[] = [
       </>,
     ],
     images: ["/projects/van1.png", "/projects/van2.png"],
-    github: "https://github.com/rickytang666/vanilla-flashcards",
-    website: "https://vanilla-flashcards.vercel.app/",
+    links: [
+      {
+        name: "GitHub",
+        url: "https://github.com/rickytang666/vanilla-flashcards",
+      },
+      {
+        name: "Website",
+        url: "https://vanilla-flashcards.vercel.app/",
+      },
+    ],
   },
   {
     title: "SwiftNotes",
@@ -228,7 +317,12 @@ export const projects: Project[] = [
       </>,
     ],
     images: ["/projects/swift1.png"],
-    github: "https://github.com/rickytang666/swiftnotes",
+    links: [
+      {
+        name: "GitHub",
+        url: "https://github.com/rickytang666/swiftnotes",
+      },
+    ],
   },
   {
     title: "2-Player Tank Battle Game",
@@ -241,7 +335,12 @@ export const projects: Project[] = [
       </>,
     ],
     images: ["/projects/tank1.png"],
-    github: "https://github.com/rickytang666/2p-tank-battle",
+    links: [
+      {
+        name: "GitHub",
+        url: "https://github.com/rickytang666/2p-tank-battle",
+      },
+    ],
   },
   {
     title: "Movie Review Station",
@@ -255,8 +354,16 @@ export const projects: Project[] = [
       </>,
     ],
     images: ["/projects/movie1.png"],
-    github: "https://github.com/rickytang666/movie-review-website",
-    website: "https://movie-review-website-plum.vercel.app/",
+    links: [
+      {
+        name: "GitHub",
+        url: "https://github.com/rickytang666/movie-review-website",
+      },
+      {
+        name: "Website",
+        url: "https://movie-review-website-plum.vercel.app/",
+      },
+    ],
   },
   {
     title: "World Championship 100m Sim",
@@ -271,6 +378,12 @@ export const projects: Project[] = [
       </>,
     ],
     images: ["/projects/sim1.png"],
-    github: "https://github.com/rickytang666/world-championship-100m-sim",
+    links: [
+      {
+        name: "GitHub",
+        url: "https://github.com/rickytang666/world-championship-100m-sim",
+      },
+    ],
   },
 ];
+

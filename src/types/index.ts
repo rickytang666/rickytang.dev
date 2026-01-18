@@ -5,8 +5,7 @@ export interface Project {
   description: React.ReactNode[];
   images: string[];
   stack: string[];
-  github: string;
-  website?: string;
+  links: { name: string; url: string; icon?: string }[];
 }
 
 export interface Award {
