@@ -39,6 +39,47 @@ export const projects: Project[] = [
     ],
   },
   {
+    title: "Sneuz",
+    stack: [
+      "Swift",
+      "SwiftUI",
+      "Supabase",
+      "Apple HealthKit",
+      "Apple WidgetKit",
+      "Next.js",
+    ],
+    description: [
+      <>
+        An iOS app that brings back automatic sleep tracking, which Apple removed in iOS 18+. It uses{" "}
+        <span className="inline-block">
+          <Image src="/projects/shortcuts_logo.png" className="inline align-middle mx-1" alt="" width={20} height={20} />
+          <Link href="https://apps.apple.com/us/app/shortcuts/id915249334">Apple Shortcuts</Link>
+        </span>{" "}
+        automation to log sleep/wake times hands-free, visualizes detailed analysis on web dashboard, and exports to{" "}
+        <span className="inline-block">
+          <Image src="/projects/apple_health_logo.png" className="inline align-middle mx-1" alt="" width={20} height={20} />
+          <Link href="https://www.apple.com/health/">Apple Health</Link>
+        </span>{" "}
+        in one tap. Set up once, never need to touch it again.
+      </>,
+    ],
+    images: [
+      "/projects/sneuz1.png",
+      "/projects/sneuz2.png",
+      "/projects/sneuz3.png",
+    ],
+    links: [
+      {
+        name: "GitHub",
+        url: "https://github.com/rickytang666/sneuz",
+      },
+      {
+        name: "Website",
+        url: "https://sneuz.rickytang.dev",
+      },
+    ],
+  },
+  {
     title: "Tark",
     stack: [
       "Next.js",
@@ -156,6 +197,7 @@ export const projects: Project[] = [
       "FastAPI",
       "Supabase",
       "PGVector",
+      "Mistral OCR",
       "GCP",
       "Gemini",
     ],
@@ -176,7 +218,7 @@ export const projects: Project[] = [
         url: "https://github.com/rickytang666/nebula",
       },
       {
-        name: "App Store",
+        name: "TestFlight",
         url: "https://testflight.apple.com/join/9H8gv9a8",
       },
     ],
