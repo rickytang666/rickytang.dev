@@ -10,7 +10,6 @@ module.exports = {
       fontFamily: {
         sans: ['var(--font-sans)'],
         mono: ['var(--font-mono)'],
-        serif: ['var(--font-serif)'],
       },
       colors: {
         background: 'var(--background)',

@@ -9,7 +9,7 @@ import Background from "@/components/layout/background";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 
 // fonts
-import { Figtree, JetBrains_Mono, Source_Serif_4 } from "next/font/google";
+import { Figtree, JetBrains_Mono } from "next/font/google";
 
 const figtree = Figtree({
   subsets: ["latin"],
@@ -20,12 +20,6 @@ const figtree = Figtree({
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
-  display: "swap",
-});
-
-const sourceSerif = Source_Serif_4({
-  subsets: ["latin"],
-  variable: "--font-serif",
   display: "swap",
 });
 
@@ -110,7 +104,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${figtree.variable} ${jetbrainsMono.variable} ${sourceSerif.variable}`}
+      className={`${figtree.variable} ${jetbrainsMono.variable}`}
       suppressHydrationWarning
     >
       <head>
