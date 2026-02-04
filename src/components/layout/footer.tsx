@@ -3,6 +3,8 @@ import Image from "next/image";
 import SeWebringLogo from "@/components/ui/se-webring-logo";
 import IconDevpost from "@/components/ui/icon-devpost";
 
+import Webring from "@/components/ui/webring";
+
 // icons
 import {
   IconBrandGithub,
@@ -12,8 +14,6 @@ import {
   IconBrandX,
   IconBrandInstagram,
   IconBrandLeetcode,
-  IconArrowLeft,
-  IconArrowRight,
 } from "@tabler/icons-react";
 
 export default function Footer() {
@@ -26,41 +26,13 @@ export default function Footer() {
             Ricky Tang <span className="text-lg font-black">·</span> {new Date().getFullYear()}
           </p>
 
-          {/* SE Webring */}
-          <div className="flex items-center justify-center gap-1">
-            {/* previous site */}
-            <a
-              href="https://archangelinux.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="previous"
-              className="flex items-center text-foreground hover:text-primary transition-colors duration-200"
-            >
-              <IconArrowLeft stroke={2} className="w-5 h-5" />
-            </a>
-
-            {/* se webring logo */}
-            <a
-              href="https://se-webring.xyz/"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="SE Webring"
-              className="flex items-center text-foreground hover:text-primary transition-colors duration-200"
-            >
-              <SeWebringLogo width={38} height={38} />
-            </a>
-
-            {/* next site */}
-            <a
-              href="https://davidhua.ca/"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="next"
-              className="flex items-center text-foreground hover:text-primary transition-colors duration-200"
-            >
-              <IconArrowRight stroke={2} className="w-5 h-5" />
-            </a>
-          </div>
+          <Webring
+            prevHref="https://archangelinux.vercel.app/"
+            webringHref="https://se-webring.xyz/"
+            nextHref="https://davidhua.ca/"
+            webringName="SE Webring"
+            logo={<SeWebringLogo width={38} height={38} />}
+          />
         </div>
 
         {/* second row: social icons (left) and made with (right) */}
@@ -152,7 +124,7 @@ export default function Footer() {
               title="devpost"
               className="flex items-center hover:text-primary active:text-primary focus:text-primary"
             >
-<IconDevpost className="w-6 h-6" />
+              <IconDevpost className="w-6 h-6" />
             </a>
             <a
               href={externalLinks.leetcode}
@@ -165,7 +137,7 @@ export default function Footer() {
             </a>
           </div>
 
-          {/* Made With */}
+          {/* made with */}
           <div className="text-base flex items-center justify-center md:justify-end gap-1">
             <p>Made with</p>
             <div className="flex items-center gap-1">
