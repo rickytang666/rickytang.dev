@@ -1,7 +1,7 @@
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { ReactNode } from "react";
 
-interface WebringProps {
+interface SeWebringProps {
   prevHref: string;
   nextHref: string;
   webringHref: string;
@@ -10,14 +10,14 @@ interface WebringProps {
   className?: string;
 }
 
-export default function Webring({
+export default function SeWebring({
   prevHref,
   nextHref,
   webringHref,
   webringName = "Webring",
   logo,
   className = "",
-}: WebringProps) {
+}: SeWebringProps) {
   return (
     <div className={`flex items-center justify-center gap-1 ${className}`}>
       {/* previous site */}

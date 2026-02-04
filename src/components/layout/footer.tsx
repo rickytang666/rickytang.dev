@@ -3,7 +3,7 @@ import Image from "next/image";
 import SeWebringLogo from "@/components/ui/se-webring-logo";
 import IconDevpost from "@/components/ui/icon-devpost";
 
-import Webring from "@/components/ui/webring";
+import SeWebring from "@/components/ui/se-webring";
 
 // icons
 import {
@@ -26,7 +26,7 @@ export default function Footer() {
             Ricky Tang <span className="text-lg font-black">·</span> {new Date().getFullYear()}
           </p>
 
-          <Webring
+          <SeWebring
             prevHref="https://archangelinux.vercel.app/"
             webringHref="https://se-webring.xyz/"
             nextHref="https://davidhua.ca/"
