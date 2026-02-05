@@ -5,6 +5,7 @@ import { motion, useInView } from "framer-motion";
 import SeWebring from "@/components/ui/se-webring";
 import SeWebringLogo from "@/components/ui/se-webring-logo";
 import Se30Webring from "@/components/ui/se30-webring";
+import WaterlooWebring from "@/components/ui/waterloo-network";
 
 export default function WebringSwitcher() {
   const [index, setIndex] = useState(0);
@@ -12,6 +13,8 @@ export default function WebringSwitcher() {
 
   // 0: se webring
   // 1: se30 webring
+  // 2: waterloo webring
+  const TOTAL_WEBRINGS = 3;
   
   // trackpad / wheel logic
   const containerRef = useRef<HTMLDivElement>(null);
@@ -46,12 +49,12 @@ export default function WebringSwitcher() {
         
         const threshold = 15; // sensitivity
         if (e.deltaX > threshold) {
-           // scrolled right -> go next
-           setIndex((prev) => (prev === 0 ? 1 : prev));
+           // scrolled right -> go next (restricted)
+           setIndex((prev) => Math.min(prev + 1, TOTAL_WEBRINGS - 1));
            triggerCooldown();
         } else if (e.deltaX < -threshold) {
-           // scrolled left -> go prev
-           setIndex((prev) => (prev === 1 ? 0 : prev));
+           // scrolled left -> go prev (restricted)
+           setIndex((prev) => Math.max(prev - 1, 0));
            triggerCooldown();
         }
       }
@@ -61,7 +64,7 @@ export default function WebringSwitcher() {
       cooldownRef.current = true;
       setTimeout(() => {
         cooldownRef.current = false;
-      }, 250); // 250ms cooldown
+      }, 750); // longer (to handle trackpad inertia)
     };
 
     container.addEventListener("wheel", handleWheel, { passive: false });
@@ -93,18 +96,22 @@ export default function WebringSwitcher() {
     const isLeftSwipe = distance > minSwipeDistance;
     const isRightSwipe = distance < -minSwipeDistance;
 
-    if (isLeftSwipe && index === 0) {
-      setIndex(1);
-    } else if (isRightSwipe && index === 1) {
-      setIndex(0);
+    if (isLeftSwipe) {
+      setIndex((prev) => Math.min(prev + 1, TOTAL_WEBRINGS - 1));
+    } else if (isRightSwipe) {
+      setIndex((prev) => Math.max(prev - 1, 0));
     }
   };
 
-  const currentWebringName = index === 0 ? "SE Webring" : "SE '30 Webring";
+  const currentWebringName = 
+    index === 0 ? "SE Webring" : 
+    index === 1 ? "SE '30 Webring" : 
+    "Waterloo Network";
 
   // calculate animation target
-  // normal: 0% or -100%
-  const xValue = peek && index === 0 ? "-30%" : index === 0 ? "0%" : "-100%";
+  // normal: -100% * index
+  // peek (only works if index is 0): -22%
+  const xValue = peek && index === 0 ? "-22%" : `-${index * 100}%`;
 
   return (
     <div 
@@ -139,6 +146,12 @@ export default function WebringSwitcher() {
           <div className="min-w-full flex justify-center">
             <Se30Webring domain="https://rickytang.dev" />
           </div>
+
+          {/* waterloo webring */}
+          <div className="min-w-full flex justify-center">
+             <WaterlooWebring user="ricky-tang" />
+          </div>
+          
         </motion.div>
       </div>
 
@@ -162,6 +175,15 @@ export default function WebringSwitcher() {
                 : "bg-muted-foreground/30 hover:bg-muted-foreground/50 hover:scale-110"
             }`}
             aria-label="Show SE30 Webring"
+          />
+          <button
+           onClick={() => setIndex(2)}
+           className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+              index === 2 
+                ? "bg-waterloo-network scale-110" 
+                : "bg-muted-foreground/30 hover:bg-muted-foreground/50 hover:scale-110"
+            }`}
+            aria-label="Show Waterloo Network"
           />
         </div>
         

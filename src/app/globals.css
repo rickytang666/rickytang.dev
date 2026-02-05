@@ -69,6 +69,7 @@
   --color-shadow-color: var(--shadow-color);
   --color-destructive-foreground: var(--destructive-foreground);
   --color-se30: var(--se30);
+  --color-waterloo-network: var(--waterloo-network);
 }
 
 body {
@@ -166,6 +167,7 @@ body {
 
   /* misc */
   --se30: oklch(76.696% 0.1528 90.703);
+  --waterloo-network: oklch(50.5% 0.213 27.518);
 }
 
 .dark {
@@ -258,6 +260,7 @@ body {
 
   /* misc */
   --se30: oklch(0.8695 0.1738 90.82);
+  --waterloo-network: oklch(63.7% 0.237 25.331);
 }
 
 @layer base {
