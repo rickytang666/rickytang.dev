@@ -7,7 +7,16 @@ import SeWebringLogo from "@/components/ui/se-webring-logo";
 import Se30Webring from "@/components/ui/se30-webring";
 import WaterlooWebring from "@/components/ui/waterloo-network";
 
-export default function WebringSwitcher() {
+interface WebringMember {
+  name: string;
+  website: string;
+}
+
+interface WebringSwitcherProps {
+  waterlooMembers?: WebringMember[];
+}
+
+export default function WebringSwitcher({ waterlooMembers }: WebringSwitcherProps) {
   const [index, setIndex] = useState(0);
   const [peek, setPeek] = useState(false);
 
@@ -149,7 +158,7 @@ export default function WebringSwitcher() {
 
           {/* waterloo webring */}
           <div className="min-w-full flex justify-center">
-             <WaterlooWebring user="ricky-tang" />
+             <WaterlooWebring members={waterlooMembers} />
           </div>
           
         </motion.div>

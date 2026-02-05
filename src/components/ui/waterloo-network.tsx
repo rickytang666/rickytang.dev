@@ -4,45 +4,30 @@ import { useEffect, useState } from "react";
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import Se30WebringLogo from "@/components/ui/se30-webring-logo";
 
-interface WaterlooNetworkProps {
-  className?: string;
-  user?: string;
-}
-
 interface WebringMember {
   name: string;
   website: string;
 }
 
+interface WaterlooNetworkProps {
+  className?: string;
+  members?: WebringMember[];
+}
+
 export default function WaterlooNetwork({
   className = "",
-  user = "ricky-tang",
+  members = [], // default to empty if not passed
 }: WaterlooNetworkProps) {
-  const [members, setMembers] = useState<WebringMember[]>([]);
   const [index, setIndex] = useState(0);
-  const [loading, setLoading] = useState(true);
 
+  // initialize randomized index only on client to avoid hydration mismatch
   useEffect(() => {
-    const fetchWebring = async () => {
-      try {
-        const response = await fetch(`https://www.uwaterloo.network/api/webring?user=${user}`);
-        if (!response.ok) throw new Error("Failed to fetch webring");
-        const data = await response.json();
-        
-        if (data.members && data.members.length > 0) {
-          setMembers(data.members);
-          // Start at random index, like the script does
-          setIndex(Math.floor(Math.random() * data.members.length));
-        }
-      } catch (error) {
-        console.error("Webring error:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchWebring();
-  }, [user]);
+    if (members.length > 0) {
+      setTimeout(() => {
+        setIndex(Math.floor(Math.random() * members.length));
+      }, 0);
+    }
+  }, [members]); // re-run if members change (e.g. initial load)
 
   const handlePrev = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -64,7 +49,7 @@ export default function WaterlooNetwork({
     window.open(members[newIndex].website, '_blank');
   };
 
-  const isDisabled = loading || members.length === 0;
+  const isDisabled = members.length === 0;
 
   return (
     <div className={`flex items-center justify-center gap-3 ${className}`}>

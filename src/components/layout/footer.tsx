@@ -1,5 +1,4 @@
 import { externalLinks } from "@/data/links";
-import Image from "next/image";
 import IconDevpost from "@/components/ui/icon-devpost";
 import IconRepo from "@/components/ui/icon-repo";
 import WebringSwitcher from "@/components/ui/webring-switcher";
@@ -15,7 +14,27 @@ import {
   IconBrandLeetcode,
 } from "@tabler/icons-react";
 
-export default function Footer() {
+interface WebringMember {
+  name: string;
+  website: string;
+}
+
+async function getWaterlooMembers(): Promise<WebringMember[]> {
+  try {
+    const res = await fetch('https://www.uwaterloo.network/api/webring?user=ricky-tang', { 
+      next: { revalidate: 3600 } // cache for 1 hour
+    });
+    if (!res.ok) return [];
+    const data = await res.json();
+    return data.members || [];
+  } catch (error) {
+    return [];
+  }
+}
+
+export default async function Footer() {
+  const waterlooMembers = await getWaterlooMembers();
+
   return (
     <footer className="w-full bg-sidebar border-t-2 border-sidebar-border text-foreground mt-auto relative z-10">
       <div className="max-w-2xl mx-auto py-3 xl:py-5 flex flex-col items-center md:items-start md:flex-row md:justify-between gap-4">
@@ -111,7 +130,7 @@ export default function Footer() {
         </div>
 
         {/* col 2: webring switcher */}
-        <WebringSwitcher />
+        <WebringSwitcher waterlooMembers={waterlooMembers} />
       </div>
     </footer>
   );
