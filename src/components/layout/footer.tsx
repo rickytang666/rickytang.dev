@@ -1,9 +1,7 @@
 import { externalLinks } from "@/data/links";
 import Image from "next/image";
-import SeWebringLogo from "@/components/ui/se-webring-logo";
 import IconDevpost from "@/components/ui/icon-devpost";
-
-import SeWebring from "@/components/ui/se-webring";
+import WebringSwitcher from "@/components/ui/webring-switcher";
 
 // icons
 import {
@@ -26,13 +24,7 @@ export default function Footer() {
             Ricky Tang <span className="text-lg font-black">·</span> {new Date().getFullYear()}
           </p>
 
-          <SeWebring
-            prevHref="https://archangelinux.vercel.app/"
-            webringHref="https://se-webring.xyz/"
-            nextHref="https://davidhua.ca/"
-            webringName="SE Webring"
-            logo={<SeWebringLogo width={38} height={38} />}
-          />
+          <WebringSwitcher />
         </div>
 
         {/* second row: social icons (left) and made with (right) */}
