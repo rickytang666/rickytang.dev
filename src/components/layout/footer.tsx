@@ -17,20 +17,13 @@ import {
 export default function Footer() {
   return (
     <footer className="w-full bg-sidebar border-t-2 border-sidebar-border text-foreground mt-auto relative z-10">
-      <div className="max-w-2xl mx-auto py-3 xl:py-5 flex flex-col gap-5">
-        {/* first row: name (left) and webring (right) */}
-        <div className="w-full flex flex-col md:flex-row md:justify-between md:items-center gap-4">
-          <p className="text-base lg:text-lg text-center lg:text-left">
+      <div className="max-w-2xl mx-auto py-3 xl:py-5 flex flex-col items-center md:items-start md:flex-row md:justify-between gap-4">
+        {/* col 1: name top, links bottom */}
+        <div className="w-full flex flex-col items-center md:justify-between md:items-start gap-4">
+          <p className="text-base lg:text-lg text-center lg:text-left p-2">
             Ricky Tang <span className="text-lg font-black">·</span> {new Date().getFullYear()}
           </p>
-
-          <WebringSwitcher />
-        </div>
-
-        {/* second row: social icons (left) and made with (right) */}
-        <div className="w-full flex flex-col md:flex-row md:justify-between md:items-center gap-4">
-          {/* Social Links */}
-          <div className="flex gap-2 min-[370px]:gap-3 min-[420px]:gap-4 items-center justify-center lg:justify-start">
+          <div className="flex gap-2 min-[370px]:gap-3 min-[420px]:gap-4 items-center justify-center lg:justify-start p-2">
             {/* this svg is slightly too big 😫 */}
             <a
               href={externalLinks.websiteRepo}
@@ -128,42 +121,10 @@ export default function Footer() {
               <IconBrandLeetcode stroke={2} className="w-6 h-6" />
             </a>
           </div>
-
-          {/* made with */}
-          <div className="text-base flex items-center justify-center md:justify-end gap-1">
-            <p>Made with</p>
-            <div className="flex items-center gap-1">
-              <Image
-                title="Next.js"
-                width={24}
-                height={24}
-                src="https://go-skill-icons.vercel.app/api/icons?i=nextjs&theme=dark"
-                alt="nextjs"
-              />
-              <Image
-                title="Tailwind CSS"
-                width={24}
-                height={24}
-                src="https://go-skill-icons.vercel.app/api/icons?i=tailwind&theme=dark"
-                alt="tailwind"
-              />
-              <Image
-                title="shadcn/ui"
-                width={24}
-                height={24}
-                src="https://go-skill-icons.vercel.app/api/icons?i=shadcn&theme=dark"
-                alt="shadcn"
-              />
-              <Image
-                title="daisyUI"
-                width={24}
-                height={24}
-                src="https://go-skill-icons.vercel.app/api/icons?i=daisyui&theme=dark"
-                alt="daisyui"
-              />
-            </div>
-          </div>
         </div>
+
+        {/* col 2: webring switcher */}
+        <WebringSwitcher />
       </div>
     </footer>
   );

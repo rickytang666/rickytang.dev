@@ -40,7 +40,7 @@ export default function Se30Webring({
       <a
         href={prevHref}
         title="previous"
-        className="flex items-center text-foreground hover:text-[#FFCE1A] transition-colors duration-200"
+        className="flex items-center text-foreground hover:text-se30 transition-colors duration-200"
       >
         <IconArrowLeft stroke={2} className="w-5 h-5" />
       </a>
@@ -51,7 +51,7 @@ export default function Se30Webring({
         target="_blank"
         rel="noopener noreferrer"
         title="SE '30 Webring"
-        className="flex items-center text-foreground hover:text-[#FFCE1A] transition-colors duration-200"
+        className="flex items-center text-foreground hover:text-se30 transition-colors duration-200"
       >
         <Se30WebringLogo className="w-8 h-8" />
       </a>
@@ -60,7 +60,7 @@ export default function Se30Webring({
       <a
         href={nextHref}
         title="next"
-        className="flex items-center text-foreground hover:text-[#FFCE1A] transition-colors duration-200"
+        className="flex items-center text-foreground hover:text-se30 transition-colors duration-200"
       >
         <IconArrowRight stroke={2} className="w-5 h-5" />
       </a>

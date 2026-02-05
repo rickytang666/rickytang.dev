@@ -68,6 +68,7 @@
   --shadow-opacity: var(--shadow-opacity);
   --color-shadow-color: var(--shadow-color);
   --color-destructive-foreground: var(--destructive-foreground);
+  --color-se30: var(--se30);
 }
 
 body {
@@ -162,6 +163,9 @@ body {
   --shadow-xl: 0px 1px 3px 0px hsl(0 0% 0% / 0.17), 0px 8px 10px -1px hsl(0 0% 0% / 0.17);
   --shadow-2xl: 0px 1px 3px 0px hsl(0 0% 0% / 0.43);
   --tracking-normal: 0.025em;
+
+  /* misc */
+  --se30: oklch(76.696% 0.1528 90.703);
 }
 
 .dark {
@@ -251,6 +255,9 @@ body {
   --shadow-lg: 0px 1px 3px 0px hsl(0 0% 0% / 0.5), 0px 4px 6px -1px hsl(0 0% 0% / 0.5);
   --shadow-xl: 0px 1px 3px 0px hsl(0 0% 0% / 0.5), 0px 8px 10px -1px hsl(0 0% 0% / 0.5);
   --shadow-2xl: 0px 1px 3px 0px hsl(0 0% 0% / 0.7);
+
+  /* misc */
+  --se30: oklch(0.8695 0.1738 90.82);
 }
 
 @layer base {

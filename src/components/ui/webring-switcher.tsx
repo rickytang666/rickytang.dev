@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import SeWebring from "@/components/ui/se-webring";
 import SeWebringLogo from "@/components/ui/se-webring-logo";
@@ -12,8 +12,56 @@ export default function WebringSwitcher() {
   // 0: se webring
   // 1: se30 webring
   
+  // trackpad / wheel logic
+  const containerRef = useRef<HTMLDivElement>(null);
+  const cooldownRef = useRef(false);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const handleWheel = (e: WheelEvent) => {
+      // create a logic to detect horizontal swipe dominance
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+        e.preventDefault(); // stop browser back/forward
+
+        // debounce/cooldown check
+        if (cooldownRef.current) return;
+        
+        const threshold = 15; // sensitivity
+        if (e.deltaX > threshold) {
+           // scrolled right -> go next
+           setIndex((prev) => (prev === 0 ? 1 : prev));
+           triggerCooldown();
+        } else if (e.deltaX < -threshold) {
+           // scrolled left -> go prev
+           setIndex((prev) => (prev === 1 ? 0 : prev));
+           triggerCooldown();
+        }
+      }
+    };
+
+    const triggerCooldown = () => {
+      cooldownRef.current = true;
+      setTimeout(() => {
+        cooldownRef.current = false;
+      }, 250); // 250ms cooldown
+    };
+
+    container.addEventListener("wheel", handleWheel, { passive: false });
+    
+    return () => {
+      container.removeEventListener("wheel", handleWheel);
+    };
+  }, []);
+
+  const currentWebringName = index === 0 ? "SE Webring" : "SE '30 Webring";
+
   return (
-    <div className="flex flex-col items-center gap-2 select-none w-[116px] relative touch-pan-y overscroll-x-contain p-2 rounded-xl transition-colors hover:bg-muted/30">
+    <div 
+      ref={containerRef}
+      className="flex flex-col items-center gap-2 select-none w-[116px] relative p-2 rounded-xl border-2 border-transparent hover:border-2 hover:border-sidebar-border/70 hover:bg-primary/2"
+    >
       <div className="w-full overflow-hidden">
         <motion.div
           className="flex w-full"
@@ -39,25 +87,32 @@ export default function WebringSwitcher() {
       </div>
 
       {/* pagination dots */}
-      <div className="flex gap-1.5 p-1">
-        <button
-          onClick={() => setIndex(0)}
-          className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-            index === 0 
-              ? "bg-primary scale-110" 
-              : "bg-muted-foreground/30 hover:bg-muted-foreground/50 hover:scale-110"
-          }`}
-          aria-label="Show SE Webring"
-        />
-        <button
-          onClick={() => setIndex(1)}
-          className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-            index === 1 
-              ? "bg-[#FFCE1A] scale-110" 
-              : "bg-muted-foreground/30 hover:bg-muted-foreground/50 hover:scale-110"
-          }`}
-          aria-label="Show SE30 Webring"
-        />
+      <div className="flex flex-col items-center gap-2">
+        <div className="flex gap-2 px-1">
+          <button
+            onClick={() => setIndex(0)}
+            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+              index === 0 
+                ? "bg-primary scale-110" 
+                : "bg-muted-foreground/30 hover:bg-muted-foreground/50 hover:scale-110"
+            }`}
+             aria-label="Show SE Webring"
+          />
+          <button
+           onClick={() => setIndex(1)}
+           className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+              index === 1 
+                ? "bg-se30 scale-110" 
+                : "bg-muted-foreground/30 hover:bg-muted-foreground/50 hover:scale-110"
+            }`}
+            aria-label="Show SE30 Webring"
+          />
+        </div>
+        
+        {/* Webring Name Label */}
+        <span className="text-[10px] text-foreground/70 font-medium whitespace-nowrap">
+          {currentWebringName}
+        </span>
       </div>
     </div>
   );
