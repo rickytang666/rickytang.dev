@@ -55,12 +55,44 @@ export default function WebringSwitcher() {
     };
   }, []);
 
+  // touch logic (mobile swipe)
+  const touchStartRef = useRef<number | null>(null);
+  const touchEndRef = useRef<number | null>(null);
+  // minimum swipe distance
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchEndRef.current = null;
+    touchStartRef.current = e.targetTouches[0].clientX;
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    touchEndRef.current = e.targetTouches[0].clientX;
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStartRef.current || !touchEndRef.current) return;
+    
+    const distance = touchStartRef.current - touchEndRef.current;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe && index === 0) {
+      setIndex(1);
+    } else if (isRightSwipe && index === 1) {
+      setIndex(0);
+    }
+  };
+
   const currentWebringName = index === 0 ? "SE Webring" : "SE '30 Webring";
 
   return (
     <div 
       ref={containerRef}
       className="flex flex-col items-center gap-2 select-none w-[116px] relative p-2 rounded-xl border-2 border-transparent hover:border-2 hover:border-sidebar-border/70 hover:bg-primary/2"
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
     >
       <div className="w-full overflow-hidden">
         <motion.div
