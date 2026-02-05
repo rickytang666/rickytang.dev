@@ -104,13 +104,12 @@ export default function WebringSwitcher() {
 
   // calculate animation target
   // normal: 0% or -100%
-  // peek (only works if index is 0): -22%
-  const xValue = peek && index === 0 ? "-22%" : index === 0 ? "0%" : "-100%";
+  const xValue = peek && index === 0 ? "-30%" : index === 0 ? "0%" : "-100%";
 
   return (
     <div 
       ref={containerRef}
-      className={`flex flex-col items-center gap-2 select-none w-[116px] relative p-2 rounded-xl border-2 transition-all duration-300 group
+      className={`flex flex-col items-center gap-2 select-none w-[170px] relative p-2 rounded-xl border-2 transition-all duration-300 group
         ${peek 
           ? "border-primary/40 bg-primary/10" // hint color during peek
           : "border-transparent hover:border-sidebar-border/70 hover:bg-primary/2"
