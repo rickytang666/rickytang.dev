@@ -1,20 +1,36 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import SeWebring from "@/components/ui/se-webring";
 import SeWebringLogo from "@/components/ui/se-webring-logo";
 import Se30Webring from "@/components/ui/se30-webring";
 
 export default function WebringSwitcher() {
   const [index, setIndex] = useState(0);
+  const [peek, setPeek] = useState(false);
 
   // 0: se webring
   // 1: se30 webring
   
   // trackpad / wheel logic
   const containerRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(containerRef, { once: true, amount: 0.5 });
   const cooldownRef = useRef(false);
+
+  // peek animation when scrolling into view
+  useEffect(() => {
+    if (isInView) {
+      // delay slightly so user sees it settle
+      const timer = setTimeout(() => {
+        setPeek(true);
+        setTimeout(() => {
+          setPeek(false);
+        }, 400); // duration of peek
+      }, 500); 
+      return () => clearTimeout(timer);
+    }
+  }, [isInView]);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -86,18 +102,27 @@ export default function WebringSwitcher() {
 
   const currentWebringName = index === 0 ? "SE Webring" : "SE '30 Webring";
 
+  // calculate animation target
+  // normal: 0% or -100%
+  // peek (only works if index is 0): -22%
+  const xValue = peek && index === 0 ? "-22%" : index === 0 ? "0%" : "-100%";
+
   return (
     <div 
       ref={containerRef}
-      className="flex flex-col items-center gap-2 select-none w-[116px] relative p-2 rounded-xl border-2 border-transparent hover:border-2 hover:border-sidebar-border/70 hover:bg-primary/2"
+      className={`flex flex-col items-center gap-2 select-none w-[116px] relative p-2 rounded-xl border-2 transition-all duration-300 group
+        ${peek 
+          ? "border-primary/40 bg-primary/10" // hint color during peek
+          : "border-transparent hover:border-sidebar-border/70 hover:bg-primary/2"
+        }`}
       onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}
       onTouchEnd={onTouchEnd}
     >
-      <div className="w-full overflow-hidden">
+      <div className="w-full overflow-hidden relative">
         <motion.div
           className="flex w-full"
-          animate={{ x: index === 0 ? "0%" : "-100%" }}
+          animate={{ x: xValue }}
           transition={{ type: "spring", stiffness: 400, damping: 40 }}
         >
           {/* se webring */}
@@ -120,7 +145,7 @@ export default function WebringSwitcher() {
 
       {/* pagination dots */}
       <div className="flex flex-col items-center gap-2">
-        <div className="flex gap-2 px-1">
+        <div className="flex gap-1.5 px-1">
           <button
             onClick={() => setIndex(0)}
             className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
