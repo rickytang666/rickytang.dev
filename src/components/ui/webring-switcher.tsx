@@ -19,6 +19,7 @@ interface WebringSwitcherProps {
 export default function WebringSwitcher({ waterlooMembers }: WebringSwitcherProps) {
   const [index, setIndex] = useState(0);
   const [peek, setPeek] = useState(false);
+  const [hovered, setHovered] = useState(false);
 
   // 0: se webring
   // 1: se30 webring
@@ -29,6 +30,24 @@ export default function WebringSwitcher({ waterlooMembers }: WebringSwitcherProp
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, amount: 0.5 });
   const cooldownRef = useRef(false);
+
+  // keyboard navigation
+  useEffect(() => {
+    if (!hovered) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        setIndex((prev) => Math.max(prev - 1, 0));
+      } else if (e.key === "ArrowRight") {
+        e.preventDefault();
+        setIndex((prev) => Math.min(prev + 1, TOTAL_WEBRINGS - 1));
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [hovered]);
 
   // peek animation when scrolling into view
   useEffect(() => {
@@ -44,6 +63,7 @@ export default function WebringSwitcher({ waterlooMembers }: WebringSwitcherProp
     }
   }, [isInView]);
 
+  // trackpad / wheel logic
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
@@ -133,6 +153,8 @@ export default function WebringSwitcher({ waterlooMembers }: WebringSwitcherProp
       onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}
       onTouchEnd={onTouchEnd}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
     >
       <div className="w-full overflow-hidden relative">
         <motion.div
