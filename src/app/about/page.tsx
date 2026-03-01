@@ -48,31 +48,20 @@ export default function AboutPage() {
         <div className="flex-1 flex flex-col gap-6">
           <div className="space-y-5">
             <p className="leading-relaxed text-foreground">
-              My name is Ricky Tang, a Software Engineering student at
-              University of Waterloo, working on autonomy team for drones at
-              Waterloo Aerial Robotics Group (WARG).
+              My name is Ricky Tang, a Software Engineering student at the
+              University of Waterloo.
             </p>
 
             <p className="leading-relaxed text-foreground">
-              I build tools that solve issues I actually encounter, and they
-              become part of my daily workflow. Whenever I see a cool and novel
-              tech stack, I can&apos;t help myself but start a project with it
-              immediately. I prefer building something new everytime, rather
-              than repeating the same techs.
+              I build tools because I want them to exist in my own life. When I once crammed for an exam, I built a study tool to extract the concept networks from course notes. I&apos;m my own most demanding user, so taking a slow process and engineering it down to seconds is the exact kind of problem I obsess over.
             </p>
 
             <p className="leading-relaxed text-foreground">
-              Hackathons are where I thrive. I enjoy getting into flow state to
-              ship something that works well and fix stuff with pressure.
-              I&apos;m not satisfied until my projects become tools I actually
-              use every day.
+              A tech stack is just a means to an end. Picking up new stuff forces me to learn fast and keeps me moving quickly. That&apos;s also why I love hackathons: a perfect excuse to get into flow state and rapidly ship complex systems under pressure.
             </p>
 
             <p className="leading-relaxed text-foreground">
-              Computer vision is where I get especially excited about: object
-              detection, real-time image processing, spatial understanding.
-              It&apos;s always satisfying to make machines understand the visual
-              world via code.
+              Recently, my work centers around AI Agents and backend infrastructure: building RAG systems that clear high legal bars for accuracy, and pipelines orchestrating agents to boost both speed and scalability.
             </p>
 
             <div className="leading-relaxed text-foreground">
@@ -102,7 +91,7 @@ export default function AboutPage() {
                   <Link href="https://worldathletics.org/records/all-time-toplists/sprints/100-metres/all/men/senior?regionType=world&timing=electronic&windReading=regular&page=1&bestResultsOnly=false&firstDay=1899-12-31&lastDay=2025-11-13&maxResultsByCountry=all&eventId=10229630&ageCategory=senior">
                     track meets
                   </Link>{" "}
-                  & collecting split times data (the goat usain bolt)
+                  & collecting split times data (the GOAT usain bolt)
                 </li>
                 <li>
                   <span className="italic font-serif">
