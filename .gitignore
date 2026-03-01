@@ -46,3 +46,7 @@ next-env.d.ts
 
 # vs code
 .vscode
+
+# misc
+*.txt
+*.bak
