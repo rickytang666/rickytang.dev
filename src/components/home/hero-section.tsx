@@ -14,47 +14,68 @@ import {
 export default function HeroSection() {
   return (
     <section>
-      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-foreground mb-10 sm:mb-12 md:mb-14 lg:mb-16">
+      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-foreground mb-8 sm:mb-10 md:mb-12">
         Hey, I&apos;m Ricky 👋
       </h1>
 
-      <h1 className="text-xl sm:text-2xl md:text-3xl text-center font-bold mb-8 sm:mb-10 md:mb-12 lg:mb-15 text-foreground">
-        Building isn&apos;t just my hobby—it&apos;s my operating system.
-      </h1>
-      <div className="flex flex-col gap-1 mb-6 sm:mb-8 md:mb-10 mx-2 sm:mx-5">
-        <h3 className="flex flex-wrap items-center justify-center mb-4 text-sm sm:text-lg md:text-lg lg:text-xl text-foreground text-center">
-          <span>Software Engineering at</span>
-          <div className="inline-flex items-center gap-1 ml-2">
-            <Image
-              src="https://upload.wikimedia.org/wikipedia/en/thumb/6/6e/University_of_Waterloo_seal.svg/500px-University_of_Waterloo_seal.svg.png?20181003010357"
-              alt="UWaterloo"
-              width={22}
-              height={22}
-            />
+      <h2 className="text-xl sm:text-2xl md:text-3xl text-center font-semibold mb-8 sm:mb-10 text-foreground">
+        I build high-throughput AI systems with robust infra.
+      </h2>
+
+      <div className="flex flex-col items-center gap-5 mb-8 sm:mb-10 text-sm sm:text-base md:text-lg text-foreground font-medium px-4">
+        <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
+          <span className="text-center">Software Engineering at</span>
+          <div className="inline-flex items-center gap-1">
+            <Image src="/home/uwaterloo.svg" alt="" width={22} height={22} />
             <Link href={externalLinks.softwareEngineering} className="font-semibold">
               UWaterloo
             </Link>
           </div>
-        </h3>
-        <h3 className="flex flex-wrap gap-2 items-center justify-center mb-4 text-sm sm:text-lg md:text-lg lg:text-xl text-foreground text-center">
-          <span>Contributing to intelligent drones at</span>
+        </div>
+        <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
+          <span className="text-center">Incoming SWE at</span>
           <div className="inline-flex items-center gap-1">
-            <Image src="/home/warg.png" alt="WARG" width={18} height={18} />
-            <Link href={externalLinks.warg} className="font-semibold">
-              WARG
+            <Image src="/home/hamming.png" alt="" width={19} height={19} />
+            <Link href="https://hamming.ai" className="font-semibold">
+              Hamming AI (YC S24)
             </Link>
           </div>
-        </h3>
-        <p className="mb-4 text-sm sm:text-base md:text-lg text-foreground text-center">
-          I focus on full-stack tools that orchestrate AI models through solid
-          architecture. I believe the best software should feel natural &
-          invisible—you forget it&apos;s even there. Computer vision is my
-          favorite: it makes computers unstoppable.
-        </p>
-        <p className="mb-4 text-sm sm:text-base md:text-lg text-foreground text-center">
-          Coding fixes hits my dopamine center. Small details, big
-          problems—I&apos;ll craft the solution. The enjoyment just compounds,
-          little by little.
+        </div>
+        <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
+          <span className="text-center">Engineering at</span>
+          <div className="inline-flex items-center gap-1">
+            <Image src="/home/watai.jpg" alt="" width={22} height={22} />
+            <Link href="https://watai.ca" className="font-semibold">
+              WAT.ai
+            </Link>
+          </div>
+          <span className="text-center font-normal text-lg sm:text-xl md:text-2xl">×</span>
+          <div className="inline-flex items-center gap-1">
+            <Image src="/home/bindwell.jpg" alt="" width={22} height={22} />
+            <Link href="https://bindwell.ai" className="font-semibold">
+              Bindwell (YC W25)
+            </Link>
+          </div>
+        </div>
+        <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
+          <span className="text-center">Engineering at</span>
+          <div className="inline-flex items-center gap-1">
+            <Image src="/home/warg.png" alt="" width={19} height={19} />
+            <Link href="https://www.uwarg.com" className="font-bold underline decoration-primary/50 underline-offset-4">WARG</Link>
+          </div>
+          <span className="text-center">and</span>
+          <div className="inline-flex items-center gap-1">
+            <Image src="/home/wato.svg" alt="" width={19} height={19} />
+            <Link href="https://watonomous.ca" className="font-semibold">
+              WATonomous
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-3xl mx-auto px-4 sm:px-6">
+        <p className="mb-8 sm:mb-10 text-sm sm:text-base md:text-lg text-foreground text-center leading-relaxed">
+          I love taking slow processes and engineering them down to seconds. Currently focused on <span className="font-semibold">absurdly</span> high-bar RAG pipelines and <span className="font-semibold">scalable</span> agentic workflows.
         </p>
       </div>
       {/* Contact Buttons */}

@@ -8,6 +8,4 @@ export const externalLinks = {
   devpost: "https://devpost.com/rickytang",
   leetcode: "https://leetcode.com/u/rickytang/",
   softwareEngineering: "https://uwaterloo.ca/future-students/programs/software-engineering",
-  videoGraphic: "https://sites.google.com/wrdsb.ca/rickytang-portfolio/skills",
-  warg: "https://www.uwarg.com",
 };
