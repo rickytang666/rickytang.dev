@@ -6,6 +6,6 @@ export const externalLinks = {
   twitter: "https://x.com/_rickytang",
   instagram: "https://www.instagram.com/rickytang.dev/",
   devpost: "https://devpost.com/rickytang",
-  leetcode: "https://leetcode.com/u/rickytang/",
+  youtube: "https://www.youtube.com/@rickytangdev",
   softwareEngineering: "https://uwaterloo.ca/future-students/programs/software-engineering",
 };

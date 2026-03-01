@@ -3,7 +3,6 @@ import IconDevpost from "@/components/ui/icon-devpost";
 import IconRepo from "@/components/ui/icon-repo";
 import WebringSwitcher from "@/components/ui/webring-switcher";
 
-// icons
 import {
   IconBrandGithub,
   IconBrandLinkedin,
@@ -11,7 +10,7 @@ import {
   IconMail,
   IconBrandX,
   IconBrandInstagram,
-  IconBrandLeetcode,
+  IconBrandYoutubeFilled,
 } from "@tabler/icons-react";
 
 interface WebringMember {
@@ -100,15 +99,6 @@ export default async function Footer() {
               <IconBrandX stroke={2} className="w-6 h-6" />
             </a>
             <a
-              href={externalLinks.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              title="instagram"
-              className="flex items-center hover:text-primary active:text-primary focus:text-primary"
-            >
-              <IconBrandInstagram stroke={2} className="w-6 h-6" />
-            </a>
-            <a
               href={externalLinks.devpost}
               target="_blank"
               rel="noopener noreferrer"
@@ -118,13 +108,22 @@ export default async function Footer() {
               <IconDevpost className="w-6 h-6" />
             </a>
             <a
-              href={externalLinks.leetcode}
+              href={externalLinks.youtube}
               target="_blank"
               rel="noopener noreferrer"
-              title="leetcode"
+              title="youtube"
               className="flex items-center hover:text-primary active:text-primary focus:text-primary"
             >
-              <IconBrandLeetcode stroke={2} className="w-6 h-6" />
+              <IconBrandYoutubeFilled className="w-6 h-6" />
+            </a>
+            <a
+              href={externalLinks.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="instagram"
+              className="flex items-center hover:text-primary active:text-primary focus:text-primary"
+            >
+              <IconBrandInstagram stroke={2} className="w-6 h-6" />
             </a>
           </div>
         </div>
