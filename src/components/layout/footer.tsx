@@ -11,6 +11,7 @@ import {
   IconBrandX,
   IconBrandInstagram,
   IconBrandYoutubeFilled,
+  IconBrandBluesky,
 } from "@tabler/icons-react";
 
 interface WebringMember {
@@ -54,6 +55,15 @@ export default async function Footer() {
               <IconRepo className="w-[1.375rem] h-[1.375rem]" />
             </a>
             <a
+              href={externalLinks.email}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="email"
+              className="flex items-center hover:text-primary active:text-primary focus:text-primary"
+            >
+              <IconMail stroke={2} className="w-6 h-6" />
+            </a>
+            <a
               href={externalLinks.github}
               target="_blank"
               rel="noopener noreferrer"
@@ -81,15 +91,6 @@ export default async function Footer() {
               <IconFileCv stroke={2} className="w-6 h-6" />
             </a>
             <a
-              href={externalLinks.email}
-              target="_blank"
-              rel="noopener noreferrer"
-              title="email"
-              className="flex items-center hover:text-primary active:text-primary focus:text-primary"
-            >
-              <IconMail stroke={2} className="w-6 h-6" />
-            </a>
-            <a
               href={externalLinks.twitter}
               target="_blank"
               rel="noopener noreferrer"
@@ -97,6 +98,15 @@ export default async function Footer() {
               className="flex items-center hover:text-primary active:text-primary focus:text-primary"
             >
               <IconBrandX stroke={2} className="w-6 h-6" />
+            </a>
+            <a
+              href={externalLinks.bluesky}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="bluesky"
+              className="flex items-center hover:text-primary active:text-primary focus:text-primary"
+            >
+              <IconBrandBluesky stroke={2} className="w-6 h-6" />
             </a>
             <a
               href={externalLinks.devpost}

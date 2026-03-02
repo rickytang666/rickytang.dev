@@ -7,5 +7,6 @@ export const externalLinks = {
   instagram: "https://www.instagram.com/rickytang.dev/",
   devpost: "https://devpost.com/rickytang",
   youtube: "https://www.youtube.com/@rickytangdev",
+  bluesky: "https://bsky.app/profile/rickytang.dev",
   softwareEngineering: "https://uwaterloo.ca/future-students/programs/software-engineering",
 };
