@@ -21,8 +21,8 @@ Next.js + Tailwind CSS + DaisyUI + shadcn/ui
 2. install and run
 
    ```bash
-   npm install
-   npm run dev
+   pnpm install
+   pnpm dev
    ```
 
 3. open [http://localhost:3000](http://localhost:3000) to see it.

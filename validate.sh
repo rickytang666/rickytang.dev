@@ -1,3 +1,3 @@
 #!/bin/bash
-npm run --silent build
-npm run --silent lint
+pnpm run --silent build
+pnpm run --silent lint
