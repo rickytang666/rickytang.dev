@@ -13,9 +13,9 @@ export default function ViewMoreButton({
   return (
     <Link
       href={href}
-      className="inline-flex items-center gap-2 btn btn-outline border-foreground bg-background group rounded-full relative border-2 view-more-btn"
+      className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 border-foreground bg-background group rounded-full relative border-2 view-more-btn"
     >
-      <span className="font-medium">{children}</span>
+      <span className="font-medium text-sm sm:text-base">{children}</span>
       <IconArrowRight
         className="w-5 h-5 absolute right-2 transform view-more-arrow"
         stroke={2}
