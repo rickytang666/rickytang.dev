@@ -97,7 +97,7 @@ export default function ProjectCard({
   const slides = project.images.map((src) => ({ src }));
 
   return (
-    <div className="card bg-card transition-all duration-200 w-full rounded-xl border-[1.5px] border-border hover:border-primary group">
+    <div className="bg-card transition-all duration-200 w-full rounded-xl border-[1.5px] border-border hover:border-primary group">
       {/* image(s) */}
       <div
         ref={containerRef}
@@ -162,9 +162,9 @@ export default function ProjectCard({
         )}
       </div>
 
-      <div className="card-body px-4 sm:px-8 py-6 flex flex-col gap-4">
+      <div className="px-4 sm:px-8 py-6 flex flex-col gap-4">
         {/* title */}
-        <h3 className="card-title text-xl text-card-foreground group-hover:text-primary transition-colors duration-200">
+        <h3 className="text-xl font-bold text-card-foreground group-hover:text-primary transition-colors duration-200">
           {project.title}
         </h3>
         {/* desc */}
@@ -190,7 +190,7 @@ export default function ProjectCard({
           </div>
         </div>
         {/* links */}
-        <div className="card-actions flex gap-4 items-center justify-end">
+        <div className="flex gap-4 items-center justify-end">
           {project.links.map((link, idx) => {
             const Icon = getIconForLink(link.name);
             return (
