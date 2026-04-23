@@ -21,9 +21,12 @@ interface WebringMember {
 
 async function getWaterlooMembers(): Promise<WebringMember[]> {
   try {
-    const res = await fetch('https://www.uwaterloo.network/api/webring?user=ricky-tang', { 
-      next: { revalidate: 3600 } // cache for 1 hour
-    });
+    const res = await fetch(
+      "https://www.uwaterloo.network/api/webring?user=ricky-tang",
+      {
+        next: { revalidate: 3600 }, // cache for 1 hour
+      },
+    );
     if (!res.ok) return [];
     const data = await res.json();
     return data.members || [];
@@ -36,12 +39,13 @@ export default async function Footer() {
   const waterlooMembers = await getWaterlooMembers();
 
   return (
-    <footer className="w-full bg-sidebar border-t-2 border-sidebar-border text-foreground mt-auto relative z-10">
-      <div className="max-w-2xl mx-auto py-3 xl:py-5 flex flex-col items-center md:items-start md:flex-row md:justify-between gap-4">
+    <footer className="w-full text-foreground mt-auto relative z-10">
+      <div className="max-w-3xl mx-auto py-3 xl:py-5 flex flex-col items-center md:items-start md:flex-row md:justify-between gap-4">
         {/* col 1: name top, links bottom */}
         <div className="w-full flex flex-col items-center md:justify-between md:items-start gap-4">
           <p className="text-base lg:text-lg text-center lg:text-left p-2">
-            Ricky Tang <span className="text-lg font-black">·</span> {new Date().getFullYear()}
+            Ricky Tang <span className="text-lg font-black">·</span>{" "}
+            {new Date().getFullYear()}
           </p>
           <div className="flex gap-2 min-[370px]:gap-3 min-[420px]:gap-4 items-center justify-center lg:justify-start p-2">
             {/* this svg is slightly too big 😫 */}
