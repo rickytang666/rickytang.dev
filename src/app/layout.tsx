@@ -9,7 +9,7 @@ import Background from "@/components/layout/background";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 
 // fonts
-import { Figtree, JetBrains_Mono } from "next/font/google";
+import { Figtree, JetBrains_Mono, Gaegu } from "next/font/google";
 
 const figtree = Figtree({
   subsets: ["latin"],
@@ -20,6 +20,13 @@ const figtree = Figtree({
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
+  display: "swap",
+});
+
+const gaegu = Gaegu({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  variable: "--font-gaegu",
   display: "swap",
 });
 
@@ -104,24 +111,21 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${figtree.variable} ${jetbrainsMono.variable}`}
+      className={`${figtree.variable} ${jetbrainsMono.variable} ${gaegu.variable}`}
       suppressHydrationWarning
     >
       <head>
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body
-        className="flex flex-col justify-center items-center min-h-screen pt-24"
-      >
+      <body className="flex flex-col min-h-screen">
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          defaultTheme="light"
           disableTransitionOnChange
         >
           <Background />
           <Navbar />
-          <div className="relative flex flex-col flex-1 w-full mt-14 lg:mt-20 mb-14 lg:mb-20 px-6 sm:px-10 lg:px-0">
+          <div className="relative flex flex-col flex-1 w-full mb-14 lg:mb-20 px-6 sm:px-10 lg:px-0">
             <div className="flex-1">{children}</div>
           </div>
           <Footer />

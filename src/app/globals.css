@@ -43,6 +43,7 @@
   --radius-xl: calc(var(--radius) + 4px);
   --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-mono), ui-monospace, monospace;
+  --font-gaegu: var(--font-gaegu), cursive;
   --radius: 0.5rem;
   --tracking-tighter: calc(var(--tracking-normal) - 0.05em);
   --tracking-tight: calc(var(--tracking-normal) - 0.025em);
@@ -79,11 +80,9 @@ body {
   /* layout & spacing */
   --radius: 0.5rem;
   
-  /* base colors - solarized teal theme */
-  /* background: comfortable teal-tinted paper, like solarized's warm base */
-  --background: oklch(85.063% 0.03566 185.546);
-  /* foreground: rich dark teal-gray for excellent readability */
-  --foreground: oklch(20% 0.025 200);
+  /* base colors */
+  --background: #fdf6e3;
+  --foreground: #000000;
   
   /* surface colors */
   /* card: elevated surface with stronger teal presence */
