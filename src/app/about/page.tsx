@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "@/components/ui/link";
 
-import { IconUser } from "@tabler/icons-react";
-
 export const metadata: Metadata = {
   title: "About",
   description:
@@ -13,97 +11,99 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="min-h-[calc(100svh-72px)] flex items-center py-8">
-    <div className="container mx-auto max-w-3xl lg:max-w-4xl">
-      <div className="flex flex-col lg:flex-row lg:items-start gap-8">
-        {/* Image */}
-        <div className="mx-auto lg:mx-0 lg:flex-shrink w-[280px] sm:w-[340px] lg:w-[400px] lg:min-w-[260px] overflow-hidden">
-          <Image
-            src="/about/myself.jpg"
-            alt="Ricky Tang"
-            width={500}
-            height={500}
-            className="w-full h-auto object-cover"
-            priority
-          />
-        </div>
+      <div className="container mx-auto max-w-3xl lg:max-w-4xl">
+        <div className="flex flex-col lg:flex-row lg:items-start gap-8">
+          {/* Image */}
+          <div className="mx-auto lg:mx-0 lg:flex-shrink w-[280px] sm:w-[340px] lg:w-[400px] lg:min-w-[260px] overflow-hidden">
+            <Image
+              src="/about/myself.jpg"
+              alt="Ricky Tang"
+              width={500}
+              height={500}
+              className="w-full h-auto object-cover"
+              priority
+            />
+          </div>
 
-        {/* Content Section */}
-        <div className="flex-1 flex flex-col gap-6">
-          <div className="space-y-5">
-            <p className="leading-relaxed text-foreground">
-              My name is Ricky Tang. I study Software Engineering at the
-              University of Waterloo.
-            </p>
+          {/* Content Section */}
+          <div className="flex-1 flex flex-col gap-6">
+            <div className="space-y-5">
+              <p className="leading-relaxed text-foreground">
+                My name is Ricky Tang. I study Software Engineering at the
+                University of Waterloo.
+              </p>
 
-            <p className="leading-relaxed text-foreground">
-              I build tools because I want them to exist in my own life. As my
-              own most demanding user, I&apos;m obsessed with engineering a slow
-              process down to seconds. Learning new tech is just a means to that
-              end; it forces me to learn fast and keep moving. That&apos;s also
-              why I love hackathons: perfect chance to get into flow state and
-              ship complex systems under pressure.
-            </p>
+              <p className="leading-relaxed text-foreground">
+                I build tools because I want them to exist in my own life. As my
+                own most demanding user, I&apos;m obsessed with engineering a
+                slow process down to seconds. Learning new tech is just a means
+                to that end; it forces me to learn fast and keep moving.
+                That&apos;s also why I love hackathons: perfect chance to get
+                into flow state and ship complex systems under pressure.
+              </p>
 
-            <p className="leading-relaxed text-foreground">
-              Recently, I&apos;ve focused on AI Agents and backend
-              infrastructure: building RAG systems that clear high legal bars
-              for accuracy, and pipelines orchestrating agents for both speed
-              and scalability.
-            </p>
+              <p className="leading-relaxed text-foreground">
+                Recently, I&apos;ve focused on AI Agents and backend
+                infrastructure: building RAG systems that clear high legal bars
+                for accuracy, and pipelines orchestrating agents for both speed
+                and scalability.
+              </p>
 
-            <div className="leading-relaxed text-foreground">
-              <p className="mb-2">Outside of school/coding, you can find me:</p>
-              <ul className="list-disc list-outside space-y-1 ml-6">
-                <li>🏓 playing & watching table tennis</li>
-                <li>
-                  tweaking{" "}
-                  <Image
-                    src="/about/obsidian_logo.png"
-                    alt="⚒️"
-                    width={20}
-                    height={20}
-                    className="inline align-middle mx-1"
-                  />
-                  <Link href="https://obsidian.md">Obsidian plugins</Link>
-                </li>
-                <li>
-                  watching{" "}
-                  <Image
-                    src="/about/diamond_league_logo.png"
-                    alt="🏃"
-                    width={20}
-                    height={20}
-                    className="inline align-middle mx-1"
-                  />
-                  <Link href="https://worldathletics.org/records/all-time-toplists/sprints/100-metres/all/men/senior?regionType=world&timing=electronic&windReading=regular&page=1&bestResultsOnly=false&firstDay=1899-12-31&lastDay=2025-11-13&maxResultsByCountry=all&eventId=10229630&ageCategory=senior">
-                    track meets
-                  </Link>{" "}
-                  (the GOAT usain bolt)
-                </li>
-                <li>
-                  <span className="italic font-serif">
-                    &apos;doomscrolling&apos;
-                  </span>{" "}
-                  <span className="inline-block">
+              <div className="leading-relaxed text-foreground">
+                <p className="mb-2">
+                  Outside of school/coding, you can find me:
+                </p>
+                <ul className="list-disc list-outside space-y-1 ml-6">
+                  <li>🏓 playing & watching table tennis</li>
+                  <li>
+                    tweaking{" "}
                     <Image
-                      src="/about/github_logo.png"
-                      alt="💻"
-                      width={18}
-                      height={18}
+                      src="/about/obsidian_logo.png"
+                      alt="⚒️"
+                      width={20}
+                      height={20}
                       className="inline align-middle mx-1"
                     />
-                    <Link href="https://github.com">
-                      inspirational projects
-                    </Link>
-                  </span>{" "}
-                  online
-                </li>
-              </ul>
+                    <Link href="https://obsidian.md">Obsidian plugins</Link>
+                  </li>
+                  <li>
+                    watching{" "}
+                    <Image
+                      src="/about/diamond_league_logo.png"
+                      alt="🏃"
+                      width={20}
+                      height={20}
+                      className="inline align-middle mx-1"
+                    />
+                    <Link href="https://worldathletics.org/records/all-time-toplists/sprints/100-metres/all/men/senior?regionType=world&timing=electronic&windReading=regular&page=1&bestResultsOnly=false&firstDay=1899-12-31&lastDay=2025-11-13&maxResultsByCountry=all&eventId=10229630&ageCategory=senior">
+                      track meets
+                    </Link>{" "}
+                    (the GOAT usain bolt)
+                  </li>
+                  <li>
+                    <span className="italic font-serif">
+                      &apos;doomscrolling&apos;
+                    </span>{" "}
+                    <span className="inline-block">
+                      <Image
+                        src="/about/github_logo.png"
+                        alt="💻"
+                        width={18}
+                        height={18}
+                        className="inline align-middle mx-1"
+                      />
+                      <Link href="https://github.com">
+                        inspirational projects
+                      </Link>
+                    </span>{" "}
+                    online
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
     </div>
   );
 }

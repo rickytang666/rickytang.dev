@@ -1,4 +1,3 @@
-import ProjectPreviewSection from "@/components/home/project-preview-section";
 import HeroSection from "@/components/home/hero-section";
 import type { Metadata } from "next";
 
@@ -9,9 +8,8 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="w-full max-w-4xl mx-auto flex flex-col gap-10 sm:gap-12 md:gap-14 lg:gap-16">
+    <main>
       <HeroSection />
-      <ProjectPreviewSection />
     </main>
   );
 }
