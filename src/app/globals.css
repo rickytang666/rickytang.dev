@@ -95,7 +95,7 @@ body {
 
   /* brand colors */
   /* primary: vibrant teal - your signature color for links, buttons, brand */
-  --primary: oklch(55% 0.16 185);
+  --primary: oklch(55% 0.18 179);
   --primary-foreground: oklch(97.317% 0.01625 183.114);
 
   /* secondary: muted teal - for secondary actions, tags, badges */
@@ -120,7 +120,7 @@ body {
   --input: oklch(72% 0.055 185);
 
   /* ring: focus rings - bright teal for accessibility */
-  --ring: oklch(55% 0.16 185);
+  --ring: oklch(55% 0.18 179);
 
   /* semantic colors */
   /* destructive: warm red that complements teal */
@@ -128,7 +128,7 @@ body {
   --destructive-foreground: oklch(98% 0.01 25);
 
   /* chart colors - harmonious palette */
-  --chart-1: oklch(55% 0.14 185); /* teal */
+  --chart-1: oklch(55% 0.18 179); /* teal */
   --chart-2: oklch(62% 0.22 320); /* fuchsia */
   --chart-3: oklch(60% 0.15 160); /* green-teal */
   --chart-4: oklch(58% 0.18 280); /* purple */
@@ -179,9 +179,9 @@ body {
 
   /* base colors - comfortable dark theme */
   /* background: soft dark gray with subtle teal hint for cohesion */
-  --background: oklch(30.558% 0.01102 196.764);
-  /* foreground: soft white with subtle teal tint for immersive feel */
-  --foreground: oklch(92% 0.012 190);
+  --background: #1c1b18;
+  /* foreground: soft warm white to match the warm background */
+  --foreground: oklch(92% 0.008 80);
 
   /* surface colors */
   /* card: elevated dark surface, clearly distinct from background */
@@ -194,7 +194,7 @@ body {
 
   /* brand colors */
   /* primary: vibrant bright teal that pops against dark */
-  --primary: oklch(70% 0.15 185);
+  --primary: oklch(70% 0.18 179);
   --primary-foreground: oklch(15% 0.01 240);
 
   /* secondary: muted teal for less prominent elements */
@@ -219,7 +219,7 @@ body {
   --input: oklch(42% 0.025 195);
 
   /* ring: bright teal focus rings for accessibility */
-  --ring: oklch(70% 0.15 185);
+  --ring: oklch(70% 0.18 179);
 
   /* semantic colors */
   /* destructive: warm red for errors */
@@ -227,7 +227,7 @@ body {
   --destructive-foreground: oklch(98% 0.01 25);
 
   /* chart colors - vibrant palette for dark mode */
-  --chart-1: oklch(70% 0.15 185); /* bright teal */
+  --chart-1: oklch(70% 0.18 179); /* bright teal */
   --chart-2: oklch(68% 0.24 320); /* bright fuchsia */
   --chart-3: oklch(72% 0.16 160); /* bright green-teal */
   --chart-4: oklch(65% 0.2 280); /* bright purple */
