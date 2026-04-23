@@ -100,12 +100,10 @@ export default function HeroSection() {
         <p className="text-sm sm:text-base">
           ...psst! You can contact me in{" "}
           <Link
-            onClick={() =>
-              window.scrollTo({
-                top: document.body.scrollHeight,
-                behavior: "smooth",
-              })
-            }
+            onClick={() => {
+              window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+              window.dispatchEvent(new CustomEvent("animateFooterIcons"));
+            }}
           >
             many ways
           </Link>
