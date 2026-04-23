@@ -11,7 +11,7 @@ export default function HeroSection() {
           Hi there, I&apos;m Ricky :)
         </h1>
 
-        <p className="font-medium text-xl sm:text-2xl text-foreground flex flex-wrap items-center gap-x-2">
+        <p className="font-medium text-lg sm:text-2xl text-foreground flex flex-wrap items-center gap-x-2">
           Software Engineering @{" "}
           <span className="inline-flex items-center gap-1.5">
             <Image src="/home/uwaterloo.svg" alt="" width={22} height={22} />
@@ -19,7 +19,7 @@ export default function HeroSection() {
           </span>
         </p>
 
-        <div className="flex flex-col gap-4 text-base text-foreground mt-1">
+        <div className="flex flex-col gap-4 text-sm sm:text-base text-foreground mt-1">
           <p className="flex flex-wrap items-center gap-x-1.5 gap-y-1">
             Incoming @{" "}
             <span className="inline-flex items-center gap-1">
@@ -77,13 +77,13 @@ export default function HeroSection() {
           </p>
         </div>
 
-        <p className="text-base text-foreground mt-4 leading-relaxed">
+        <p className="text-sm sm:text-base text-foreground mt-4 leading-relaxed">
           I love taking slow processes and engineering them down to seconds.
           Currently focused on high-throughput RAG pipelines and scalable
           agentic systems.
         </p>
 
-        <p className="text-base text-foreground">
+        <p className="text-sm sm:text-base text-foreground">
           Read{" "}
           <Link href="/about" isNextLink>
             more about me

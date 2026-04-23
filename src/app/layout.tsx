@@ -5,7 +5,6 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
-import Background from "@/components/layout/background";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 
 // fonts
@@ -123,7 +122,6 @@ export default function RootLayout({
           defaultTheme="light"
           disableTransitionOnChange
         >
-          <Background />
           <Navbar />
           <div className="relative flex flex-col flex-1 w-full mb-14 lg:mb-20 px-6 sm:px-10 lg:px-0">
             <div className="flex-1">{children}</div>
