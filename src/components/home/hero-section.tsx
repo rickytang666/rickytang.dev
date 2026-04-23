@@ -7,9 +7,9 @@ import { externalLinks } from "@/data/links";
 
 export default function HeroSection() {
   return (
-    <section className="flex items-center py-6 min-h-[calc(100svh-72px)]">
-      <div className="w-full max-w-3xl mx-auto flex flex-col gap-8">
-        <h1 className="font-gaegu font-bold text-4xl sm:text-5xl text-foreground/65 mb-6">
+    <section className="py-10">
+      <div className="w-full max-w-3xl mx-auto flex flex-col gap-7 lg:gap-9">
+        <h1 className="font-gaegu font-bold text-3xl sm:text-5xl text-foreground/65 mb-6">
           Hi there, I&apos;m Ricky :)
         </h1>
 

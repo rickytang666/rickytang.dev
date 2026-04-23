@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="min-h-[calc(100svh-72px)] flex items-center py-8">
+    <div className="py-10">
       <div className="container mx-auto max-w-3xl lg:max-w-4xl">
         <div className="flex flex-col lg:flex-row lg:items-start gap-8">
           {/* Image */}
