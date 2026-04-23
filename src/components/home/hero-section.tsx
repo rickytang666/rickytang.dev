@@ -5,7 +5,7 @@ import { externalLinks } from "@/data/links";
 
 export default function HeroSection() {
   return (
-    <section className="flex items-center py-12 min-h-[calc(100svh-88px)]">
+    <section className="flex items-center py-6 min-h-[calc(100svh-72px)]">
       <div className="w-full max-w-2xl mx-auto flex flex-col gap-8">
         <h1 className="font-gaegu font-bold text-4xl sm:text-5xl text-foreground/65 mb-6">
           Hi there, I&apos;m Ricky :)

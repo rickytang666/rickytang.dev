@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { IconLayoutSidebarRightExpandFilled, IconX } from "@tabler/icons-react";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -25,7 +26,7 @@ export default function Navbar() {
             alt="RicFinity"
             width={200}
             height={200}
-            className="h-10 w-auto"
+            className="h-8 w-auto"
           />
         </Link>
 
@@ -43,6 +44,7 @@ export default function Navbar() {
               </Link>
             );
           })}
+          <ThemeToggle />
         </div>
 
         <button
