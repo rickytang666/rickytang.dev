@@ -2,15 +2,20 @@
 
 import { IconSun, IconMoon } from "@tabler/icons-react";
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
+
+const useIsClient = () =>
+  useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false,
+  );
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  const isClient = useIsClient();
 
-  useEffect(() => setMounted(true), []);
-
-  if (!mounted) return <div className="w-5 h-5" />;
+  if (!isClient) return <div className="w-5 h-5" />;
 
   const isDark = theme === "dark";
 
