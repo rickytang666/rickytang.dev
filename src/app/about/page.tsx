@@ -2,16 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "@/components/ui/link";
 
-// Icons
-import {
-  IconUser,
-  IconBrandGithub,
-  IconBrandLinkedin,
-  IconFileCv,
-  IconMail,
-} from "@tabler/icons-react";
-
-import { externalLinks } from "@/data/links";
+import { IconUser } from "@tabler/icons-react";
 
 export const metadata: Metadata = {
   title: "About",
@@ -53,15 +44,25 @@ export default function AboutPage() {
             </p>
 
             <p className="leading-relaxed text-foreground">
-              I build tools because I want them to exist in my own life. When I once crammed for an exam, I built a study tool to extract the concept networks from course notes. I&apos;m my own most demanding user, so taking a slow process and engineering it down to seconds is the exact kind of problem I obsess over.
+              I build tools because I want them to exist in my own life. When I
+              once crammed for an exam, I built a study tool to extract the
+              concept networks from course notes. I&apos;m my own most demanding
+              user, so taking a slow process and engineering it down to seconds
+              is the exact kind of problem I obsess over.
             </p>
 
             <p className="leading-relaxed text-foreground">
-              A tech stack is just a means to an end. Picking up new stuff forces me to learn fast and keeps me moving quickly. That&apos;s also why I love hackathons: a perfect excuse to get into flow state and rapidly ship complex systems under pressure.
+              A tech stack is just a means to an end. Picking up new stuff
+              forces me to learn fast and keeps me moving quickly. That&apos;s
+              also why I love hackathons: a perfect excuse to get into flow
+              state and rapidly ship complex systems under pressure.
             </p>
 
             <p className="leading-relaxed text-foreground">
-              Recently, my work centers around AI Agents and backend infrastructure: building RAG systems that clear high legal bars for accuracy, and pipelines orchestrating agents to boost both speed and scalability.
+              Recently, my work centers around AI Agents and backend
+              infrastructure: building RAG systems that clear high legal bars
+              for accuracy, and pipelines orchestrating agents to boost both
+              speed and scalability.
             </p>
 
             <div className="leading-relaxed text-foreground">
@@ -113,42 +114,6 @@ export default function AboutPage() {
                 </li>
               </ul>
             </div>
-          </div>
-
-          {/* Links Section - Independent */}
-          <div className="flex flex-wrap mt-4 font-semibold items-center gap-4 sm:gap-7 justify-center sm:justify-start">
-            <a
-              href={externalLinks.github}
-              target="_blank"
-              className="flex items-center gap-1 text-foreground hover:text-primary active:text-primary focus:text-primary"
-            >
-              <IconBrandGithub stroke={2} className="w-5 h-5" />
-              GitHub
-            </a>
-            <a
-              href={externalLinks.linkedin}
-              target="_blank"
-              className="flex items-center gap-1 text-foreground hover:text-primary active:text-primary focus:text-primary"
-            >
-              <IconBrandLinkedin stroke={2} className="w-5 h-5" />
-              LinkedIn
-            </a>
-            <a
-              href="/Ricky_Tang_resume.pdf"
-              target="_blank"
-              className="flex items-center gap-1 text-foreground hover:text-primary active:text-primary focus:text-primary"
-            >
-              <IconFileCv stroke={2} className="w-5 h-5" />
-              Resume
-            </a>
-            <a
-              href={`mailto:${externalLinks.email}`}
-              target="_blank"
-              className="flex items-center gap-1 text-foreground hover:text-primary active:text-primary focus:text-primary"
-            >
-              <IconMail stroke={2} className="w-5 h-5" />
-              Email
-            </a>
           </div>
         </div>
       </div>

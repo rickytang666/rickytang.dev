@@ -5,19 +5,24 @@ import { ReactNode } from "react";
 
 interface LinkProps {
   className?: string;
-  href: string;
+  href?: string;
+  onClick?: () => void;
   isActive?: boolean;
   isNextLink?: boolean;
   children: ReactNode;
-  target?: string;
+  underlineWidth?: string;
+  underlineOffset?: string;
 }
 
 export default function Link({
   className = "",
   href,
+  onClick,
   isActive = false,
   isNextLink = false,
   children,
+  underlineWidth = "1.75px",
+  underlineOffset = "0px",
 }: LinkProps) {
   const baseStyles = `
     relative
@@ -29,15 +34,15 @@ export default function Link({
       `
       after:absolute
       after:left-0
-      after:bottom-0
-      after:h-[2px]
+      after:bottom-[var(--ub)]
+      after:h-[var(--uw)]
       after:w-full
       after:bg-border
       after:z-[1]
       before:absolute
       before:left-0
-      before:bottom-0
-      before:h-[2px]
+      before:bottom-[var(--ub)]
+      before:h-[var(--uw)]
       before:w-full
       before:bg-primary
       before:opacity-70
@@ -50,6 +55,11 @@ export default function Link({
     }
     ${className}
   `.trim();
+
+  const style = {
+    "--uw": underlineWidth,
+    "--ub": underlineOffset === "0px" ? "0px" : `-${underlineOffset}`,
+  } as React.CSSProperties;
 
   return (
     <>
@@ -73,8 +83,12 @@ export default function Link({
           }
         }
       `}</style>
-      {isNextLink ? (
-        <NextLink href={href} className={baseStyles}>
+      {onClick ? (
+        <button onClick={onClick} className={baseStyles} style={style}>
+          {children}
+        </button>
+      ) : isNextLink ? (
+        <NextLink href={href!} className={baseStyles} style={style}>
           {children}
         </NextLink>
       ) : (
@@ -83,6 +97,7 @@ export default function Link({
           target="_blank"
           rel="noopener noreferrer"
           className={baseStyles}
+          style={style}
         >
           {children}
         </a>

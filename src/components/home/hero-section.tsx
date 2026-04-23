@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import Link from "@/components/ui/link";
@@ -6,7 +8,7 @@ import { externalLinks } from "@/data/links";
 export default function HeroSection() {
   return (
     <section className="flex items-center py-6 min-h-[calc(100svh-72px)]">
-      <div className="w-full max-w-2xl mx-auto flex flex-col gap-8">
+      <div className="w-full max-w-3xl mx-auto flex flex-col gap-8">
         <h1 className="font-gaegu font-bold text-4xl sm:text-5xl text-foreground/65 mb-6">
           Hi there, I&apos;m Ricky :)
         </h1>
@@ -77,7 +79,7 @@ export default function HeroSection() {
           </p>
         </div>
 
-        <p className="text-sm sm:text-base text-foreground mt-4 leading-relaxed">
+        <p className="max-w-2xl text-sm sm:text-base text-foreground mt-4 leading-relaxed">
           I love taking slow processes and engineering them down to seconds.
           Currently focused on high-throughput RAG pipelines and scalable
           agentic systems.
@@ -88,9 +90,24 @@ export default function HeroSection() {
           <Link href="/about" isNextLink>
             more about me
           </Link>
-          , and{" "}
+          , and check out{" "}
           <Link href="/projects" isNextLink>
-            check out my projects
+            my projects
+          </Link>
+          .
+        </p>
+
+        <p className="text-sm sm:text-base">
+          ...psst! You can contact me in{" "}
+          <Link
+            onClick={() =>
+              window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: "smooth",
+              })
+            }
+          >
+            many ways
           </Link>
           .
         </p>
