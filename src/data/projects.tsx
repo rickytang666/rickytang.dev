@@ -1,5 +1,3 @@
-import React from "react";
-import Link from "@/components/ui/link";
 import Image from "next/image";
 import { Project } from "@/types";
 
@@ -7,19 +5,19 @@ export const projects: Project[] = [
   {
     title: "Quota",
     description: (
-      <>
+      <span>
         The first linter for your budget. 1st place overall at{" "}
         <span className="inline-block">
           <Image
             src="/projects/deltahacks_logo.svg"
             className="inline align-middle mx-1"
             alt=""
-            width={16}
-            height={16}
+            width={14}
+            height={14}
           />
           DeltaHacks 2026.
         </span>
-      </>
+      </span>
     ),
     image: "/projects/quota1.png",
     links: [
@@ -31,12 +29,8 @@ export const projects: Project[] = [
   },
   {
     title: "Sneuz",
-    description: (
-      <>
-        Brings back automatic sleep tracking Apple removed in iOS 18+. Set up
-        once, never touch it again.
-      </>
-    ),
+    description:
+      "Brings back automatic sleep tracking Apple removed in iOS 18+. Set up once, never touch it again.",
     image: "/projects/sneuz1.png",
     links: [
       {
@@ -51,12 +45,8 @@ export const projects: Project[] = [
   },
   {
     title: "Tark",
-    description: (
-      <>
-        Google Earth for game devs. Converts any real-world location into
-        textured .obj meshes in seconds.
-      </>
-    ),
+    description:
+      "Google Earth for game devs. Converts any real-world location into textured .obj meshes in seconds.",
     image: "/projects/tark1.png",
     links: [
       {
@@ -67,8 +57,8 @@ export const projects: Project[] = [
   },
   {
     title: "Auralis",
-    description: [
-      <>
+    description: (
+      <span>
         An AI doctor that talks with you in a video call. Best AI app built w/
         Cloudflare at{" "}
         <span className="inline-block">
@@ -76,13 +66,13 @@ export const projects: Project[] = [
             src="/projects/hackwestern_logo.jpg"
             className="inline align-middle mx-1"
             alt=""
-            width={16}
-            height={16}
+            width={14}
+            height={14}
           />
           Hack Western 2025.
         </span>
-      </>,
-    ],
+      </span>
+    ),
     image: "/projects/auralis1.jpeg",
     links: [
       {
@@ -98,7 +88,7 @@ export const projects: Project[] = [
   {
     title: "Post-It",
     description: (
-      <>
+      <span>
         Leave persistent 3D notes in the real world via Snap Spectacles.
         Semi-finalist at{" "}
         <span className="inline-block">
@@ -106,12 +96,12 @@ export const projects: Project[] = [
             src="/projects/htn_logo.jpg"
             className="inline align-middle mx-1"
             alt=""
-            width={16}
-            height={16}
+            width={14}
+            height={14}
           />
           Hack the North 2025.
         </span>
-      </>
+      </span>
     ),
     image: "/projects/post1.jpg",
     links: [
@@ -123,12 +113,8 @@ export const projects: Project[] = [
   },
   {
     title: "Nebula",
-    description: (
-      <>
-        Mobile notes app with camera import via OCR, semantic search, and LLM
-        chat.
-      </>
-    ),
+    description:
+      "Mobile notes app with camera import via OCR, semantic search, and LLM chat.",
     image: "/projects/nebula.png",
     links: [
       {
@@ -143,9 +129,8 @@ export const projects: Project[] = [
   },
   {
     title: "BrainLattice",
-    description: (
-      <>CLI + Web app that converts PDFs into fully linked Obsidian vaults.</>
-    ),
+    description:
+      "CLI + Web app that converts PDFs into fully linked Obsidian vaults.",
     image: "/projects/brain1.png",
     links: [
       {
@@ -160,12 +145,8 @@ export const projects: Project[] = [
   },
   {
     title: "FitSage",
-    description: (
-      <>
-        Fitness tracker that turns messy diary entries into structured workout
-        data, with AI workout curation.
-      </>
-    ),
+    description:
+      "Fitness tracker that turns messy diary entries into structured workout data, with AI workout curation.",
     image: "/projects/fit1.png",
     links: [
       {

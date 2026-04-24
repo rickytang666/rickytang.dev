@@ -34,11 +34,11 @@ export default function ProjectCard({ project }: { project: Project }) {
       <div className="flex items-center justify-between gap-4">
         <h3 className="text-lg font-medium">{project.title}</h3>
         <div className="flex items-center gap-3">
-          {project.links.map((link, idx) => {
+          {project.links.map((link) => {
             const Icon = getLinkIcon(link.name);
             return (
               <a
-                key={idx}
+                key={link.name}
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -51,9 +51,9 @@ export default function ProjectCard({ project }: { project: Project }) {
           })}
         </div>
       </div>
-      <p className="text-sm text-foreground/80 leading-relaxed">
+      <div className="text-sm text-foreground/80 leading-relaxed">
         {project.description}
-      </p>
+      </div>
     </div>
   );
 }
