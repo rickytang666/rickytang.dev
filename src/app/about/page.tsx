@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "@/components/ui/link";
 
 export const metadata: Metadata = {
-  title: "About",
   description:
     "learn more about ricky tangs, a full stack developer with a habit of curiosity and consistently building. improvement is a precious power, even if it's small, and he is here to chase it.",
 };

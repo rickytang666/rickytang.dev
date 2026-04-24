@@ -32,10 +32,7 @@ const gaegu = Gaegu({
 // metadata
 
 export const metadata: Metadata = {
-  title: {
-    default: "Ricky Tang",
-    template: "%s - Ricky Tang",
-  },
+  title: "Ricky Tang",
   description:
     "meet ricky tang - software engineering student at university of waterloo. aspiring software engineer focusing full-stack development.",
   keywords: [
