@@ -120,8 +120,8 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar />
-          <div className="relative flex flex-col flex-1 w-full px-6 sm:px-10 lg:px-0">
-            <div className="flex-1">{children}</div>
+          <div className="relative w-full px-6 sm:px-10 lg:px-0 py-10">
+            {children}
           </div>
           <Footer />
         </ThemeProvider>

@@ -15,56 +15,59 @@ import IconDevpost from "@/components/ui/icon-devpost";
 import IconRepo from "@/components/ui/icon-repo";
 import { externalLinks } from "@/data/links";
 
+const baseIconSize = "w-5 h-5 sm:w-6 sm:h-6";
+const adjustedIconSize = "w-5.5 h-5.5 sm:w-6.5 sm:h-6.5";
+
 const icons = [
   {
     href: externalLinks.websiteRepo,
     title: "source",
-    icon: <IconRepo className="w-[1.375rem] h-[1.375rem]" />,
+    icon: <IconRepo className={baseIconSize} />,
   },
   {
     href: externalLinks.email,
     title: "email",
-    icon: <IconMail stroke={2} className="w-6.5 h-6.5" />,
+    icon: <IconMail stroke={2} className={adjustedIconSize} />,
   },
   {
     href: externalLinks.github,
     title: "github",
-    icon: <IconBrandGithub stroke={2} className="w-6 h-6" />,
+    icon: <IconBrandGithub stroke={2} className={baseIconSize} />,
   },
   {
     href: externalLinks.linkedin,
     title: "linkedin",
-    icon: <IconBrandLinkedin stroke={2} className="w-6 h-6" />,
+    icon: <IconBrandLinkedin stroke={2} className={baseIconSize} />,
   },
   {
     href: "/Ricky_Tang_resume.pdf",
     title: "resume",
-    icon: <IconFileCv stroke={2} className="w-6 h-6" />,
+    icon: <IconFileCv stroke={2} className={baseIconSize} />,
   },
   {
     href: externalLinks.twitter,
     title: "x",
-    icon: <IconBrandX stroke={2} className="w-6 h-6" />,
+    icon: <IconBrandX stroke={2} className={baseIconSize} />,
   },
   {
     href: externalLinks.bluesky,
     title: "bluesky",
-    icon: <IconBrandBluesky stroke={2} className="w-6 h-6" />,
+    icon: <IconBrandBluesky stroke={2} className={baseIconSize} />,
   },
   {
     href: externalLinks.devpost,
     title: "devpost",
-    icon: <IconDevpost className="w-6 h-6" />,
+    icon: <IconDevpost className={baseIconSize} />,
   },
   {
     href: externalLinks.youtube,
     title: "youtube",
-    icon: <IconBrandYoutubeFilled className="w-6 h-6" />,
+    icon: <IconBrandYoutubeFilled className={baseIconSize} />,
   },
   {
     href: externalLinks.instagram,
     title: "instagram",
-    icon: <IconBrandInstagram stroke={2} className="w-6 h-6" />,
+    icon: <IconBrandInstagram stroke={2} className={adjustedIconSize} />,
   },
 ];
 
@@ -90,7 +93,7 @@ export default function FooterIcons() {
   }, []);
 
   return (
-    <div className="flex gap-2 min-[400px]:gap-3 items-center justify-center lg:justify-start p-2">
+    <div className="flex gap-2.5 min-[400px]:gap-3 items-center justify-center lg:justify-start p-2">
       {icons.map(({ href, title, icon }, i) => (
         <a
           key={title}

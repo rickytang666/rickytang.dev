@@ -24,9 +24,9 @@ export default function Navbar() {
           <Image
             src="/logo_ricfinity.svg"
             alt="RicFinity"
-            width={200}
-            height={200}
-            className="h-8 w-auto"
+            width={150}
+            height={150}
+            className="h-7 sm:h-8 lg:h-9 w-auto"
           />
         </Link>
 
@@ -37,7 +37,9 @@ export default function Navbar() {
               <Link
                 key={href}
                 href={href}
-                {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                {...(external
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
                 className={`text-foreground font-medium text-base${isActive ? " underline underline-offset-4 decoration-2" : ""}`}
               >
                 {label}
@@ -52,13 +54,19 @@ export default function Navbar() {
           onClick={() => setMobileOpen(true)}
           aria-label="Open menu"
         >
-          <IconLayoutSidebarRightExpandFilled stroke={2} className="w-6 h-6 text-foreground" />
+          <IconLayoutSidebarRightExpandFilled
+            stroke={2}
+            className="w-6 h-6 text-foreground"
+          />
         </button>
       </nav>
 
       {mobileOpen && (
         <div className="fixed inset-0 z-[100]">
-          <div className="absolute inset-0 bg-black/20" onClick={() => setMobileOpen(false)} />
+          <div
+            className="absolute inset-0 bg-black/20"
+            onClick={() => setMobileOpen(false)}
+          />
           <div className="absolute right-0 top-0 h-full w-48 bg-background border-l border-border flex flex-col p-6 gap-6">
             <button onClick={() => setMobileOpen(false)} className="self-end">
               <IconX stroke={2} className="w-5 h-5 text-foreground" />
@@ -69,7 +77,9 @@ export default function Navbar() {
                 <Link
                   key={href}
                   href={href}
-                  {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  {...(external
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
                   className={`text-foreground font-medium text-lg${isActive ? " underline underline-offset-4 decoration-2" : ""}`}
                   onClick={() => setMobileOpen(false)}
                 >

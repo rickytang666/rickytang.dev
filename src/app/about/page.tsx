@@ -9,11 +9,11 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="py-10">
+    <div>
       <div className="container mx-auto max-w-3xl lg:max-w-4xl">
         <div className="flex flex-col lg:flex-row lg:items-start gap-8">
           {/* Image */}
-          <div className="mx-auto lg:mx-0 lg:flex-shrink w-[280px] sm:w-[340px] lg:w-[400px] lg:min-w-[260px] overflow-hidden">
+          <div className="mx-auto lg:mx-0 lg:flex-shrink w-[280px] sm:w-[330px] lg:w-[390px] lg:min-w-[260px] overflow-hidden">
             <Image
               src="/about/myself.jpg"
               alt="Ricky Tang"

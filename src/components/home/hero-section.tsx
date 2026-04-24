@@ -8,7 +8,7 @@ import { IconArrowDown } from "@tabler/icons-react";
 
 export default function HeroSection() {
   return (
-    <section className="py-10">
+    <section>
       <div className="w-full max-w-3xl mx-auto flex flex-col gap-7 sm:gap-9">
         <h1 className="font-gaegu font-bold text-3xl sm:text-5xl text-foreground/65 mb-6">
           Hi there, I&apos;m Ricky :)
