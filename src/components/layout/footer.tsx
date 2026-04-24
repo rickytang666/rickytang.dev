@@ -27,11 +27,11 @@ export default async function Footer() {
 
   return (
     <footer className="w-full text-foreground mt-auto relative z-10">
-      <div className="max-w-3xl mx-auto py-3 xl:py-5 flex flex-col items-center md:items-start md:flex-row md:justify-between gap-4">
+      <div className="max-w-3xl mx-auto pt-5 md:pt-0 px-6 min-[800px]:px-0 py-3 xl:py-5 flex flex-col items-center sm:items-start sm:flex-row sm:justify-between gap-4">
         {/* col 1: name top, links bottom */}
-        <div className="w-full flex flex-col items-center md:justify-between md:items-start gap-4">
-          <p className="text-base lg:text-lg text-center lg:text-left p-2">
-            Ricky Tang <span className="text-lg font-black">·</span>{" "}
+        <div className="w-full flex flex-col items-center sm:justify-between sm:items-start gap-4">
+          <p className="text-sm sm:text-base text-center lg:text-left p-2">
+            &copy; Ricky Tang <span className="text-lg font-black"></span>{" "}
             {new Date().getFullYear()}
           </p>
           <FooterIcons />

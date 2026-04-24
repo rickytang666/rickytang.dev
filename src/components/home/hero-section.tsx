@@ -8,7 +8,7 @@ import { externalLinks } from "@/data/links";
 export default function HeroSection() {
   return (
     <section className="py-10">
-      <div className="w-full max-w-3xl mx-auto flex flex-col gap-7 lg:gap-9">
+      <div className="w-full max-w-3xl mx-auto flex flex-col gap-7 sm:gap-9">
         <h1 className="font-gaegu font-bold text-3xl sm:text-5xl text-foreground/65 mb-6">
           Hi there, I&apos;m Ricky :)
         </h1>
@@ -98,14 +98,29 @@ export default function HeroSection() {
         </p>
 
         <p className="text-sm sm:text-base">
-          ...psst! You can contact me in{" "}
+          You can reach out to me via{" "}
+          <Link href="/email" isNextLink>
+            email
+          </Link>
+          ,{" "}
+          <Link href="/twitter" isNextLink>
+            Twitter
+          </Link>
+          ,{" "}
+          <Link href="/linkedin" isNextLink>
+            LinkedIn
+          </Link>
+          , and{" "}
           <Link
             onClick={() => {
-              window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+              window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: "smooth",
+              });
               window.dispatchEvent(new CustomEvent("animateFooterIcons"));
             }}
           >
-            many ways
+            more
           </Link>
           .
         </p>

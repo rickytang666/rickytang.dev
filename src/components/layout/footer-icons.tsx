@@ -24,7 +24,7 @@ const icons = [
   {
     href: externalLinks.email,
     title: "email",
-    icon: <IconMail stroke={2} className="w-6 h-6" />,
+    icon: <IconMail stroke={2} className="w-6.5 h-6.5" />,
   },
   {
     href: externalLinks.github,
@@ -90,7 +90,7 @@ export default function FooterIcons() {
   }, []);
 
   return (
-    <div className="flex gap-2 min-[370px]:gap-3 min-[420px]:gap-4 items-center justify-center lg:justify-start p-2">
+    <div className="flex gap-2 min-[400px]:gap-3 items-center justify-center lg:justify-start p-2">
       {icons.map(({ href, title, icon }, i) => (
         <a
           key={title}
