@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "@/components/ui/link";
 import { externalLinks } from "@/data/links";
+import { IconArrowDown } from "@tabler/icons-react";
 
 export default function HeroSection() {
   return (
@@ -16,7 +17,7 @@ export default function HeroSection() {
         <p className="font-medium text-lg sm:text-2xl text-foreground flex flex-wrap items-center gap-x-2">
           Software Engineering @{" "}
           <span className="inline-flex items-center gap-1.5">
-            <Image src="/home/uwaterloo.svg" alt="" width={22} height={22} />
+            <Image src="/home/uwaterloo.svg" alt="" width={24} height={24} />
             <Link href={externalLinks.softwareEngineering}>UWaterloo</Link>
           </span>
         </p>
@@ -30,9 +31,11 @@ export default function HeroSection() {
                 alt=""
                 width={18}
                 height={18}
-                className="rounded-sm"
+                className="rounded-xs border-[0.1px] border-gray-300"
               />
-              <Link href="https://hamming.ai">Hamming AI (YC S24)</Link>
+              <Link href="https://hamming.ai" className="font-medium">
+                Hamming AI (YC S24)
+              </Link>
             </span>
           </p>
           <p className="flex flex-wrap items-center gap-x-1.5 gap-y-1">
@@ -43,9 +46,11 @@ export default function HeroSection() {
                 alt=""
                 width={18}
                 height={18}
-                className="rounded-sm"
+                className="rounded-xs"
               />
-              <Link href="https://watai.ca">WAT.ai</Link>
+              <Link href="https://watai.ca" className="font-medium">
+                WAT.ai
+              </Link>
             </span>{" "}
             ×{" "}
             <span className="inline-flex items-center gap-1">
@@ -54,9 +59,11 @@ export default function HeroSection() {
                 alt=""
                 width={18}
                 height={18}
-                className="rounded-sm"
+                className="rounded-xs"
               />
-              <Link href="https://bindwell.ai">Bindwell (YC W25)</Link>
+              <Link href="https://bindwell.ai" className="font-medium">
+                Bindwell (YC W25)
+              </Link>
             </span>
           </p>
           <p className="flex flex-wrap items-center gap-x-1.5 gap-y-1">
@@ -67,14 +74,24 @@ export default function HeroSection() {
                 alt=""
                 width={18}
                 height={18}
-                className="rounded-sm"
+                className="rounded-xs border-[0.1px] border-gray-300"
               />
-              <Link href="https://www.uwarg.com">WARG</Link>
+              <Link href="https://www.uwarg.com" className="font-medium">
+                WARG
+              </Link>
             </span>
             {", "}
             <span className="inline-flex items-center gap-1">
-              <Image src="/home/wato.svg" alt="" width={18} height={18} />
-              <Link href="https://watonomous.ca">WATonomous</Link>
+              <Image
+                src="/home/wato.svg"
+                alt=""
+                width={18}
+                height={18}
+                className="rounded-xs"
+              />
+              <Link href="https://watonomous.ca" className="font-medium">
+                WATonomous
+              </Link>
             </span>
           </p>
         </div>
@@ -97,20 +114,11 @@ export default function HeroSection() {
           .
         </p>
 
-        <p className="text-sm sm:text-base">
+        <p className="text-sm sm:text-base leading-relaxed">
           You can reach out to me via{" "}
-          <Link href="/email" isNextLink>
-            email
-          </Link>
-          ,{" "}
-          <Link href="/twitter" isNextLink>
-            Twitter
-          </Link>
-          ,{" "}
-          <Link href="/linkedin" isNextLink>
-            LinkedIn
-          </Link>
-          , and{" "}
+          <Link href={externalLinks.email}>email</Link>,{" "}
+          <Link href={externalLinks.twitter}>Twitter</Link>,{" "}
+          <Link href={externalLinks.linkedin}>LinkedIn</Link>, and{" "}
           <Link
             onClick={() => {
               window.scrollTo({
@@ -120,7 +128,7 @@ export default function HeroSection() {
               window.dispatchEvent(new CustomEvent("animateFooterIcons"));
             }}
           >
-            more
+            more <IconArrowDown stroke={1.5} className="w-5 h-5" />
           </Link>
           .
         </p>
