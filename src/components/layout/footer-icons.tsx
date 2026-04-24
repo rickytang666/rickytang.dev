@@ -13,6 +13,7 @@ import {
 } from "@tabler/icons-react";
 import IconDevpost from "@/components/ui/icon-devpost";
 import IconRepo from "@/components/ui/icon-repo";
+import IconCalcom from "@/components/ui/icon-calcom";
 import { externalLinks } from "@/data/links";
 
 const baseIconSize = "w-5 h-5 sm:w-6 sm:h-6";
@@ -48,6 +49,11 @@ const icons = [
     href: externalLinks.twitter,
     title: "x",
     icon: <IconBrandX stroke={2} className={baseIconSize} />,
+  },
+  {
+    href: externalLinks.calcom,
+    title: "book a call",
+    icon: <IconCalcom className="w-6 h-4 sm:w-7 sm:h-5" />,
   },
   {
     href: externalLinks.bluesky,

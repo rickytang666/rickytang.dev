@@ -18,7 +18,12 @@ export default function HeroSection() {
           Software Engineering @{" "}
           <span className="inline-flex items-center gap-1.5">
             <Image src="/home/uwaterloo.svg" alt="" width={24} height={24} />
-            <Link href={externalLinks.softwareEngineering}>UWaterloo</Link>
+            <Link
+              href={externalLinks.softwareEngineering}
+              underlineWidth="2.5px"
+            >
+              UWaterloo
+            </Link>
           </span>
         </p>
 

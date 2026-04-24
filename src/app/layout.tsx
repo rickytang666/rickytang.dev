@@ -126,11 +126,11 @@ export default function RootLayout({
           <Footer />
         </ThemeProvider>
       </body>
-      {/* Google Analytics (next third parties) */}
+      {/* google analytics */}
       <GoogleAnalytics gaId="G-ZY5XWJ2B3D" />
-      {/* Vercel Analytics (just to test it out lol) */}
+      {/* vercel analytics */}
       <Analytics />
-      {/* Vercel Speed Insights */}
+      {/* vercel speed insights */}
       <SpeedInsights />
     </html>
   );
