@@ -1,15 +1,16 @@
 import HeroSection from "@/components/home/hero-section";
+import FeaturedProjects from "@/components/home/featured-projects";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Home - Ricky Tang",
   description: "Meet Ricky Tang, an aspiring software engineer.",
 };
 
 export default function Home() {
   return (
-    <main>
+    <main className="flex flex-col gap-10">
       <HeroSection />
+      <FeaturedProjects />
     </main>
   );
 }

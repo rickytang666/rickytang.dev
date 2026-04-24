@@ -5,6 +5,8 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* a lot of vars are actually not used :/ */
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -77,64 +79,44 @@ body {
 }
 
 :root {
-  /* layout & spacing */
   --radius: 0.5rem;
 
-  /* base colors */
   --background: #fdf6e3;
   --foreground: #000000;
 
-  /* surface colors */
-  /* card: elevated surface with stronger teal presence */
   --card: oklch(92.932% 0.03182 187.079);
   --card-foreground: oklch(20% 0.025 200);
 
-  /* popover: bright surface for contrast */
   --popover: oklch(97% 0.02 185);
   --popover-foreground: oklch(20% 0.025 200);
 
-  /* brand colors */
-  /* primary: vibrant teal - your signature color for links, buttons, brand */
   --primary: oklch(55% 0.18 179);
   --primary-foreground: oklch(97.317% 0.01625 183.114);
 
-  /* secondary: muted teal - for secondary actions, tags, badges */
   --secondary: oklch(82% 0.06 185);
   --secondary-foreground: oklch(25% 0.04 185);
 
-  /* accent color */
-  /* accent: vibrant fuchsia - for CTAs, "live demo" badges, special highlights */
   --accent: oklch(62% 0.24 320);
   --accent-foreground: oklch(98% 0.01 320);
 
-  /* neutral colors */
-  /* muted: subtle teal backgrounds for less prominent content */
   --muted: oklch(88% 0.025 185);
   --muted-foreground: oklch(45% 0.035 190);
 
-  /* interaction colors */
-  /* border: visible teal borders that feel cohesive */
   --border: oklch(78% 0.045 185);
 
-  /* input: input borders with clear teal identity */
   --input: oklch(72% 0.055 185);
 
-  /* ring: focus rings - bright teal for accessibility */
   --ring: oklch(55% 0.18 179);
 
-  /* semantic colors */
-  /* destructive: warm red that complements teal */
   --destructive: oklch(58% 0.2 25);
   --destructive-foreground: oklch(98% 0.01 25);
 
-  /* chart colors - harmonious palette */
-  --chart-1: oklch(55% 0.18 179); /* teal */
-  --chart-2: oklch(62% 0.22 320); /* fuchsia */
-  --chart-3: oklch(60% 0.15 160); /* green-teal */
-  --chart-4: oklch(58% 0.18 280); /* purple */
-  --chart-5: oklch(52% 0.16 220); /* blue */
+  --chart-1: oklch(55% 0.18 179);
+  --chart-2: oklch(62% 0.22 320);
+  --chart-3: oklch(60% 0.15 160);
+  --chart-4: oklch(58% 0.18 280);
+  --chart-5: oklch(52% 0.16 220);
 
-  /* sidebar (if used) */
   --sidebar: oklch(82.224% 0.06902 182.012);
   --sidebar-foreground: oklch(25% 0.03 200);
   --sidebar-primary: oklch(55% 0.16 185);
@@ -144,7 +126,6 @@ body {
   --sidebar-border: oklch(80% 0.04 185);
   --sidebar-ring: oklch(55% 0.16 185);
 
-  /* shadows */
   --shadow-color: #000000;
   --shadow-opacity: 0.17;
   --shadow-blur: 3px;
@@ -168,72 +149,49 @@ body {
   --shadow-2xl: 0px 1px 3px 0px hsl(0 0% 0% / 0.43);
   --tracking-normal: 0.025em;
 
-  /* misc */
   --se30: oklch(76.696% 0.1528 90.703);
   --waterloo-network: oklch(50.5% 0.213 27.518);
 }
 
 .dark {
-  /* layout & spacing */
   --radius: 0.5rem;
 
-  /* base colors - comfortable dark theme */
-  /* background: soft dark gray with subtle teal hint for cohesion */
   --background: #1c1b18;
-  /* foreground: soft warm white to match the warm background */
   --foreground: oklch(92% 0.008 80);
 
-  /* surface colors */
-  /* card: elevated dark surface, clearly distinct from background */
   --card: oklch(27.053% 0.00875 184.787);
   --card-foreground: oklch(92% 0.012 190);
 
-  /* popover: slightly lighter for layering */
   --popover: oklch(37.055% 0.02404 196.26);
   --popover-foreground: oklch(92% 0.012 190);
 
-  /* brand colors */
-  /* primary: vibrant bright teal that pops against dark */
   --primary: oklch(70% 0.18 179);
   --primary-foreground: oklch(15% 0.01 240);
 
-  /* secondary: muted teal for less prominent elements */
   --secondary: oklch(25% 0.04 185);
   --secondary-foreground: oklch(85% 0.06 185);
 
-  /* accent color */
-  /* accent: bright fuchsia for CTAs and special highlights */
   --accent: oklch(68% 0.24 320);
   --accent-foreground: oklch(15% 0.01 240);
 
-  /* neutral colors */
-  /* muted: subtle dark backgrounds with teal hint */
   --muted: oklch(25% 0.012 195);
   --muted-foreground: oklch(65% 0.015 190);
 
-  /* interaction colors */
-  /* border: visible borders with subtle teal */
   --border: oklch(38% 0.02 195);
 
-  /* input: input borders slightly brighter with teal */
   --input: oklch(42% 0.025 195);
 
-  /* ring: bright teal focus rings for accessibility */
   --ring: oklch(70% 0.18 179);
 
-  /* semantic colors */
-  /* destructive: warm red for errors */
   --destructive: oklch(60% 0.22 25);
   --destructive-foreground: oklch(98% 0.01 25);
 
-  /* chart colors - vibrant palette for dark mode */
-  --chart-1: oklch(70% 0.18 179); /* bright teal */
-  --chart-2: oklch(68% 0.24 320); /* bright fuchsia */
-  --chart-3: oklch(72% 0.16 160); /* bright green-teal */
-  --chart-4: oklch(65% 0.2 280); /* bright purple */
-  --chart-5: oklch(62% 0.18 220); /* blue */
+  --chart-1: oklch(70% 0.18 179);
+  --chart-2: oklch(68% 0.24 320);
+  --chart-3: oklch(72% 0.16 160);
+  --chart-4: oklch(65% 0.2 280);
+  --chart-5: oklch(62% 0.18 220);
 
-  /* sidebar (if used) */
   --sidebar: oklch(24.464% 0.00446 197.211);
   --sidebar-foreground: oklch(88% 0.015 190);
   --sidebar-primary: oklch(70% 0.15 185);
@@ -243,7 +201,6 @@ body {
   --sidebar-border: oklch(41.838% 0.01891 196.592);
   --sidebar-ring: oklch(70% 0.15 185);
 
-  /* shadows - darker for dark mode */
   --shadow-color: #000000;
   --shadow-opacity: 0.5;
   --shadow-blur: 3px;
@@ -266,7 +223,6 @@ body {
     0px 1px 3px 0px hsl(0 0% 0% / 0.5), 0px 8px 10px -1px hsl(0 0% 0% / 0.5);
   --shadow-2xl: 0px 1px 3px 0px hsl(0 0% 0% / 0.7);
 
-  /* misc */
   --se30: oklch(0.8695 0.1738 90.82);
   --waterloo-network: oklch(63.7% 0.237 25.331);
 }
@@ -277,7 +233,7 @@ body {
   }
 
   html {
-    @apply overscroll-none scroll-smooth;
+    @apply overscroll-none;
     scrollbar-width: thin;
     scrollbar-color: oklch(from var(--foreground) l c h / 0.15) transparent;
   }

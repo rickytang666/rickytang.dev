@@ -32,7 +32,7 @@ export default function ProjectCard({ project }: { project: Project }) {
         />
       </div>
       <div className="flex items-center justify-between gap-4">
-        <h3 className="text-lg font-medium">{project.title}</h3>
+        <h3 className="text-base font-medium">{project.title}</h3>
         <div className="flex items-center gap-3">
           {project.links.map((link) => {
             const Icon = getLinkIcon(link.name);
