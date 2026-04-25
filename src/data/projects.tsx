@@ -19,6 +19,36 @@ export const projects: Project[] = [
     ],
   },
   {
+    title: "YapDraw",
+    description: (
+      <span>
+        Wispr Flow for Excalidraw. Build Excalidraw diagrams entirely by voice.
+        Winner at{" "}
+        <span className="inline-block">
+          <Image
+            src="/projects/genai_genesis_logo.png"
+            className="inline align-middle mx-1"
+            alt=""
+            width={13}
+            height={13}
+          />
+          GenAI Genesis 2026.
+        </span>
+      </span>
+    ),
+    image: "/projects/yapdraw.png",
+    links: [
+      {
+        name: "GitHub",
+        url: "https://github.com/rickytang666/yapdraw",
+      },
+      {
+        name: "Website",
+        url: "https://yapdraw.vercel.app/",
+      },
+    ],
+  },
+  {
     title: "Quota",
     description: (
       <span>
@@ -44,18 +74,14 @@ export const projects: Project[] = [
     ],
   },
   {
-    title: "Sneuz",
+    title: "LeetRAG",
     description:
-      "Brings back automatic sleep tracking Apple removed in iOS 18+. Set up once, never touch it again.",
-    image: "/projects/sneuz.png",
+      "Claude Code, but for grinding LeetCode. It lives in your terminal and knows all your submissions history.",
+    image: "/projects/leetrag.png",
     links: [
       {
         name: "GitHub",
-        url: "https://github.com/rickytang666/sneuz",
-      },
-      {
-        name: "Website",
-        url: "https://sneuz.rickytang.dev",
+        url: "https://github.com/rickytang666/leetrag",
       },
     ],
   },
@@ -72,10 +98,50 @@ export const projects: Project[] = [
     ],
   },
   {
+    title: "Prospector",
+    description:
+      "Discord bot that finds the perfect sponsors for your design team and cold emails them.",
+    image: "/projects/prospector.png",
+    links: [
+      {
+        name: "GitHub",
+        url: "https://github.com/rickytang666/prospector",
+      },
+    ],
+  },
+  {
+    title: "Sneuz",
+    description:
+      "Brings back automatic sleep tracking Apple removed in iOS 18+. Set up once, never touch it again.",
+    image: "/projects/sneuz.png",
+    links: [
+      {
+        name: "GitHub",
+        url: "https://github.com/rickytang666/sneuz",
+      },
+      {
+        name: "Website",
+        url: "https://sneuz.rickytang.dev",
+      },
+    ],
+  },
+  {
+    title: "DocBot",
+    description:
+      "A CLI tool that turns any codebase into a interactive knowledge map that you can actually navigate.",
+    image: "/projects/docbot.png",
+    links: [
+      {
+        name: "GitHub",
+        url: "https://github.com/ariobarin/docbot",
+      },
+    ],
+  },
+  {
     title: "Auralis",
     description: (
       <span>
-        An AI doctor that talks with you in a video call. Best AI app built w/
+        An AI doctor that talks with you in a video call. Best AI app built with
         Cloudflare at{" "}
         <span className="inline-block">
           <Image
