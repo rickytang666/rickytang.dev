@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import ProjectsClient from "@/components/projects/projects-client";
-
-// separated this and projects-client to use metadata here
+import { projects } from "@/data/projects";
+import ProjectCard from "@/components/projects/project-card";
 
 export const metadata: Metadata = {
   description:
@@ -9,5 +8,13 @@ export const metadata: Metadata = {
 };
 
 export default function ProjectsPage() {
-  return <ProjectsClient />;
+  return (
+    <div className="max-w-3xl mx-auto">
+      <div className="grid gap-10 sm:gap-x-10 sm:gap-y-12 grid-cols-1 sm:grid-cols-2">
+        {projects.map((project) => (
+          <ProjectCard key={project.title} project={project} />
+        ))}
+      </div>
+    </div>
+  );
 }
