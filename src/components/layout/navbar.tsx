@@ -22,11 +22,12 @@ export default function Navbar() {
       <nav className="w-full flex items-center justify-between px-8 py-6">
         <Link href="/">
           <Image
-            src="/logo_ricfinity.svg"
+            src="/logo_ricfinity.png"
             alt="RicFinity"
             width={150}
             height={150}
             className="h-7 sm:h-8 lg:h-9 w-auto"
+            priority
           />
         </Link>
 
