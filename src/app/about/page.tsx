@@ -4,7 +4,7 @@ import Link from "@/components/ui/link";
 
 export const metadata: Metadata = {
   description:
-    "learn more about ricky tangs, a full stack developer with a habit of curiosity and consistently building. improvement is a precious power, even if it's small, and he is here to chase it.",
+    "learn more about ricky tang. a software engineer focused on orchestrating ai agents and scalable infrastructure.",
   alternates: { canonical: "/about" },
 };
 

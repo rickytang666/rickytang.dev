@@ -34,7 +34,7 @@ const gaegu = Gaegu({
 export const metadata: Metadata = {
   title: "Ricky Tang",
   description:
-    "meet ricky tang - software engineering student at university of waterloo. aspiring software engineer focusing full-stack development.",
+    "meet ricky tang - software engineering at university of waterloo. engineering at hamming ai, wat.ai, and bindwell.",
   keywords: [
     "ricky",
     "ricky tang",
@@ -53,6 +53,10 @@ export const metadata: Metadata = {
     "ricky tang website",
     "uwaterloo software engineering",
     "uwaterloo se",
+    "hamming ai",
+    "hamming",
+    "wat.ai",
+    "bindwell",
   ],
   authors: [{ name: "Ricky Tang" }],
   creator: "Ricky Tang",
@@ -66,7 +70,7 @@ export const metadata: Metadata = {
     siteName: "rickytang.dev",
     title: "Ricky Tang",
     description:
-      "meet ricky tang - software engineering student at university of waterloo. aspiring software engineer focusing full-stack development.",
+      "meet ricky tang - software engineering at university of waterloo.",
     images: [
       {
         url: "/og-image.png",
@@ -81,7 +85,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Ricky Tang",
     description:
-      "meet ricky tang - software engineering student at university of waterloo. aspiring software engineer focusing full-stack development.",
+      "meet ricky tang - software engineering at university of waterloo.",
     images: ["/og-image.png"],
   },
 

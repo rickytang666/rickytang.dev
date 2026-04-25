@@ -3,7 +3,8 @@ import FeaturedProjects from "@/components/home/featured-projects";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  description: "Meet Ricky Tang, an aspiring software engineer.",
+  description:
+    "meet ricky tang - software engineering at university of waterloo. currently focused on high-throughput RAG pipelines and scalable agentic systems.",
 };
 
 const jsonLd = {
@@ -20,6 +21,7 @@ const jsonLd = {
     "https://bsky.app/profile/rickytang.dev",
     "https://devpost.com/rickytang",
     "https://www.youtube.com/@rickytangdev",
+    "https://instagram.com/rickytang.dev",
   ],
 };
 
