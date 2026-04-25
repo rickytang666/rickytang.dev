@@ -21,12 +21,12 @@ const getLinkIcon = (name: string) => {
 export default function ProjectCard({ project }: { project: Project }) {
   return (
     <div className="flex flex-col gap-3">
-      <div className="w-full aspect-video overflow-hidden bg-black">
+      <div className="w-full aspect-[16/10] overflow-hidden bg-black">
         <Image
           src={project.image}
           alt={project.title}
           width={800}
-          height={450}
+          height={500}
           className="w-full h-full object-cover"
           unoptimized
         />

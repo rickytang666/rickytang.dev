@@ -3,6 +3,22 @@ import { Project } from "@/types";
 
 export const projects: Project[] = [
   {
+    title: "BrainLattice",
+    description:
+      "CLI + Web app that converts PDFs into fully linked Obsidian vaults.",
+    image: "/projects/brainlattice.png",
+    links: [
+      {
+        name: "GitHub",
+        url: "https://github.com/rickytang666/brainlattice",
+      },
+      {
+        name: "Website",
+        url: "https://brainlattice.rickytang.dev/",
+      },
+    ],
+  },
+  {
     title: "Quota",
     description: (
       <span>
@@ -19,7 +35,7 @@ export const projects: Project[] = [
         </span>
       </span>
     ),
-    image: "/projects/quota1.png",
+    image: "/projects/quota.png",
     links: [
       {
         name: "GitHub",
@@ -31,7 +47,7 @@ export const projects: Project[] = [
     title: "Sneuz",
     description:
       "Brings back automatic sleep tracking Apple removed in iOS 18+. Set up once, never touch it again.",
-    image: "/projects/sneuz1.png",
+    image: "/projects/sneuz.png",
     links: [
       {
         name: "GitHub",
@@ -47,7 +63,7 @@ export const projects: Project[] = [
     title: "Tark",
     description:
       "Google Earth for game devs. Converts any real-world location into textured .obj meshes in seconds.",
-    image: "/projects/tark1.png",
+    image: "/projects/tark.png",
     links: [
       {
         name: "GitHub",
@@ -64,7 +80,7 @@ export const projects: Project[] = [
         <span className="inline-block">
           <Image
             src="/projects/hackwestern_logo.jpg"
-            className="inline align-middle mx-1"
+            className="inline align-middle mx-1 rounded-xs"
             alt=""
             width={14}
             height={14}
@@ -73,7 +89,7 @@ export const projects: Project[] = [
         </span>
       </span>
     ),
-    image: "/projects/auralis1.jpeg",
+    image: "/projects/auralis.png",
     links: [
       {
         name: "GitHub",
@@ -94,7 +110,7 @@ export const projects: Project[] = [
         <span className="inline-block">
           <Image
             src="/projects/htn_logo.jpg"
-            className="inline align-middle mx-1"
+            className="inline align-middle mx-1 rounded-xs"
             alt=""
             width={14}
             height={14}
@@ -103,7 +119,7 @@ export const projects: Project[] = [
         </span>
       </span>
     ),
-    image: "/projects/post1.jpg",
+    image: "/projects/post-it.jpg",
     links: [
       {
         name: "GitHub",
@@ -128,26 +144,10 @@ export const projects: Project[] = [
     ],
   },
   {
-    title: "BrainLattice",
-    description:
-      "CLI + Web app that converts PDFs into fully linked Obsidian vaults.",
-    image: "/projects/brain1.png",
-    links: [
-      {
-        name: "GitHub",
-        url: "https://github.com/rickytang666/brainlattice",
-      },
-      {
-        name: "Website",
-        url: "https://brainlattice.rickytang.dev/",
-      },
-    ],
-  },
-  {
     title: "FitSage",
     description:
       "Fitness tracker that turns messy diary entries into structured workout data, with AI workout curation.",
-    image: "/projects/fit1.png",
+    image: "/projects/fitsage.png",
     links: [
       {
         name: "GitHub",
