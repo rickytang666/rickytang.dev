@@ -12,7 +12,6 @@ export default function AboutPage() {
     <div>
       <div className="container mx-auto max-w-3xl lg:max-w-4xl">
         <div className="flex flex-col lg:flex-row lg:items-start gap-8">
-          {/* Image */}
           <div className="mx-auto lg:mx-0 lg:flex-shrink w-[280px] sm:w-[330px] lg:w-[390px] lg:min-w-[260px] overflow-hidden">
             <Image
               src="/about/myself.jpg"
@@ -24,15 +23,14 @@ export default function AboutPage() {
             />
           </div>
 
-          {/* Content Section */}
           <div className="flex-1 flex flex-col gap-6">
-            <div className="space-y-5">
-              <p className="leading-relaxed text-foreground">
+            <div className="space-y-5 leading-relaxed">
+              <p className="text-foreground">
                 My name is Ricky Tang. I study Software Engineering at the
                 University of Waterloo.
               </p>
 
-              <p className="leading-relaxed text-foreground">
+              <p className="text-foreground">
                 I build tools because I want them to exist in my own life. As my
                 own most demanding user, I&apos;m obsessed with engineering a
                 slow process down to seconds. Learning new tech is just a means
@@ -41,14 +39,14 @@ export default function AboutPage() {
                 into flow state and ship complex systems under pressure.
               </p>
 
-              <p className="leading-relaxed text-foreground">
+              <p className="text-foreground">
                 Recently, I&apos;ve focused on AI Agents and backend
                 infrastructure: building RAG systems that clear high legal bars
                 for accuracy, and pipelines orchestrating agents for both speed
                 and scalability.
               </p>
 
-              <div className="leading-relaxed text-foreground">
+              <div className="text-foreground">
                 <p className="mb-2">
                   Outside of school/coding, you can find me:
                 </p>
@@ -87,9 +85,9 @@ export default function AboutPage() {
                       <Image
                         src="/about/github_logo.png"
                         alt="💻"
-                        width={18}
-                        height={18}
-                        className="inline align-middle mx-1"
+                        width={20}
+                        height={20}
+                        className="inline align-middle mx-1 rounded-sm"
                       />
                       <Link href="https://github.com">
                         inspirational projects

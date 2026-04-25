@@ -9,12 +9,12 @@ import { IconArrowDown } from "@tabler/icons-react";
 export default function HeroSection() {
   return (
     <section>
-      <div className="w-full max-w-3xl mx-auto flex flex-col gap-7 sm:gap-9">
-        <h1 className="font-gaegu font-bold text-3xl sm:text-5xl text-foreground/65 mb-6">
+      <div className="w-full max-w-3xl mx-auto flex flex-col gap-9 md:gap-10 mt-5 md:mt-8 lg:mt-10">
+        <h1 className="font-gaegu font-bold text-3xl sm:text-5xl text-foreground/65 mb-8 lg:mb-10">
           Hi there, I&apos;m Ricky :)
         </h1>
 
-        <p className="font-medium text-lg sm:text-2xl text-foreground flex flex-wrap items-center gap-x-2">
+        <p className="font-medium text-[17px] [min-width:380px]:text-lg sm:text-2xl text-foreground flex flex-wrap items-center gap-x-2">
           Software Engineering @{" "}
           <span className="inline-flex items-center gap-1.5">
             <Image src="/home/uwaterloo.svg" alt="" width={24} height={24} />
@@ -27,7 +27,7 @@ export default function HeroSection() {
           </span>
         </p>
 
-        <div className="flex flex-col gap-4 text-sm sm:text-base text-foreground mt-1">
+        <div className="flex flex-col gap-4 md:gap-5 text-sm sm:text-base text-foreground mt-1">
           <p className="flex flex-wrap items-center gap-x-1.5 gap-y-1">
             Incoming @{" "}
             <span className="inline-flex items-center gap-1">
@@ -101,7 +101,7 @@ export default function HeroSection() {
           </p>
         </div>
 
-        <p className="max-w-2xl text-sm sm:text-base text-foreground mt-4 leading-relaxed">
+        <p className="max-w-2xl text-sm sm:text-base text-foreground mt-4 leading-7 lg:leading-8">
           I love taking slow processes and engineering them down to seconds.
           Currently focused on high-throughput RAG pipelines and scalable
           agentic systems.
@@ -119,7 +119,7 @@ export default function HeroSection() {
           .
         </p>
 
-        <p className="text-sm sm:text-base leading-relaxed">
+        <p className="text-sm sm:text-base leading-7 lg:leading-8">
           You can reach out to me via{" "}
           <Link href={externalLinks.email}>email</Link>,{" "}
           <Link href={externalLinks.twitter}>Twitter</Link>,{" "}

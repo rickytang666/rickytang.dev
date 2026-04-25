@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="flex flex-col gap-20">
+    <main className="flex flex-col gap-20 lg:gap-25">
       <HeroSection />
       <FeaturedProjects />
     </main>
