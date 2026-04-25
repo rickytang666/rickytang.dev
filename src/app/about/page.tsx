@@ -18,6 +18,7 @@ export default function AboutPage() {
               alt="Ricky Tang"
               width={500}
               height={500}
+              sizes="(min-width: 1024px) 390px, (min-width: 640px) 330px, 280px"
               className="w-full h-auto object-cover"
               priority
             />

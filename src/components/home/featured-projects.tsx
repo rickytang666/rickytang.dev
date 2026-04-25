@@ -22,7 +22,7 @@ export default function FeaturedProjects() {
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
         {featured.map((project) => (
-          <ProjectCard key={project.title} project={project} />
+          <ProjectCard key={project.title} project={project} priority />
         ))}
       </div>
     </section>

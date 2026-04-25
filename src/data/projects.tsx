@@ -128,7 +128,7 @@ export const projects: Project[] = [
   {
     title: "DocBot",
     description:
-      "A CLI tool that turns any codebase into a interactive knowledge map that you can actually navigate.",
+      "CLI tool that turns any codebase into a interactive knowledge map that you can actually navigate.",
     image: "/projects/docbot.png",
     links: [
       {

@@ -18,7 +18,13 @@ const getLinkIcon = (name: string) => {
   }
 };
 
-export default function ProjectCard({ project }: { project: Project }) {
+export default function ProjectCard({
+  project,
+  priority = false,
+}: {
+  project: Project;
+  priority?: boolean;
+}) {
   return (
     <div className="flex flex-col gap-3">
       <div className="w-full aspect-[16/10] overflow-hidden bg-black">
@@ -27,8 +33,9 @@ export default function ProjectCard({ project }: { project: Project }) {
           alt={project.title}
           width={800}
           height={500}
+          sizes="(min-width: 640px) 45vw, 100vw"
           className="w-full h-full object-cover"
-          unoptimized
+          priority={priority}
         />
       </div>
       <div className="flex items-center justify-between gap-4">
