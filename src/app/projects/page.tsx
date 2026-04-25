@@ -5,6 +5,7 @@ import ProjectCard from "@/components/projects/project-card";
 export const metadata: Metadata = {
   description:
     "Explore Ricky's projects, from AI-powered fitness companions to sustainable living tools. Leveling up skills, one project at a time.",
+  alternates: { canonical: "/projects" },
 };
 
 export default function ProjectsPage() {

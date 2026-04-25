@@ -5,6 +5,7 @@ import Link from "@/components/ui/link";
 export const metadata: Metadata = {
   description:
     "learn more about ricky tangs, a full stack developer with a habit of curiosity and consistently building. improvement is a precious power, even if it's small, and he is here to chase it.",
+  alternates: { canonical: "/about" },
 };
 
 export default function AboutPage() {
