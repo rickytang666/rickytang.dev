@@ -177,7 +177,7 @@ export default function CommandPalette({
                     className="flex-1 bg-transparent py-4 text-sm outline-none placeholder:text-foreground/40"
                   />
                   {!isMobile && (
-                    <kbd className="shrink-0 text-[10px] text-foreground/40 border border-border rounded px-1.5 py-0.5 font-mono">
+                    <kbd className="shrink-0 font-mono text-[11px] text-foreground/50 bg-muted px-1.5 py-0.5 rounded-sm">
                       ESC
                     </kbd>
                   )}
@@ -217,6 +217,14 @@ export default function CommandPalette({
                   </Command.Group>
 
                   <Command.Group heading="Links" className={groupClass}>
+                    <Command.Item
+                      value="Copy Email"
+                      onSelect={copyEmail}
+                      className={itemClass}
+                    >
+                      <IconMail stroke={2} className="w-4 h-4 shrink-0" />
+                      Copy Email
+                    </Command.Item>
                     {[
                       {
                         id: "github",
@@ -253,14 +261,6 @@ export default function CommandPalette({
                         {label}
                       </Command.Item>
                     ))}
-                    <Command.Item
-                      value="Copy Email"
-                      onSelect={copyEmail}
-                      className={itemClass}
-                    >
-                      <IconMail stroke={2} className="w-4 h-4 shrink-0" />
-                      Copy Email
-                    </Command.Item>
                   </Command.Group>
 
                   <Command.Group heading="Appearance" className={groupClass}>
