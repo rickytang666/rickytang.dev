@@ -9,8 +9,8 @@ import { IconArrowDown } from "@tabler/icons-react";
 export default function HeroSection() {
   return (
     <section>
-      <div className="w-full max-w-3xl mx-auto flex flex-col gap-9 md:gap-11 mt-5 md:mt-8 lg:mt-10">
-        <h1 className="font-gaegu font-bold text-3xl sm:text-5xl text-foreground/65 mb-8 lg:mb-10">
+      <div className="w-full max-w-3xl mx-auto flex flex-col gap-6 md:gap-11 mt-0 md:mt-5 lg:mt-10">
+        <h1 className="font-gaegu font-bold text-3xl sm:text-5xl text-foreground/65 mb-4 md:mb-8 lg:mb-10">
           Hi there, I&apos;m Ricky :)
         </h1>
 
@@ -27,7 +27,7 @@ export default function HeroSection() {
           </span>
         </p>
 
-        <div className="flex flex-col gap-4 md:gap-5 text-sm sm:text-base text-foreground mt-1">
+        <div className="flex flex-col gap-3 md:gap-5 text-sm sm:text-base text-foreground mt-1">
           <p className="flex flex-wrap items-center gap-x-1.5 gap-y-1">
             Incoming @{" "}
             <span className="inline-flex items-center gap-1">

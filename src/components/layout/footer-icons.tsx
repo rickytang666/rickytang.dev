@@ -107,7 +107,7 @@ export default function FooterIcons() {
           target="_blank"
           rel="noopener noreferrer"
           title={title}
-          className={`flex items-center transition-all duration-200 hover:text-primary ${
+          className={`flex items-center transition-[color,filter] duration-200 hover:text-primary [transform:translateZ(0)] ${
             activeIndex === i
               ? "text-primary drop-shadow-[0_0_4px_color-mix(in_srgb,var(--color-primary)_60%,transparent)]"
               : "text-foreground"
