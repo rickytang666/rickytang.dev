@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 import { Command } from "cmdk";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -44,6 +44,7 @@ export default function CommandPalette({
   onOpenChange,
 }: CommandPaletteProps) {
   const router = useRouter();
+  const pathname = usePathname();
   const { theme, setTheme } = useTheme();
   const [copied, setCopied] = useState(false);
   const mounted = useSyncExternalStore(() => () => {}, () => true, () => false);
@@ -271,6 +272,9 @@ export default function CommandPalette({
                       >
                         <Icon stroke={2} className="w-4 h-4 shrink-0" />
                         <span className="flex-1">{label}</span>
+                        {pathname === href && (
+                          <span className="w-1.5 h-1.5 rounded-full bg-primary/50 shrink-0" />
+                        )}
                         {!isMobile && (
                           <span className="flex items-center gap-1">
                             <kbd className="font-mono text-xs text-foreground/70 bg-foreground/10 px-1.5 py-0.5 rounded-sm">
