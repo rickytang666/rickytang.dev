@@ -23,15 +23,16 @@ import { externalLinks } from "@/data/links";
 
 const EMAIL = "rickytangdev@gmail.com";
 
-const useIsMobile = () => {
-  const [isMobile, setIsMobile] = useState(false);
+const useIsTouch = () => {
+  const [isTouch, setIsTouch] = useState(false);
   useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 640);
+    const mq = window.matchMedia("(pointer: coarse)");
+    const check = () => setIsTouch(mq.matches);
     check();
-    window.addEventListener("resize", check);
-    return () => window.removeEventListener("resize", check);
+    mq.addEventListener("change", check);
+    return () => mq.removeEventListener("change", check);
   }, []);
-  return isMobile;
+  return isTouch;
 };
 
 interface CommandPaletteProps {
@@ -53,7 +54,7 @@ export default function CommandPalette({
   const chordTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const routerRef = useRef(router);
   const onOpenChangeRef = useRef(onOpenChange);
-  const isMobile = useIsMobile();
+  const isMobile = useIsTouch();
   const isDark = theme === "dark";
 
   useEffect(() => {
