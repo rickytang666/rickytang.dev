@@ -1,18 +1,12 @@
 import React from "react";
 import Image from "next/image";
-import {
-  IconBrandGithub,
-  IconExternalLink,
-  IconBrandAppstore,
-} from "@tabler/icons-react";
+import { IconBrandGithub, IconExternalLink } from "@tabler/icons-react";
 import { Project } from "@/types";
 
 const getLinkIcon = (name: string) => {
   switch (name.toLowerCase()) {
     case "github":
       return IconBrandGithub;
-    case "testflight":
-      return IconBrandAppstore;
     default:
       return IconExternalLink;
   }

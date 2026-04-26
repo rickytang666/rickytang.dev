@@ -203,10 +203,6 @@ export const projects: Project[] = [
         name: "GitHub",
         url: "https://github.com/rickytang666/nebula",
       },
-      {
-        name: "TestFlight",
-        url: "https://testflight.apple.com/join/9H8gv9a8",
-      },
     ],
   },
   {
