@@ -6,6 +6,7 @@ import SeWebring from "@/components/ui/se-webring";
 import SeWebringLogo from "@/components/ui/se-webring-logo";
 import Se30Webring from "@/components/ui/se30-webring";
 import WaterlooWebring from "@/components/ui/waterloo-network";
+import CanadaWebring from "@/components/ui/canada-webring";
 
 interface WebringMember {
   name: string;
@@ -26,7 +27,7 @@ export default function WebringSwitcher({
   // 0: se webring
   // 1: se30 webring
   // 2: waterloo webring
-  const TOTAL_WEBRINGS = 3;
+  const TOTAL_WEBRINGS = 4;
 
   // trackpad / wheel logic
   const containerRef = useRef<HTMLDivElement>(null);
@@ -139,7 +140,9 @@ export default function WebringSwitcher({
       ? "SE Webring"
       : index === 1
         ? "SE '30 Webring"
-        : "Waterloo Network";
+        : index === 2
+          ? "Waterloo Network"
+          : "Canada Webring";
 
   // calculate animation target
   // normal: -100% * index
@@ -187,6 +190,11 @@ export default function WebringSwitcher({
           <div className="min-w-full flex justify-center">
             <WaterlooWebring members={waterlooMembers} />
           </div>
+
+          {/* canada webring */}
+          <div className="min-w-full flex justify-center">
+            <CanadaWebring />
+          </div>
         </motion.div>
       </div>
 
@@ -219,6 +227,15 @@ export default function WebringSwitcher({
                 : "bg-muted-foreground/30 hover:bg-muted-foreground/50 hover:scale-110"
             }`}
             aria-label="Show Waterloo Network"
+          />
+          <button
+            onClick={() => setIndex(3)}
+            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+              index === 3
+                ? "bg-canada-webring scale-110"
+                : "bg-muted-foreground/30 hover:bg-muted-foreground/50 hover:scale-110"
+            }`}
+            aria-label="Show Canada Webring"
           />
         </div>
 
