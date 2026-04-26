@@ -48,8 +48,19 @@ export default function CommandPalette({
   const [copied, setCopied] = useState(false);
   const [mounted, setMounted] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
+  const chordRef = useRef<string | null>(null);
+  const chordTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const routerRef = useRef(router);
+  const onOpenChangeRef = useRef(onOpenChange);
   const isMobile = useIsMobile();
   const isDark = theme === "dark";
+
+  useEffect(() => {
+    routerRef.current = router;
+  }, [router]);
+  useEffect(() => {
+    onOpenChangeRef.current = onOpenChange;
+  }, [onOpenChange]);
 
   useEffect(() => setMounted(true), []);
 
@@ -66,6 +77,41 @@ export default function CommandPalette({
     window.addEventListener("keydown", down);
     return () => window.removeEventListener("keydown", down);
   }, [open, onOpenChange]);
+
+  // R → H/A/P sequence, global
+  useEffect(() => {
+    const routes: Record<string, string> = {
+      h: "/",
+      a: "/about",
+      p: "/projects",
+    };
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (
+        e.target instanceof HTMLInputElement ||
+        e.target instanceof HTMLTextAreaElement
+      )
+        return;
+      if (e.metaKey || e.ctrlKey || e.altKey || e.repeat) return;
+      const key = e.key.toLowerCase();
+      if (key === "r") {
+        chordRef.current = "r";
+        if (chordTimerRef.current) clearTimeout(chordTimerRef.current);
+        chordTimerRef.current = setTimeout(() => {
+          chordRef.current = null;
+        }, 800);
+      } else if (chordRef.current === "r" && routes[key]) {
+        if (chordTimerRef.current) clearTimeout(chordTimerRef.current);
+        chordRef.current = null;
+        e.preventDefault();
+        routerRef.current.push(routes[key]);
+        onOpenChangeRef.current(false);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   // focus input on desktop
   useEffect(() => {
@@ -183,27 +229,42 @@ export default function CommandPalette({
                   )}
                 </div>
 
-                <Command.List className="overflow-y-auto scroll-smooth overscroll-contain scrollbar-thin p-2 max-h-[58vh] sm:max-h-72" style={{ scrollbarWidth: "thin", scrollbarColor: "oklch(from var(--foreground) l c h / 0.15) transparent" }}>
+                <Command.List
+                  className="overflow-y-auto scroll-smooth overscroll-contain scrollbar-thin p-2 max-h-[58vh] sm:max-h-72"
+                  style={{
+                    scrollbarWidth: "thin",
+                    scrollbarColor:
+                      "oklch(from var(--foreground) l c h / 0.15) transparent",
+                  }}
+                >
                   <Command.Empty className="py-8 text-center text-sm text-foreground/50">
                     No results found.
                   </Command.Empty>
 
                   <Command.Group heading="Navigate" className={groupClass}>
                     {[
-                      { id: "home", label: "Home", icon: IconHome, href: "/" },
+                      {
+                        id: "home",
+                        label: "Home",
+                        icon: IconHome,
+                        href: "/",
+                        shortcut: ["R", "H"],
+                      },
                       {
                         id: "about",
                         label: "About",
                         icon: IconUser,
                         href: "/about",
+                        shortcut: ["R", "A"],
                       },
                       {
                         id: "projects",
                         label: "Projects",
                         icon: IconFolder,
                         href: "/projects",
+                        shortcut: ["R", "P"],
                       },
-                    ].map(({ id, label, icon: Icon, href }) => (
+                    ].map(({ id, label, icon: Icon, href, shortcut }) => (
                       <Command.Item
                         key={id}
                         value={label}
@@ -211,7 +272,20 @@ export default function CommandPalette({
                         className={itemClass}
                       >
                         <Icon stroke={2} className="w-4 h-4 shrink-0" />
-                        {label}
+                        <span className="flex-1">{label}</span>
+                        {!isMobile && (
+                          <span className="flex items-center gap-1">
+                            <kbd className="font-mono text-xs text-foreground/70 bg-foreground/10 px-1.5 py-0.5 rounded-sm">
+                              {shortcut[0]}
+                            </kbd>
+                            <span className="text-xs text-foreground/50">
+                              then
+                            </span>
+                            <kbd className="font-mono text-xs text-foreground/70 bg-foreground/10 px-1.5 py-0.5 rounded-sm">
+                              {shortcut[1]}
+                            </kbd>
+                          </span>
+                        )}
                       </Command.Item>
                     ))}
                   </Command.Group>
@@ -288,7 +362,7 @@ export default function CommandPalette({
       <AnimatePresence>
         {copied && (
           <motion.div
-            className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[300] bg-foreground text-background text-xs font-medium px-4 py-2 rounded-full shadow-lg whitespace-nowrap"
+            className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[300] bg-foreground/80 text-background text-xs font-medium px-4 py-2 rounded-full shadow-lg whitespace-nowrap"
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 8 }}
