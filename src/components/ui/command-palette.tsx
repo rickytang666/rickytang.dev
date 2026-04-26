@@ -122,7 +122,7 @@ export default function CommandPalette({
       };
 
   const itemClass =
-    "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm cursor-pointer text-foreground/80 data-[selected=true]:bg-primary/10 data-[selected=true]:text-primary transition-colors duration-100 outline-none";
+    "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm cursor-pointer text-foreground/80 aria-selected:bg-primary/10 aria-selected:text-primary transition-colors duration-100 outline-none";
 
   const groupClass =
     "[&_[cmdk-group-heading]]:px-3 [&_[cmdk-group-heading]]:pb-1 [&_[cmdk-group-heading]]:pt-3 [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-foreground/40 [&_[cmdk-group-heading]]:uppercase [&_[cmdk-group-heading]]:tracking-wide [&_[cmdk-group-heading]]:select-none";
@@ -183,7 +183,7 @@ export default function CommandPalette({
                   )}
                 </div>
 
-                <Command.List className="overflow-y-auto p-2 max-h-[58vh] sm:max-h-72">
+                <Command.List className="overflow-y-auto scroll-smooth p-2 max-h-[58vh] sm:max-h-72">
                   <Command.Empty className="py-8 text-center text-sm text-foreground/50">
                     No results found.
                   </Command.Empty>
