@@ -3,8 +3,13 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { IconLayoutSidebarRightExpandFilled, IconX } from "@tabler/icons-react";
+import {
+  IconLayoutSidebarRightExpandFilled,
+  IconX,
+  IconSearch,
+} from "@tabler/icons-react";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
+import CommandPalette from "@/components/ui/command-palette";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -16,6 +21,7 @@ const navLinks = [
 export default function Navbar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [paletteOpen, setPaletteOpen] = useState(false);
 
   return (
     <>
@@ -47,19 +53,42 @@ export default function Navbar() {
               </Link>
             );
           })}
+          <button
+            onClick={() => setPaletteOpen(true)}
+            className="flex items-center gap-1 text-[13px] font-medium text-foreground/75 bg-background border border-border px-2 py-1 rounded-lg hover:bg-foreground/3 hover:border-foreground/20 hover:text-foreground transition-colors duration-200"
+            aria-label="Open command palette"
+          >
+            <kbd className="px-1.5 py-1 rounded-sm bg-foreground/10 font-mono text-base leading-none">
+              ⌘
+            </kbd>
+            <span>+</span>
+            <kbd className="px-1.5 py-0.5 rounded-sm bg-foreground/10 font-mono">
+              K
+            </kbd>
+          </button>
           <ThemeToggle />
         </div>
 
-        <button
-          className="sm:hidden p-2"
-          onClick={() => setMobileOpen(true)}
-          aria-label="Open menu"
-        >
-          <IconLayoutSidebarRightExpandFilled
-            stroke={2}
-            className="w-6 h-6 text-foreground"
-          />
-        </button>
+        {/* mobile right-side buttons */}
+        <div className="sm:hidden flex items-center gap-1">
+          <button
+            onClick={() => setPaletteOpen(true)}
+            className="p-2 text-foreground/70 hover:text-foreground transition-colors duration-200"
+            aria-label="Open command palette"
+          >
+            <IconSearch stroke={2} className="w-6 h-6" />
+          </button>
+          <button
+            className="p-2"
+            onClick={() => setMobileOpen(true)}
+            aria-label="Open menu"
+          >
+            <IconLayoutSidebarRightExpandFilled
+              stroke={2}
+              className="w-6 h-6 text-foreground"
+            />
+          </button>
+        </div>
       </nav>
 
       {mobileOpen && (
@@ -92,6 +121,8 @@ export default function Navbar() {
           </div>
         </div>
       )}
+
+      <CommandPalette open={paletteOpen} onOpenChange={setPaletteOpen} />
     </>
   );
 }
