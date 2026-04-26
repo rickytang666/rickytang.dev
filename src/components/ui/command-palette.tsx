@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 import { Command } from "cmdk";
 import { useRouter } from "next/navigation";
@@ -46,7 +46,7 @@ export default function CommandPalette({
   const router = useRouter();
   const { theme, setTheme } = useTheme();
   const [copied, setCopied] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const mounted = useSyncExternalStore(() => () => {}, () => true, () => false);
   const inputRef = useRef<HTMLInputElement>(null);
   const chordRef = useRef<string | null>(null);
   const chordTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -61,8 +61,6 @@ export default function CommandPalette({
   useEffect(() => {
     onOpenChangeRef.current = onOpenChange;
   }, [onOpenChange]);
-
-  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
