@@ -55,10 +55,16 @@ export default function Navbar() {
           })}
           <button
             onClick={() => setPaletteOpen(true)}
-            className="text-foreground/70 hover:text-foreground transition-colors duration-200"
+            className="flex items-center gap-1 text-[13px] font-medium text-foreground/75 bg-background border border-border px-2 py-1 rounded-lg hover:bg-foreground/3 hover:border-foreground/20 hover:text-foreground transition-colors duration-200"
             aria-label="Open command palette"
           >
-            <IconSearch stroke={2} className="w-5 h-5" />
+            <kbd className="px-1.5 py-1 rounded-sm bg-foreground/10 font-mono text-base leading-none">
+              ⌘
+            </kbd>
+            <span>+</span>
+            <kbd className="px-1.5 py-0.5 rounded-sm bg-foreground/10 font-mono">
+              K
+            </kbd>
           </button>
           <ThemeToggle />
         </div>
