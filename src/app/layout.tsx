@@ -5,11 +5,10 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
-import Background from "@/components/layout/background";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 
 // fonts
-import { Figtree, JetBrains_Mono } from "next/font/google";
+import { Figtree, JetBrains_Mono, Gaegu } from "next/font/google";
 
 const figtree = Figtree({
   subsets: ["latin"],
@@ -23,15 +22,19 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
+const gaegu = Gaegu({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  variable: "--font-gaegu",
+  display: "swap",
+});
+
 // metadata
 
 export const metadata: Metadata = {
-  title: {
-    default: "Ricky Tang",
-    template: "%s - Ricky Tang",
-  },
+  title: "Ricky Tang",
   description:
-    "meet ricky tang - software engineering student at university of waterloo. aspiring software engineer focusing full-stack development.",
+    "meet ricky tang - software engineering at university of waterloo. engineering at hamming ai, wat.ai, and bindwell.",
   keywords: [
     "ricky",
     "ricky tang",
@@ -50,6 +53,10 @@ export const metadata: Metadata = {
     "ricky tang website",
     "uwaterloo software engineering",
     "uwaterloo se",
+    "hamming ai",
+    "hamming",
+    "wat.ai",
+    "bindwell",
   ],
   authors: [{ name: "Ricky Tang" }],
   creator: "Ricky Tang",
@@ -63,7 +70,7 @@ export const metadata: Metadata = {
     siteName: "rickytang.dev",
     title: "Ricky Tang",
     description:
-      "meet ricky tang - software engineering student at university of waterloo. aspiring software engineer focusing full-stack development.",
+      "meet ricky tang - software engineering at university of waterloo.",
     images: [
       {
         url: "/og-image.png",
@@ -78,8 +85,13 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Ricky Tang",
     description:
-      "meet ricky tang - software engineering student at university of waterloo. aspiring software engineer focusing full-stack development.",
-    images: ["/og-image.png"],
+      "meet ricky tang - software engineering at university of waterloo.",
+    images: ["/og-image-twitter.png"],
+  },
+
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
 
   robots: {
@@ -104,34 +116,30 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${figtree.variable} ${jetbrainsMono.variable}`}
+      className={`${figtree.variable} ${jetbrainsMono.variable} ${gaegu.variable}`}
       suppressHydrationWarning
     >
       <head>
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body
-        className="flex flex-col justify-center items-center min-h-screen pt-24"
-      >
+      <body className="flex flex-col min-h-screen">
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          defaultTheme="light"
           disableTransitionOnChange
         >
-          <Background />
           <Navbar />
-          <div className="relative flex flex-col flex-1 w-full mt-14 lg:mt-20 mb-14 lg:mb-20 px-6 sm:px-10 lg:px-0">
-            <div className="flex-1">{children}</div>
+          <div className="relative w-full px-6 sm:px-10 lg:px-0 py-10">
+            {children}
           </div>
           <Footer />
         </ThemeProvider>
       </body>
-      {/* Google Analytics (next third parties) */}
+      {/* google analytics */}
       <GoogleAnalytics gaId="G-ZY5XWJ2B3D" />
-      {/* Vercel Analytics (just to test it out lol) */}
+      {/* vercel analytics */}
       <Analytics />
-      {/* Vercel Speed Insights */}
+      {/* vercel speed insights */}
       <SpeedInsights />
     </html>
   );

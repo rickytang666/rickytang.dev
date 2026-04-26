@@ -8,5 +8,7 @@ export const externalLinks = {
   devpost: "https://devpost.com/rickytang",
   youtube: "https://www.youtube.com/@rickytangdev",
   bluesky: "https://bsky.app/profile/rickytang.dev",
-  softwareEngineering: "https://uwaterloo.ca/future-students/programs/software-engineering",
+  softwareEngineering:
+    "https://uwaterloo.ca/future-students/programs/software-engineering",
+  calcom: "https://cal.com/rickytang",
 };

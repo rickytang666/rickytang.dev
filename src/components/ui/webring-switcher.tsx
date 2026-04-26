@@ -16,7 +16,9 @@ interface WebringSwitcherProps {
   waterlooMembers?: WebringMember[];
 }
 
-export default function WebringSwitcher({ waterlooMembers }: WebringSwitcherProps) {
+export default function WebringSwitcher({
+  waterlooMembers,
+}: WebringSwitcherProps) {
   const [index, setIndex] = useState(0);
   const [peek, setPeek] = useState(false);
   const [hovered, setHovered] = useState(false);
@@ -25,7 +27,7 @@ export default function WebringSwitcher({ waterlooMembers }: WebringSwitcherProp
   // 1: se30 webring
   // 2: waterloo webring
   const TOTAL_WEBRINGS = 3;
-  
+
   // trackpad / wheel logic
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, amount: 0.5 });
@@ -58,7 +60,7 @@ export default function WebringSwitcher({ waterlooMembers }: WebringSwitcherProp
         setTimeout(() => {
           setPeek(false);
         }, 400); // duration of peek
-      }, 500); 
+      }, 500);
       return () => clearTimeout(timer);
     }
   }, [isInView]);
@@ -75,16 +77,16 @@ export default function WebringSwitcher({ waterlooMembers }: WebringSwitcherProp
 
         // debounce/cooldown check
         if (cooldownRef.current) return;
-        
+
         const threshold = 15; // sensitivity
         if (e.deltaX > threshold) {
-           // scrolled right -> go next (restricted)
-           setIndex((prev) => Math.min(prev + 1, TOTAL_WEBRINGS - 1));
-           triggerCooldown();
+          // scrolled right -> go next (restricted)
+          setIndex((prev) => Math.min(prev + 1, TOTAL_WEBRINGS - 1));
+          triggerCooldown();
         } else if (e.deltaX < -threshold) {
-           // scrolled left -> go prev (restricted)
-           setIndex((prev) => Math.max(prev - 1, 0));
-           triggerCooldown();
+          // scrolled left -> go prev (restricted)
+          setIndex((prev) => Math.max(prev - 1, 0));
+          triggerCooldown();
         }
       }
     };
@@ -97,7 +99,7 @@ export default function WebringSwitcher({ waterlooMembers }: WebringSwitcherProp
     };
 
     container.addEventListener("wheel", handleWheel, { passive: false });
-    
+
     return () => {
       container.removeEventListener("wheel", handleWheel);
     };
@@ -120,7 +122,7 @@ export default function WebringSwitcher({ waterlooMembers }: WebringSwitcherProp
 
   const onTouchEnd = () => {
     if (!touchStartRef.current || !touchEndRef.current) return;
-    
+
     const distance = touchStartRef.current - touchEndRef.current;
     const isLeftSwipe = distance > minSwipeDistance;
     const isRightSwipe = distance < -minSwipeDistance;
@@ -132,10 +134,12 @@ export default function WebringSwitcher({ waterlooMembers }: WebringSwitcherProp
     }
   };
 
-  const currentWebringName = 
-    index === 0 ? "SE Webring" : 
-    index === 1 ? "SE '30 Webring" : 
-    "Waterloo Network";
+  const currentWebringName =
+    index === 0
+      ? "SE Webring"
+      : index === 1
+        ? "SE '30 Webring"
+        : "Waterloo Network";
 
   // calculate animation target
   // normal: -100% * index
@@ -143,12 +147,13 @@ export default function WebringSwitcher({ waterlooMembers }: WebringSwitcherProp
   const xValue = peek && index === 0 ? "-22%" : `-${index * 100}%`;
 
   return (
-    <div 
+    <div
       ref={containerRef}
       className={`flex flex-col items-center gap-2 select-none w-[170px] relative p-2 rounded-xl border-2 transition-all duration-300 group
-        ${peek 
-          ? "border-primary/40 bg-primary/10" // hint color during peek
-          : "border-transparent hover:border-sidebar-border/70 hover:bg-primary/2"
+        ${
+          peek
+            ? "border-primary/40 bg-primary/10" // hint color during peek
+            : "border-transparent hover:border-border/50"
         }`}
       onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}
@@ -180,9 +185,8 @@ export default function WebringSwitcher({ waterlooMembers }: WebringSwitcherProp
 
           {/* waterloo webring */}
           <div className="min-w-full flex justify-center">
-             <WaterlooWebring members={waterlooMembers} />
+            <WaterlooWebring members={waterlooMembers} />
           </div>
-          
         </motion.div>
       </div>
 
@@ -192,32 +196,32 @@ export default function WebringSwitcher({ waterlooMembers }: WebringSwitcherProp
           <button
             onClick={() => setIndex(0)}
             className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-              index === 0 
-                ? "bg-primary scale-110" 
+              index === 0
+                ? "bg-primary scale-110"
                 : "bg-muted-foreground/30 hover:bg-muted-foreground/50 hover:scale-110"
             }`}
-             aria-label="Show SE Webring"
+            aria-label="Show SE Webring"
           />
           <button
-           onClick={() => setIndex(1)}
-           className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-              index === 1 
-                ? "bg-se30 scale-110" 
+            onClick={() => setIndex(1)}
+            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+              index === 1
+                ? "bg-se30 scale-110"
                 : "bg-muted-foreground/30 hover:bg-muted-foreground/50 hover:scale-110"
             }`}
             aria-label="Show SE30 Webring"
           />
           <button
-           onClick={() => setIndex(2)}
-           className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-              index === 2 
-                ? "bg-waterloo-network scale-110" 
+            onClick={() => setIndex(2)}
+            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+              index === 2
+                ? "bg-waterloo-network scale-110"
                 : "bg-muted-foreground/30 hover:bg-muted-foreground/50 hover:scale-110"
             }`}
             aria-label="Show Waterloo Network"
           />
         </div>
-        
+
         {/* Webring Name Label */}
         <span className="text-[10px] text-foreground/70 font-medium whitespace-nowrap">
           {currentWebringName}
