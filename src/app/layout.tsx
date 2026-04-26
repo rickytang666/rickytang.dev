@@ -86,7 +86,7 @@ export const metadata: Metadata = {
     title: "Ricky Tang",
     description:
       "meet ricky tang - software engineering at university of waterloo.",
-    images: ["/og-image.png"],
+    images: ["/og-image-twitter.png"],
   },
 
   icons: {
