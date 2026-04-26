@@ -177,13 +177,13 @@ export default function CommandPalette({
                     className="flex-1 bg-transparent py-4 text-sm outline-none placeholder:text-foreground/40"
                   />
                   {!isMobile && (
-                    <kbd className="shrink-0 font-mono text-[11px] text-foreground/50 bg-muted px-1.5 py-0.5 rounded-sm">
+                    <kbd className="shrink-0 font-mono text-[11px] text-foreground/70 bg-foreground/15 px-1.5 py-0.5 rounded-sm">
                       ESC
                     </kbd>
                   )}
                 </div>
 
-                <Command.List className="overflow-y-auto scroll-smooth p-2 max-h-[58vh] sm:max-h-72">
+                <Command.List className="overflow-y-auto scroll-smooth overscroll-contain scrollbar-thin p-2 max-h-[58vh] sm:max-h-72" style={{ scrollbarWidth: "thin", scrollbarColor: "oklch(from var(--foreground) l c h / 0.15) transparent" }}>
                   <Command.Empty className="py-8 text-center text-sm text-foreground/50">
                     No results found.
                   </Command.Empty>
@@ -265,7 +265,7 @@ export default function CommandPalette({
 
                   <Command.Group heading="Appearance" className={groupClass}>
                     <Command.Item
-                      value="Toggle Theme"
+                      value={isDark ? "Switch to Light" : "Switch to Dark"}
                       onSelect={toggleTheme}
                       className={itemClass}
                     >
