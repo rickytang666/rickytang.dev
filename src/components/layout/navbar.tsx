@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import {
   IconLayoutSidebarRightExpandFilled,
   IconX,
-  IconSearch,
+  IconCommand,
 } from "@tabler/icons-react";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import CommandPalette from "@/components/ui/command-palette";
@@ -32,12 +32,12 @@ export default function Navbar() {
             alt="RicFinity"
             width={150}
             height={150}
-            className="h-7 sm:h-8 lg:h-9 w-auto"
+            className="h-7 md:h-8 lg:h-9 w-auto"
             priority
           />
         </Link>
 
-        <div className="hidden sm:flex items-center gap-8">
+        <div className="hidden sm:flex items-center gap-5 md:gap-8">
           {navLinks.map(({ href, label, external }) => {
             const isActive = !external && pathname === href;
             return (
@@ -58,11 +58,11 @@ export default function Navbar() {
             className="flex items-center gap-1 text-[13px] font-medium text-foreground/75 bg-background border border-border px-2 py-1 rounded-lg hover:bg-foreground/3 hover:border-foreground/20 hover:text-foreground transition-colors duration-200"
             aria-label="Open command palette"
           >
-            <kbd className="px-1.5 py-1 rounded-sm bg-foreground/10 font-mono text-base leading-none">
-              ⌘
+            <kbd className="px-1 py-1 rounded-sm bg-foreground/10 font-mono">
+              <IconCommand stroke={2} className="w-4 h-4" />
             </kbd>
             <span>+</span>
-            <kbd className="px-1.5 py-0.5 rounded-sm bg-foreground/10 font-mono">
+            <kbd className="px-2 py-0.5 rounded-sm bg-foreground/10 font-mono">
               K
             </kbd>
           </button>
@@ -70,22 +70,17 @@ export default function Navbar() {
         </div>
 
         {/* mobile right-side buttons */}
-        <div className="sm:hidden flex items-center gap-1">
+        <div className="sm:hidden flex items-center gap-5">
           <button
             onClick={() => setPaletteOpen(true)}
-            className="p-2 text-foreground/70 hover:text-foreground transition-colors duration-200"
             aria-label="Open command palette"
           >
-            <IconSearch stroke={2} className="w-6 h-6" />
+            <IconCommand stroke={2} className="w-6 h-6" />
           </button>
-          <button
-            className="p-2"
-            onClick={() => setMobileOpen(true)}
-            aria-label="Open menu"
-          >
+          <button onClick={() => setMobileOpen(true)} aria-label="Open menu">
             <IconLayoutSidebarRightExpandFilled
               stroke={2}
-              className="w-6 h-6 text-foreground"
+              className="w-6 h-6"
             />
           </button>
         </div>
