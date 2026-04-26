@@ -25,14 +25,14 @@ export default function AboutPage() {
             />
           </div>
 
-          <div className="flex-1 flex flex-col gap-6">
-            <div className="space-y-5 leading-relaxed">
-              <p className="text-foreground">
+          <div className="flex-1 flex flex-col text-sm sm:text-base">
+            <div className="space-y-4 sm:space-y-5 leading-relaxed">
+              <p>
                 My name is Ricky Tang. I study Software Engineering at the
                 University of Waterloo.
               </p>
 
-              <p className="text-foreground">
+              <p>
                 I build tools because I want them to exist in my own life. As my
                 own most demanding user, I&apos;m obsessed with engineering a
                 slow process down to seconds. Learning new tech is just a means
@@ -41,18 +41,18 @@ export default function AboutPage() {
                 into flow state and ship complex systems under pressure.
               </p>
 
-              <p className="text-foreground">
+              <p>
                 Recently, I&apos;ve focused on AI Agents and backend
                 infrastructure: building RAG systems that clear high legal bars
                 for accuracy, and pipelines orchestrating agents for both speed
                 and scalability.
               </p>
 
-              <div className="text-foreground">
+              <div>
                 <p className="mb-2">
                   Outside of school/coding, you can find me:
                 </p>
-                <ul className="list-disc list-outside space-y-1 ml-6">
+                <ul className="list-disc list-outside space-y-1 ml-5 sm:ml-6">
                   <li>🏓 playing & watching table tennis</li>
                   <li>
                     tweaking{" "}

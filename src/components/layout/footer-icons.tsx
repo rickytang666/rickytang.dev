@@ -47,7 +47,7 @@ const icons = [
   },
   {
     href: externalLinks.twitter,
-    title: "x",
+    title: "x (twitter)",
     icon: <IconBrandX stroke={2} className={baseIconSize} />,
   },
   {
