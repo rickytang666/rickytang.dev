@@ -48,8 +48,13 @@ export default function CommandPalette({
   const pathname = usePathname();
   const { theme, setTheme } = useTheme();
   const [copied, setCopied] = useState(false);
-  const mounted = useSyncExternalStore(() => () => {}, () => true, () => false);
+  const mounted = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false,
+  );
   const inputRef = useRef<HTMLInputElement>(null);
+  const listRef = useRef<HTMLDivElement>(null);
   const chordRef = useRef<string | null>(null);
   const chordTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const routerRef = useRef(router);
@@ -155,6 +160,24 @@ export default function CommandPalette({
     close();
   };
 
+  const handleCommandKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key !== "ArrowUp" && e.key !== "ArrowDown") return;
+    const list = listRef.current;
+    if (!list) return;
+    list.querySelectorAll("[cmdk-item], [cmdk-group-heading]").forEach((el) => {
+      const element = el as HTMLElement;
+      const orig = element.scrollIntoView.bind(element);
+      element.scrollIntoView = (opts?: boolean | ScrollIntoViewOptions) => {
+        element.scrollIntoView = orig;
+        orig(
+          typeof opts === "object"
+            ? { ...opts, behavior: "smooth" }
+            : { block: "nearest", behavior: "smooth" },
+        );
+      };
+    });
+  };
+
   const panelVariants = isMobile
     ? {
         hidden: { y: "100%" },
@@ -210,7 +233,7 @@ export default function CommandPalette({
                 </div>
               )}
 
-              <Command>
+              <Command onKeyDown={handleCommandKeyDown}>
                 {/* search bar */}
                 <div className="flex items-center gap-2 px-4 border-b border-border">
                   <IconSearch
@@ -230,6 +253,7 @@ export default function CommandPalette({
                 </div>
 
                 <Command.List
+                  ref={listRef}
                   className="overflow-y-auto scroll-smooth overscroll-contain scrollbar-thin p-2 max-h-[58vh] sm:max-h-72"
                   style={{
                     scrollbarWidth: "thin",
