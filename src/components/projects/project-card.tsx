@@ -30,6 +30,7 @@ export default function ProjectCard({
           sizes="(min-width: 640px) 45vw, 100vw"
           className="w-full h-full object-cover"
           priority={priority}
+          fetchPriority={priority ? "high" : "auto"}
         />
       </div>
       <div className="flex items-center justify-between gap-4">
