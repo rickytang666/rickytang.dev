@@ -1,10 +1,7 @@
-"use client";
-
-import React from "react";
 import Image from "next/image";
 import Link from "@/components/ui/link";
 import { externalLinks } from "@/data/links";
-import { IconArrowDown } from "@tabler/icons-react";
+import ScrollToFooterLink from "@/components/home/scroll-to-footer-link";
 
 export default function HeroSection() {
   return (
@@ -124,17 +121,7 @@ export default function HeroSection() {
           <Link href={externalLinks.email}>email</Link>,{" "}
           <Link href={externalLinks.twitter}>Twitter</Link>,{" "}
           <Link href={externalLinks.linkedin}>LinkedIn</Link>, and{" "}
-          <Link
-            onClick={() => {
-              window.scrollTo({
-                top: document.body.scrollHeight,
-                behavior: "smooth",
-              });
-              window.dispatchEvent(new CustomEvent("animateFooterIcons"));
-            }}
-          >
-            more <IconArrowDown stroke={1.5} className="w-5 h-5" />
-          </Link>
+          <ScrollToFooterLink />
           .
         </p>
       </div>
