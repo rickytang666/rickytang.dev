@@ -201,42 +201,25 @@ export default function WebringSwitcher({
       {/* pagination dots */}
       <div className="flex flex-col items-center gap-2">
         <div className="flex gap-1.5 px-1">
-          <button
-            onClick={() => setIndex(0)}
-            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-              index === 0
-                ? "bg-primary scale-110"
-                : "bg-muted-foreground/30 hover:bg-muted-foreground/50 hover:scale-110"
-            }`}
-            aria-label="Show SE Webring"
-          />
-          <button
-            onClick={() => setIndex(1)}
-            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-              index === 1
-                ? "bg-se30 scale-110"
-                : "bg-muted-foreground/30 hover:bg-muted-foreground/50 hover:scale-110"
-            }`}
-            aria-label="Show SE30 Webring"
-          />
-          <button
-            onClick={() => setIndex(2)}
-            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-              index === 2
-                ? "bg-waterloo-network scale-110"
-                : "bg-muted-foreground/30 hover:bg-muted-foreground/50 hover:scale-110"
-            }`}
-            aria-label="Show Waterloo Network"
-          />
-          <button
-            onClick={() => setIndex(3)}
-            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-              index === 3
-                ? "bg-canada-webring scale-110"
-                : "bg-muted-foreground/30 hover:bg-muted-foreground/50 hover:scale-110"
-            }`}
-            aria-label="Show Canada Webring"
-          />
+          {[
+            { i: 0, label: "Show SE Webring", active: "bg-primary" },
+            { i: 1, label: "Show SE30 Webring", active: "bg-se30" },
+            { i: 2, label: "Show Waterloo Network", active: "bg-waterloo-network" },
+            { i: 3, label: "Show Canada Webring", active: "bg-canada-webring" },
+          ].map(({ i, label, active }) => (
+            <button
+              key={i}
+              onClick={() => setIndex(i)}
+              className="p-[7px] group"
+              aria-label={label}
+            >
+              <span className={`block w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                index === i
+                  ? `${active} scale-110`
+                  : "bg-muted-foreground/30 group-hover:bg-muted-foreground/50 group-hover:scale-110"
+              }`} />
+            </button>
+          ))}
         </div>
 
         {/* Webring Name Label */}

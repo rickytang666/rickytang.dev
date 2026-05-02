@@ -15,6 +15,7 @@ export default function IconCalcom({
       height={height}
       viewBox="74 164 344 184"
       role="img"
+      aria-label="Cal.com"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
     >

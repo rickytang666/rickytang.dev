@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   description:
     "meet ricky tang - software engineering at university of waterloo. currently focused on high-throughput RAG pipelines and scalable agentic systems.",
+  alternates: { canonical: "/" },
 };
 
 const jsonLd = {
