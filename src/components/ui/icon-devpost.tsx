@@ -15,6 +15,7 @@ export default function IconDevpost({
       height={height}
       viewBox="0 0 24 24"
       role="img"
+      aria-label="Devpost"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
     >
