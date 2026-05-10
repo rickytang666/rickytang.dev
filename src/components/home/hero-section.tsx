@@ -26,7 +26,7 @@ export default function HeroSection() {
 
         <div className="flex flex-col gap-3 md:gap-5 text-sm sm:text-base text-foreground mt-1">
           <p className="flex flex-wrap items-center gap-x-1.5 gap-y-1">
-            Incoming @{" "}
+            Engineering @{" "}
             <span className="inline-flex items-center gap-1">
               <Image
                 src="/home/hamming.png"
@@ -39,6 +39,7 @@ export default function HeroSection() {
                 Hamming AI (YC S24)
               </Link>
             </span>
+            — building automated QA infra for voice agents.
           </p>
           <p className="flex flex-wrap items-center gap-x-1.5 gap-y-1">
             Engineering @{" "}
