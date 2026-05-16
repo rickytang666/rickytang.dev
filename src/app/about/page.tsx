@@ -55,7 +55,15 @@ export default function AboutPage() {
                 <ul className="list-disc list-outside space-y-1 ml-5 sm:ml-6">
                   <li>🏓 playing & watching table tennis</li>
                   <li>
-                    tweaking{" "}
+                    tweaking my{" "}
+                    <Image
+                      src="/about/linux_logo.png"
+                      alt="⚒️"
+                      width={20}
+                      height={20}
+                      className="inline align-middle mx-1"
+                    />
+                    my linux setup and{" "}
                     <Image
                       src="/about/obsidian_logo.png"
                       alt="⚒️"
@@ -63,7 +71,7 @@ export default function AboutPage() {
                       height={20}
                       className="inline align-middle mx-1"
                     />
-                    <Link href="https://obsidian.md">Obsidian plugins</Link>
+                    obsidian plugins
                   </li>
                   <li>
                     watching{" "}
