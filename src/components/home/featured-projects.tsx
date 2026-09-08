@@ -12,10 +12,7 @@ export default function FeaturedProjects() {
   preload(`/_next/image?url=${encodeURIComponent(firstImage)}&w=828&q=75`, {
     as: "image",
     imageSrcSet: widths
-      .map(
-        (w) =>
-          `/_next/image?url=${encodeURIComponent(firstImage)}&w=${w}&q=75 ${w}w`,
-      )
+      .map((w) => `/_next/image?url=${encodeURIComponent(firstImage)}&w=${w}&q=75 ${w}w`)
       .join(", "),
     imageSizes: "(min-width: 640px) 45vw, 100vw",
     fetchPriority: "high",

@@ -28,30 +28,25 @@ export default function AboutPage() {
           <div className="flex-1 flex flex-col text-sm sm:text-base">
             <div className="space-y-4 sm:space-y-5 leading-relaxed">
               <p>
-                My name is Ricky Tang. I study Software Engineering at the
-                University of Waterloo.
+                My name is Ricky Tang. I study Software Engineering at the University of Waterloo.
               </p>
 
               <p>
-                I build tools because I want them to exist in my own life. As my
-                own most demanding user, I&apos;m obsessed with engineering a
-                slow process down to seconds. Learning new tech is just a means
-                to that end; it forces me to learn fast and keep moving.
-                That&apos;s also why I love hackathons: perfect chance to get
-                into flow state and ship complex systems under pressure.
+                I build tools because I want them to exist in my own life. As my own most demanding
+                user, I&apos;m obsessed with engineering a slow process down to seconds. Learning
+                new tech is just a means to that end; it forces me to learn fast and keep moving.
+                That&apos;s also why I love hackathons: perfect chance to get into flow state and
+                ship complex systems under pressure.
               </p>
 
               <p>
-                Recently, I&apos;ve focused on AI Agents and backend
-                infrastructure: building RAG systems that clear high legal bars
-                for accuracy, and pipelines orchestrating agents for both speed
-                and scalability.
+                Recently, I&apos;ve focused on AI Agents and backend infrastructure: building RAG
+                systems that clear high legal bars for accuracy, and pipelines orchestrating agents
+                for both speed and scalability.
               </p>
 
               <div>
-                <p className="mb-2">
-                  Outside of school/coding, you can find me:
-                </p>
+                <p className="mb-2">Outside of school/coding, you can find me:</p>
                 <ul className="list-disc list-outside space-y-1 ml-5 sm:ml-6">
                   <li>🏓 playing & watching table tennis</li>
                   <li>
@@ -88,9 +83,7 @@ export default function AboutPage() {
                     (the GOAT usain bolt)
                   </li>
                   <li>
-                    <span className="italic font-serif">
-                      &apos;doomscrolling&apos;
-                    </span>{" "}
+                    <span className="italic font-serif">&apos;doomscrolling&apos;</span>{" "}
                     <span className="inline-block">
                       <Image
                         src="/about/github_logo.png"
@@ -99,9 +92,7 @@ export default function AboutPage() {
                         height={20}
                         className="inline align-middle mx-1 rounded-sm"
                       />
-                      <Link href="https://github.com">
-                        inspirational projects
-                      </Link>
+                      <Link href="https://github.com">inspirational projects</Link>
                     </span>{" "}
                     online
                   </li>

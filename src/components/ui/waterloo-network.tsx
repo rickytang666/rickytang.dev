@@ -32,21 +32,21 @@ export default function WaterlooNetwork({
   const handlePrev = (e: React.MouseEvent) => {
     e.preventDefault();
     if (members.length === 0) return;
-    
+
     // logic from script: (currentIndex - 1 + length) % length
     const newIndex = (index - 1 + members.length) % members.length;
     setIndex(newIndex);
-    window.open(members[newIndex].website, '_blank');
+    window.open(members[newIndex].website, "_blank");
   };
 
   const handleNext = (e: React.MouseEvent) => {
     e.preventDefault();
     if (members.length === 0) return;
-    
+
     // logic from script: (currentIndex + 1) % length
     const newIndex = (index + 1) % members.length;
     setIndex(newIndex);
-    window.open(members[newIndex].website, '_blank');
+    window.open(members[newIndex].website, "_blank");
   };
 
   const isDisabled = members.length === 0;

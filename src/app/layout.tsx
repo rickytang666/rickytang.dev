@@ -69,8 +69,7 @@ export const metadata: Metadata = {
     url: "https://www.rickytang.dev",
     siteName: "rickytang.dev",
     title: "Ricky Tang",
-    description:
-      "meet ricky tang - software engineering at university of waterloo.",
+    description: "meet ricky tang - software engineering at university of waterloo.",
     images: [
       {
         url: "/og-image.png",
@@ -84,8 +83,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Ricky Tang",
-    description:
-      "meet ricky tang - software engineering at university of waterloo.",
+    description: "meet ricky tang - software engineering at university of waterloo.",
     images: ["/og-image-twitter.png"],
   },
 
@@ -125,15 +123,9 @@ export default function RootLayout({
         <link rel="preconnect" href="https://www.google-analytics.com" />
       </head>
       <body className="flex flex-col min-h-screen">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          disableTransitionOnChange
-        >
+        <ThemeProvider attribute="class" defaultTheme="light" disableTransitionOnChange>
           <Navbar />
-          <div className="relative w-full px-6 sm:px-10 lg:px-0 py-10">
-            {children}
-          </div>
+          <div className="relative w-full px-6 sm:px-10 lg:px-0 py-10">{children}</div>
           <Footer />
         </ThemeProvider>
       </body>

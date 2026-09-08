@@ -3,11 +3,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import {
-  IconLayoutSidebarRightExpandFilled,
-  IconX,
-  IconCommand,
-} from "@tabler/icons-react";
+import { IconLayoutSidebarRightExpandFilled, IconX, IconCommand } from "@tabler/icons-react";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import CommandPalette from "@/components/ui/command-palette";
 
@@ -44,9 +40,7 @@ export default function Navbar() {
               <Link
                 key={href}
                 href={href}
-                {...(external
-                  ? { target: "_blank", rel: "noopener noreferrer" }
-                  : {})}
+                {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                 className={`text-foreground font-medium text-base${isActive ? " underline underline-offset-4 decoration-2" : ""}`}
               >
                 {label}
@@ -62,36 +56,25 @@ export default function Navbar() {
               <IconCommand stroke={2} className="w-4 h-4" />
             </kbd>
             <span>+</span>
-            <kbd className="px-2 py-0.5 rounded-sm bg-foreground/10 font-mono">
-              K
-            </kbd>
+            <kbd className="px-2 py-0.5 rounded-sm bg-foreground/10 font-mono">K</kbd>
           </button>
           <ThemeToggle />
         </div>
 
         {/* mobile right-side buttons */}
         <div className="sm:hidden flex items-center gap-5">
-          <button
-            onClick={() => setPaletteOpen(true)}
-            aria-label="Open command palette"
-          >
+          <button onClick={() => setPaletteOpen(true)} aria-label="Open command palette">
             <IconCommand stroke={2} className="w-6 h-6" />
           </button>
           <button onClick={() => setMobileOpen(true)} aria-label="Open menu">
-            <IconLayoutSidebarRightExpandFilled
-              stroke={2}
-              className="w-6 h-6"
-            />
+            <IconLayoutSidebarRightExpandFilled stroke={2} className="w-6 h-6" />
           </button>
         </div>
       </nav>
 
       {mobileOpen && (
         <div className="fixed inset-0 z-[100]">
-          <div
-            className="absolute inset-0 bg-black/20"
-            onClick={() => setMobileOpen(false)}
-          />
+          <div className="absolute inset-0 bg-black/20" onClick={() => setMobileOpen(false)} />
           <div className="absolute right-0 top-0 h-full w-48 bg-background border-l border-border flex flex-col p-6 gap-6">
             <button onClick={() => setMobileOpen(false)} className="self-end">
               <IconX stroke={2} className="w-5 h-5 text-foreground" />
@@ -102,9 +85,7 @@ export default function Navbar() {
                 <Link
                   key={href}
                   href={href}
-                  {...(external
-                    ? { target: "_blank", rel: "noopener noreferrer" }
-                    : {})}
+                  {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                   className={`text-foreground font-medium text-lg${isActive ? " underline underline-offset-4 decoration-2" : ""}`}
                   onClick={() => setMobileOpen(false)}
                 >

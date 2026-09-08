@@ -4,8 +4,7 @@ import { Project } from "@/types";
 export const projects: Project[] = [
   {
     title: "BrainLattice",
-    description:
-      "CLI + Web app that converts PDFs into fully linked Obsidian vaults.",
+    description: "CLI + Web app that converts PDFs into fully linked Obsidian vaults.",
     image: "/projects/brainlattice.png",
     links: [
       {
@@ -22,8 +21,7 @@ export const projects: Project[] = [
     title: "YapDraw",
     description: (
       <span>
-        Wispr Flow for Excalidraw. Build Excalidraw diagrams entirely by voice.
-        Winner at{" "}
+        Wispr Flow for Excalidraw. Build Excalidraw diagrams entirely by voice. Winner at{" "}
         <span className="inline-block">
           <Image
             src="/projects/genai_genesis_logo.png"
@@ -141,8 +139,7 @@ export const projects: Project[] = [
     title: "Auralis",
     description: (
       <span>
-        An AI doctor that talks with you in a video call. Best AI app built with
-        Cloudflare at{" "}
+        An AI doctor that talks with you in a video call. Best AI app built with Cloudflare at{" "}
         <span className="inline-block">
           <Image
             src="/projects/hackwestern_logo.jpg"
@@ -171,8 +168,7 @@ export const projects: Project[] = [
     title: "Post-It",
     description: (
       <span>
-        Leave persistent 3D notes in the real world via Snap Spectacles.
-        Semi-finalist at{" "}
+        Leave persistent 3D notes in the real world via Snap Spectacles. Semi-finalist at{" "}
         <span className="inline-block">
           <Image
             src="/projects/htn_logo.jpg"
@@ -195,8 +191,7 @@ export const projects: Project[] = [
   },
   {
     title: "Nebula",
-    description:
-      "Mobile notes app with camera import via OCR, semantic search, and LLM chat.",
+    description: "Mobile notes app with camera import via OCR, semantic search, and LLM chat.",
     image: "/projects/nebula.png",
     links: [
       {

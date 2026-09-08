@@ -53,9 +53,7 @@ export default function ProjectCard({
           })}
         </div>
       </div>
-      <div className="text-sm text-foreground/80 leading-relaxed">
-        {project.description}
-      </div>
+      <div className="text-sm text-foreground/80 leading-relaxed">{project.description}</div>
     </div>
   );
 }

@@ -40,10 +40,7 @@ interface CommandPaletteProps {
   onOpenChange: (open: boolean) => void;
 }
 
-export default function CommandPalette({
-  open,
-  onOpenChange,
-}: CommandPaletteProps) {
+export default function CommandPalette({ open, onOpenChange }: CommandPaletteProps) {
   const router = useRouter();
   const pathname = usePathname();
   const { theme, setTheme } = useTheme();
@@ -92,11 +89,7 @@ export default function CommandPalette({
     };
 
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (
-        e.target instanceof HTMLInputElement ||
-        e.target instanceof HTMLTextAreaElement
-      )
-        return;
+      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
       if (e.metaKey || e.ctrlKey || e.altKey || e.repeat) return;
       const key = e.key.toLowerCase();
       if (key === "r") {
@@ -236,10 +229,7 @@ export default function CommandPalette({
               <Command onKeyDown={handleCommandKeyDown}>
                 {/* search bar */}
                 <div className="flex items-center gap-2 px-4 border-b border-border">
-                  <IconSearch
-                    stroke={2}
-                    className="w-4 h-4 text-foreground/50 shrink-0"
-                  />
+                  <IconSearch stroke={2} className="w-4 h-4 text-foreground/50 shrink-0" />
                   <Command.Input
                     ref={inputRef}
                     placeholder="Search..."
@@ -257,8 +247,7 @@ export default function CommandPalette({
                   className="overflow-y-auto scroll-smooth overscroll-contain scrollbar-thin p-2 max-h-[58vh] sm:max-h-72"
                   style={{
                     scrollbarWidth: "thin",
-                    scrollbarColor:
-                      "oklch(from var(--foreground) l c h / 0.15) transparent",
+                    scrollbarColor: "oklch(from var(--foreground) l c h / 0.15) transparent",
                   }}
                 >
                   <Command.Empty className="py-8 text-center text-sm text-foreground/50">
@@ -305,9 +294,7 @@ export default function CommandPalette({
                             <kbd className="font-mono text-xs text-foreground/70 bg-foreground/10 px-1.5 py-0.5 rounded-sm">
                               {shortcut[0]}
                             </kbd>
-                            <span className="text-xs text-foreground/50">
-                              then
-                            </span>
+                            <span className="text-xs text-foreground/50">then</span>
                             <kbd className="font-mono text-xs text-foreground/70 bg-foreground/10 px-1.5 py-0.5 rounded-sm">
                               {shortcut[1]}
                             </kbd>
@@ -318,11 +305,7 @@ export default function CommandPalette({
                   </Command.Group>
 
                   <Command.Group heading="Links" className={groupClass}>
-                    <Command.Item
-                      value="Copy Email"
-                      onSelect={copyEmail}
-                      className={itemClass}
-                    >
+                    <Command.Item value="Copy Email" onSelect={copyEmail} className={itemClass}>
                       <IconMail stroke={2} className="w-4 h-4 shrink-0" />
                       Copy Email
                     </Command.Item>

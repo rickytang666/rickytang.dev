@@ -17,9 +17,7 @@ interface WebringSwitcherProps {
   waterlooMembers?: WebringMember[];
 }
 
-export default function WebringSwitcher({
-  waterlooMembers,
-}: WebringSwitcherProps) {
+export default function WebringSwitcher({ waterlooMembers }: WebringSwitcherProps) {
   const [index, setIndex] = useState(0);
   const [peek, setPeek] = useState(false);
   const [hovered, setHovered] = useState(false);
@@ -213,11 +211,13 @@ export default function WebringSwitcher({
               className="p-[7px] group"
               aria-label={label}
             >
-              <span className={`block w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                index === i
-                  ? `${active} scale-110`
-                  : "bg-muted-foreground/30 group-hover:bg-muted-foreground/50 group-hover:scale-110"
-              }`} />
+              <span
+                className={`block w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                  index === i
+                    ? `${active} scale-110`
+                    : "bg-muted-foreground/30 group-hover:bg-muted-foreground/50 group-hover:scale-110"
+                }`}
+              />
             </button>
           ))}
         </div>

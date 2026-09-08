@@ -4,11 +4,7 @@ interface IconDevpostProps {
   height?: number;
 }
 
-export default function IconDevpost({
-  className = "",
-  width = 24,
-  height = 24,
-}: IconDevpostProps) {
+export default function IconDevpost({ className = "", width = 24, height = 24 }: IconDevpostProps) {
   return (
     <svg
       width={width}
