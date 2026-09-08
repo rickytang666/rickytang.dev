@@ -1,14 +1,16 @@
-import type { Metadata } from "next";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "@/components/layout/navbar";
-import Footer from "@/components/layout/footer";
-import { ThemeProvider } from "@/components/layout/theme-provider";
 
 // fonts
-import { Figtree, JetBrains_Mono, Gaegu } from "next/font/google";
+import { Figtree, Gaegu, JetBrains_Mono } from "next/font/google";
+import Footer from "@/components/layout/footer";
+import Navbar from "@/components/layout/navbar";
+import { ThemeProvider } from "@/components/layout/theme-provider";
+
+const SITE_URL = "https://www.rickytang.dev";
 
 const figtree = Figtree({
   subsets: ["latin"],
@@ -61,12 +63,12 @@ export const metadata: Metadata = {
   authors: [{ name: "Ricky Tang" }],
   creator: "Ricky Tang",
 
-  metadataBase: new URL("https://www.rickytang.dev"),
+  metadataBase: new URL(SITE_URL),
 
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://www.rickytang.dev",
+    url: SITE_URL,
     siteName: "rickytang.dev",
     title: "Ricky Tang",
     description: "meet ricky tang - software engineering at university of waterloo.",
@@ -102,7 +104,7 @@ export const metadata: Metadata = {
   },
 
   alternates: {
-    canonical: "/",
+    canonical: SITE_URL,
   },
 };
 

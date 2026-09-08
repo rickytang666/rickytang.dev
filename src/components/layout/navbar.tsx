@@ -1,11 +1,11 @@
 "use client";
-import React, { useState } from "react";
-import Link from "next/link";
+import { IconCommand, IconLayoutSidebarRightExpandFilled, IconX } from "@tabler/icons-react";
 import Image from "next/image";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { IconLayoutSidebarRightExpandFilled, IconX, IconCommand } from "@tabler/icons-react";
-import { ThemeToggle } from "@/components/ui/theme-toggle";
+import React, { useState } from "react";
 import CommandPalette from "@/components/ui/command-palette";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -74,9 +74,19 @@ export default function Navbar() {
 
       {mobileOpen && (
         <div className="fixed inset-0 z-[100]">
-          <div className="absolute inset-0 bg-black/20" onClick={() => setMobileOpen(false)} />
+          <button
+            type="button"
+            aria-label="Close menu"
+            className="absolute inset-0 bg-black/20"
+            onClick={() => setMobileOpen(false)}
+          />
           <div className="absolute right-0 top-0 h-full w-48 bg-background border-l border-border flex flex-col p-6 gap-6">
-            <button onClick={() => setMobileOpen(false)} className="self-end">
+            <button
+              type="button"
+              aria-label="Close menu"
+              onClick={() => setMobileOpen(false)}
+              className="self-end"
+            >
               <IconX stroke={2} className="w-5 h-5 text-foreground" />
             </button>
             {navLinks.map(({ href, label, external }) => {

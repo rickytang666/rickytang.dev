@@ -1,5 +1,5 @@
-import WebringSwitcher from "@/components/ui/webring-switcher";
 import FooterIcons from "@/components/layout/footer-icons";
+import WebringSwitcher from "@/components/ui/webring-switcher";
 
 interface WebringMember {
   name: string;

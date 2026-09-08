@@ -1,12 +1,12 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import CanadaWebring from "@/components/ui/canada-webring";
 import SeWebring from "@/components/ui/se-webring";
 import SeWebringLogo from "@/components/ui/se-webring-logo";
 import Se30Webring from "@/components/ui/se30-webring";
 import WaterlooWebring from "@/components/ui/waterloo-network";
-import CanadaWebring from "@/components/ui/canada-webring";
 
 interface WebringMember {
   name: string;
@@ -31,6 +31,7 @@ export default function WebringSwitcher({ waterlooMembers }: WebringSwitcherProp
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, amount: 0.5 });
   const cooldownRef = useRef(false);
+  const cooldownTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // keyboard navigation
   useEffect(() => {
@@ -53,14 +54,17 @@ export default function WebringSwitcher({ waterlooMembers }: WebringSwitcherProp
   // peek animation when scrolling into view
   useEffect(() => {
     if (isInView) {
-      // delay slightly so user sees it settle
-      const timer = setTimeout(() => {
+      let resetTimer: ReturnType<typeof setTimeout> | null = null;
+      const peekTimer = setTimeout(() => {
         setPeek(true);
-        setTimeout(() => {
+        resetTimer = setTimeout(() => {
           setPeek(false);
-        }, 400); // duration of peek
+        }, 400);
       }, 500);
-      return () => clearTimeout(timer);
+      return () => {
+        clearTimeout(peekTimer);
+        if (resetTimer) clearTimeout(resetTimer);
+      };
     }
   }, [isInView]);
 
@@ -92,15 +96,17 @@ export default function WebringSwitcher({ waterlooMembers }: WebringSwitcherProp
 
     const triggerCooldown = () => {
       cooldownRef.current = true;
-      setTimeout(() => {
+      if (cooldownTimerRef.current) clearTimeout(cooldownTimerRef.current);
+      cooldownTimerRef.current = setTimeout(() => {
         cooldownRef.current = false;
-      }, 750); // longer (to handle trackpad inertia)
+      }, 750);
     };
 
     container.addEventListener("wheel", handleWheel, { passive: false });
 
     return () => {
       container.removeEventListener("wheel", handleWheel);
+      if (cooldownTimerRef.current) clearTimeout(cooldownTimerRef.current);
     };
   }, []);
 

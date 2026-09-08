@@ -1,17 +1,17 @@
+import { IconArrowRight } from "@tabler/icons-react";
 import NextLink from "next/link";
 import { preload } from "react-dom";
-import { projects } from "@/data/projects";
 import ProjectCard from "@/components/projects/project-card";
-import { IconArrowRight } from "@tabler/icons-react";
+import { projects } from "@/data/projects";
 
 const featured = projects.slice(0, 2);
+const imageWidths = [384, 640, 750, 828, 1080, 1200, 1920];
 
 export default function FeaturedProjects() {
   const firstImage = featured[0].image;
-  const widths = [384, 640, 750, 828, 1080, 1200, 1920];
   preload(`/_next/image?url=${encodeURIComponent(firstImage)}&w=828&q=75`, {
     as: "image",
-    imageSrcSet: widths
+    imageSrcSet: imageWidths
       .map((w) => `/_next/image?url=${encodeURIComponent(firstImage)}&w=${w}&q=75 ${w}w`)
       .join(", "),
     imageSizes: "(min-width: 640px) 45vw, 100vw",

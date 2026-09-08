@@ -1,24 +1,24 @@
 "use client";
 
-import { useEffect, useRef, useState, useSyncExternalStore } from "react";
-import { createPortal } from "react-dom";
-import { Command } from "cmdk";
-import { useRouter, usePathname } from "next/navigation";
-import { useTheme } from "next-themes";
-import { motion, AnimatePresence } from "framer-motion";
 import {
-  IconSearch,
-  IconHome,
-  IconUser,
-  IconFolder,
   IconBrandGithub,
   IconBrandLinkedin,
-  IconMail,
-  IconFileText,
   IconCalendar,
-  IconSun,
+  IconFileText,
+  IconFolder,
+  IconHome,
+  IconMail,
   IconMoon,
+  IconSearch,
+  IconSun,
+  IconUser,
 } from "@tabler/icons-react";
+import { Command } from "cmdk";
+import { AnimatePresence, motion } from "framer-motion";
+import { usePathname, useRouter } from "next/navigation";
+import { useTheme } from "next-themes";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { createPortal } from "react-dom";
 import { externalLinks } from "@/data/links";
 
 const EMAIL = "rickytangdev@gmail.com";
@@ -108,7 +108,10 @@ export default function CommandPalette({ open, onOpenChange }: CommandPalettePro
     };
 
     window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      if (chordTimerRef.current) clearTimeout(chordTimerRef.current);
+    };
   }, []);
 
   // focus input on desktop
@@ -197,7 +200,9 @@ export default function CommandPalette({ open, onOpenChange }: CommandPalettePro
         {open && (
           <>
             {/* backdrop */}
-            <motion.div
+            <motion.button
+              type="button"
+              aria-label="Close command palette"
               className="fixed inset-0 z-[200] bg-black/30 backdrop-blur-sm"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}

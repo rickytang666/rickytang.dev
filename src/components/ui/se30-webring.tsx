@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
+import { useEffect, useState } from "react";
 import Se30WebringLogo from "@/components/ui/se30-webring-logo";
 
 interface Se30WebringProps {

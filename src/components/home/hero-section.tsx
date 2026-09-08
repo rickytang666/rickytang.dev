@@ -1,7 +1,7 @@
 import Image from "next/image";
+import ScrollToFooterLink from "@/components/home/scroll-to-footer-link";
 import Link from "@/components/ui/link";
 import { externalLinks } from "@/data/links";
-import ScrollToFooterLink from "@/components/home/scroll-to-footer-link";
 
 export default function HeroSection() {
   return (

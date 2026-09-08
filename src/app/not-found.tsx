@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { IconDeviceGamepad2 } from "@tabler/icons-react";
+import Link from "next/link";
 
 export default function NotFound() {
   return (

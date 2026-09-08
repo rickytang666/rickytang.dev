@@ -1,19 +1,19 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import {
+  IconBrandBluesky,
   IconBrandGithub,
+  IconBrandInstagram,
   IconBrandLinkedin,
+  IconBrandX,
+  IconBrandYoutubeFilled,
   IconFileCv,
   IconMail,
-  IconBrandX,
-  IconBrandInstagram,
-  IconBrandYoutubeFilled,
-  IconBrandBluesky,
 } from "@tabler/icons-react";
+import { useEffect, useState } from "react";
+import IconCalcom from "@/components/ui/icon-calcom";
 import IconDevpost from "@/components/ui/icon-devpost";
 import IconRepo from "@/components/ui/icon-repo";
-import IconCalcom from "@/components/ui/icon-calcom";
 import { externalLinks } from "@/data/links";
 
 const baseIconSize = "w-5 h-5 sm:w-6 sm:h-6";
@@ -85,17 +85,29 @@ export default function FooterIcons() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   useEffect(() => {
+    const timers = new Set<ReturnType<typeof setTimeout>>();
+    const clearTimers = () => {
+      for (const timer of timers) clearTimeout(timer);
+      timers.clear();
+    };
+
     const handler = () => {
+      clearTimers();
       icons.forEach((_, i) => {
-        setTimeout(() => setActiveIndex(i), SCROLL_DELAY + i * STAGGER);
-        setTimeout(
-          () => setActiveIndex((prev) => (prev === i ? null : prev)),
-          SCROLL_DELAY + i * STAGGER + FLASH_DURATION,
+        timers.add(setTimeout(() => setActiveIndex(i), SCROLL_DELAY + i * STAGGER));
+        timers.add(
+          setTimeout(
+            () => setActiveIndex((prev) => (prev === i ? null : prev)),
+            SCROLL_DELAY + i * STAGGER + FLASH_DURATION,
+          ),
         );
       });
     };
     window.addEventListener("animateFooterIcons", handler);
-    return () => window.removeEventListener("animateFooterIcons", handler);
+    return () => {
+      window.removeEventListener("animateFooterIcons", handler);
+      clearTimers();
+    };
   }, []);
 
   return (

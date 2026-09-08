@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
+import { useEffect, useRef } from "react";
 import Se30WebringLogo from "@/components/ui/se30-webring-logo";
 
 interface WebringMember {
@@ -14,39 +14,34 @@ interface WaterlooNetworkProps {
   members?: WebringMember[];
 }
 
+const EMPTY_MEMBERS: WebringMember[] = [];
+
 export default function WaterlooNetwork({
   className = "",
-  members = [], // default to empty if not passed
+  members = EMPTY_MEMBERS,
 }: WaterlooNetworkProps) {
-  const [index, setIndex] = useState(0);
+  const indexRef = useRef(0);
 
-  // initialize randomized index only on client to avoid hydration mismatch
   useEffect(() => {
-    if (members.length > 0) {
-      setTimeout(() => {
-        setIndex(Math.floor(Math.random() * members.length));
-      }, 0);
-    }
-  }, [members]); // re-run if members change (e.g. initial load)
+    indexRef.current = members.length > 0 ? Math.floor(Math.random() * members.length) : 0;
+  }, [members]);
 
   const handlePrev = (e: React.MouseEvent) => {
     e.preventDefault();
     if (members.length === 0) return;
 
-    // logic from script: (currentIndex - 1 + length) % length
-    const newIndex = (index - 1 + members.length) % members.length;
-    setIndex(newIndex);
-    window.open(members[newIndex].website, "_blank");
+    const newIndex = (indexRef.current - 1 + members.length) % members.length;
+    indexRef.current = newIndex;
+    window.open(members[newIndex].website, "_blank", "noopener,noreferrer");
   };
 
   const handleNext = (e: React.MouseEvent) => {
     e.preventDefault();
     if (members.length === 0) return;
 
-    // logic from script: (currentIndex + 1) % length
-    const newIndex = (index + 1) % members.length;
-    setIndex(newIndex);
-    window.open(members[newIndex].website, "_blank");
+    const newIndex = (indexRef.current + 1) % members.length;
+    indexRef.current = newIndex;
+    window.open(members[newIndex].website, "_blank", "noopener,noreferrer");
   };
 
   const isDisabled = members.length === 0;

@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "@/components/ui/link";
 import { IconArrowDown } from "@tabler/icons-react";
+import Link from "@/components/ui/link";
 
 export default function ScrollToFooterLink() {
   return (
