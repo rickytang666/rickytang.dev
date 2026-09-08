@@ -80,6 +80,7 @@ const icons = [
 const SCROLL_DELAY = 700;
 const STAGGER = 120;
 const FLASH_DURATION = 300;
+const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
 
 export default function FooterIcons() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -93,6 +94,9 @@ export default function FooterIcons() {
 
     const handler = () => {
       clearTimers();
+      setActiveIndex(null);
+      if (window.matchMedia(REDUCED_MOTION_QUERY).matches) return;
+
       icons.forEach((_, i) => {
         timers.add(setTimeout(() => setActiveIndex(i), SCROLL_DELAY + i * STAGGER));
         timers.add(
