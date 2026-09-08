@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView, useReducedMotion } from "framer-motion";
+import { domAnimation, LazyMotion, m, useInView, useReducedMotion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import CanadaWebring from "@/components/ui/canada-webring";
 import SeWebring from "@/components/ui/se-webring";
@@ -170,39 +170,41 @@ export default function WebringSwitcher({ waterlooMembers }: WebringSwitcherProp
       onMouseLeave={() => setHovered(false)}
     >
       <div className="w-full overflow-hidden relative">
-        <motion.div
-          className="flex w-full"
-          animate={{ x: xValue }}
-          transition={
-            shouldReduceMotion ? { duration: 0 } : { type: "spring", stiffness: 400, damping: 40 }
-          }
-        >
-          {/* se webring */}
-          <div className="min-w-full flex justify-center">
-            <SeWebring
-              prevHref="https://archangelinux.vercel.app/"
-              webringHref="https://se-webring.xyz/"
-              nextHref="https://davidhua.ca/"
-              webringName="SE Webring"
-              logo={<SeWebringLogo width={38} height={38} />}
-            />
-          </div>
+        <LazyMotion features={domAnimation} strict>
+          <m.div
+            className="flex w-full"
+            animate={{ x: xValue }}
+            transition={
+              shouldReduceMotion ? { duration: 0 } : { type: "spring", stiffness: 400, damping: 40 }
+            }
+          >
+            {/* se webring */}
+            <div className="min-w-full flex justify-center">
+              <SeWebring
+                prevHref="https://archangelinux.vercel.app/"
+                webringHref="https://se-webring.xyz/"
+                nextHref="https://davidhua.ca/"
+                webringName="SE Webring"
+                logo={<SeWebringLogo width={38} height={38} />}
+              />
+            </div>
 
-          {/* se30 webring */}
-          <div className="min-w-full flex justify-center">
-            <Se30Webring domain="https://rickytang.dev" />
-          </div>
+            {/* se30 webring */}
+            <div className="min-w-full flex justify-center">
+              <Se30Webring domain="https://rickytang.dev" />
+            </div>
 
-          {/* waterloo webring */}
-          <div className="min-w-full flex justify-center">
-            <WaterlooWebring members={waterlooMembers} />
-          </div>
+            {/* waterloo webring */}
+            <div className="min-w-full flex justify-center">
+              <WaterlooWebring members={waterlooMembers} />
+            </div>
 
-          {/* canada webring */}
-          <div className="min-w-full flex justify-center">
-            <CanadaWebring />
-          </div>
-        </motion.div>
+            {/* canada webring */}
+            <div className="min-w-full flex justify-center">
+              <CanadaWebring />
+            </div>
+          </m.div>
+        </LazyMotion>
       </div>
 
       {/* pagination dots */}
