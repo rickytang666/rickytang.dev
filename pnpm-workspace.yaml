@@ -3,3 +3,6 @@ allowBuilds:
   '@vercel/speed-insights': true
   sharp: true
   unrs-resolver: true
+
+overrides:
+  browserslist: 4.28.7
