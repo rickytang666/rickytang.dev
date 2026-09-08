@@ -17,11 +17,20 @@
     "lineWidth": 100,
     "lineEnding": "lf"
   },
+  "assist": {
+    "enabled": true,
+    "actions": {
+      "source": {
+        "organizeImports": "on"
+      }
+    }
+  },
   "linter": {
     "enabled": true,
     "domains": {
       "next": "recommended",
-      "react": "recommended"
+      "react": "recommended",
+      "tailwind": "recommended"
     },
     "rules": {
       "preset": "none",

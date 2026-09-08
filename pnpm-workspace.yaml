@@ -4,6 +4,13 @@ allowBuilds:
   sharp: true
   unrs-resolver: true
 
+blockExoticSubdeps: true
+minimumReleaseAge: 1440
+trustPolicy: no-downgrade
+trustPolicyExclude:
+  - semver@6.3.1
+  - undici-types@6.21.0
+
 overrides:
   '@humanfs/node@<0.16.8': 0.16.8
   'brace-expansion@<1.1.18': 1.1.18
