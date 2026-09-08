@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import CanadaWebring from "@/components/ui/canada-webring";
 import SeWebring from "@/components/ui/se-webring";
@@ -30,6 +30,7 @@ export default function WebringSwitcher({ waterlooMembers }: WebringSwitcherProp
   // trackpad / wheel logic
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, amount: 0.5 });
+  const shouldReduceMotion = useReducedMotion();
   const cooldownRef = useRef(false);
   const cooldownTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -53,20 +54,20 @@ export default function WebringSwitcher({ waterlooMembers }: WebringSwitcherProp
 
   // peek animation when scrolling into view
   useEffect(() => {
-    if (isInView) {
-      let resetTimer: ReturnType<typeof setTimeout> | null = null;
-      const peekTimer = setTimeout(() => {
-        setPeek(true);
-        resetTimer = setTimeout(() => {
-          setPeek(false);
-        }, 400);
-      }, 500);
-      return () => {
-        clearTimeout(peekTimer);
-        if (resetTimer) clearTimeout(resetTimer);
-      };
-    }
-  }, [isInView]);
+    if (!isInView || shouldReduceMotion) return;
+
+    let resetTimer: ReturnType<typeof setTimeout> | null = null;
+    const peekTimer = setTimeout(() => {
+      setPeek(true);
+      resetTimer = setTimeout(() => {
+        setPeek(false);
+      }, 400);
+    }, 500);
+    return () => {
+      clearTimeout(peekTimer);
+      if (resetTimer) clearTimeout(resetTimer);
+    };
+  }, [isInView, shouldReduceMotion]);
 
   // trackpad / wheel logic
   useEffect(() => {
@@ -172,7 +173,9 @@ export default function WebringSwitcher({ waterlooMembers }: WebringSwitcherProp
         <motion.div
           className="flex w-full"
           animate={{ x: xValue }}
-          transition={{ type: "spring", stiffness: 400, damping: 40 }}
+          transition={
+            shouldReduceMotion ? { duration: 0 } : { type: "spring", stiffness: 400, damping: 40 }
+          }
         >
           {/* se webring */}
           <div className="min-w-full flex justify-center">
