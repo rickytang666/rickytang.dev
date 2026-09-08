@@ -14,7 +14,7 @@ import {
   IconUser,
 } from "@tabler/icons-react";
 import { Command } from "cmdk";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { usePathname, useRouter } from "next/navigation";
 import { useTheme } from "next-themes";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
@@ -40,6 +40,30 @@ interface CommandPaletteProps {
   onOpenChange: (open: boolean) => void;
 }
 
+const getPanelVariants = (isMobile: boolean, shouldReduceMotion: boolean | null) => {
+  if (shouldReduceMotion) {
+    return {
+      hidden: { opacity: 0 },
+      visible: { opacity: 1 },
+      exit: { opacity: 0 },
+    };
+  }
+
+  if (isMobile) {
+    return {
+      hidden: { y: "100%" },
+      visible: { y: 0 },
+      exit: { y: "100%" },
+    };
+  }
+
+  return {
+    hidden: { opacity: 0, scale: 0.97, y: -6 },
+    visible: { opacity: 1, scale: 1, y: 0 },
+    exit: { opacity: 0, scale: 0.97, y: -6 },
+  };
+};
+
 export default function CommandPalette({ open, onOpenChange }: CommandPaletteProps) {
   const router = useRouter();
   const pathname = usePathname();
@@ -58,6 +82,7 @@ export default function CommandPalette({ open, onOpenChange }: CommandPalettePro
   const onOpenChangeRef = useRef(onOpenChange);
   const isMobile = useIsTouch();
   const isDark = theme === "dark";
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
     routerRef.current = router;
@@ -160,6 +185,7 @@ export default function CommandPalette({ open, onOpenChange }: CommandPalettePro
     if (e.key !== "ArrowUp" && e.key !== "ArrowDown") return;
     const list = listRef.current;
     if (!list) return;
+    const scrollBehavior = shouldReduceMotion ? "auto" : "smooth";
     list.querySelectorAll("[cmdk-item], [cmdk-group-heading]").forEach((el) => {
       const element = el as HTMLElement;
       const orig = element.scrollIntoView.bind(element);
@@ -167,24 +193,19 @@ export default function CommandPalette({ open, onOpenChange }: CommandPalettePro
         element.scrollIntoView = orig;
         orig(
           typeof opts === "object"
-            ? { ...opts, behavior: "smooth" }
-            : { block: "nearest", behavior: "smooth" },
+            ? { ...opts, behavior: scrollBehavior }
+            : { block: "nearest", behavior: scrollBehavior },
         );
       };
     });
   };
 
-  const panelVariants = isMobile
-    ? {
-        hidden: { y: "100%" },
-        visible: { y: 0 },
-        exit: { y: "100%" },
-      }
-    : {
-        hidden: { opacity: 0, scale: 0.97, y: -6 },
-        visible: { opacity: 1, scale: 1, y: 0 },
-        exit: { opacity: 0, scale: 0.97, y: -6 },
-      };
+  const panelVariants = getPanelVariants(isMobile, shouldReduceMotion);
+  const panelTransition = shouldReduceMotion
+    ? { duration: 0.15 }
+    : { type: "spring" as const, stiffness: 400, damping: 40 };
+  const toastHiddenState = shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 8 };
+  const toastVisibleState = shouldReduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 };
 
   const itemClass =
     "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm cursor-pointer text-foreground/80 aria-selected:bg-primary/10 aria-selected:text-primary transition-colors duration-100 outline-none";
@@ -222,7 +243,7 @@ export default function CommandPalette({ open, onOpenChange }: CommandPalettePro
               initial="hidden"
               animate="visible"
               exit="exit"
-              transition={{ type: "spring", stiffness: 400, damping: 40 }}
+              transition={panelTransition}
             >
               {/* mobile drag handle */}
               {isMobile && (
@@ -378,9 +399,9 @@ export default function CommandPalette({ open, onOpenChange }: CommandPalettePro
         {copied && (
           <motion.div
             className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[300] bg-foreground/80 text-background text-xs font-medium px-4 py-2 rounded-full shadow-lg whitespace-nowrap"
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 8 }}
+            initial={toastHiddenState}
+            animate={toastVisibleState}
+            exit={toastHiddenState}
             transition={{ duration: 0.2 }}
           >
             email copied!
