@@ -4,11 +4,7 @@ interface IconCalcomProps {
   height?: number;
 }
 
-export default function IconCalcom({
-  className = "",
-  width = 24,
-  height = 24,
-}: IconCalcomProps) {
+export default function IconCalcom({ className = "", width = 24, height = 24 }: IconCalcomProps) {
   return (
     <svg
       width={width}

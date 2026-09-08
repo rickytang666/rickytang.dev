@@ -1,13 +1,19 @@
 "use client";
 
-import Link from "@/components/ui/link";
 import { IconArrowDown } from "@tabler/icons-react";
+import Link from "@/components/ui/link";
+
+const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
 
 export default function ScrollToFooterLink() {
   return (
     <Link
       onClick={() => {
-        window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+        const shouldReduceMotion = window.matchMedia(REDUCED_MOTION_QUERY).matches;
+        window.scrollTo({
+          top: document.body.scrollHeight,
+          behavior: shouldReduceMotion ? "auto" : "smooth",
+        });
         window.dispatchEvent(new CustomEvent("animateFooterIcons"));
       }}
     >

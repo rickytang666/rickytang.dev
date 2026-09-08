@@ -1,7 +1,7 @@
 import Image from "next/image";
+import ScrollToFooterLink from "@/components/home/scroll-to-footer-link";
 import Link from "@/components/ui/link";
 import { externalLinks } from "@/data/links";
-import ScrollToFooterLink from "@/components/home/scroll-to-footer-link";
 
 export default function HeroSection() {
   return (
@@ -15,10 +15,7 @@ export default function HeroSection() {
           Software Engineering @{" "}
           <span className="inline-flex items-center gap-1.5">
             <Image src="/home/uwaterloo.svg" alt="" width={24} height={24} />
-            <Link
-              href={externalLinks.softwareEngineering}
-              underlineWidth="2.5px"
-            >
+            <Link href={externalLinks.softwareEngineering} underlineWidth="2.5px">
               UWaterloo
             </Link>
           </span>
@@ -44,13 +41,7 @@ export default function HeroSection() {
           <p className="flex flex-wrap items-center gap-x-1.5 gap-y-1">
             Engineering @{" "}
             <span className="inline-flex items-center gap-1">
-              <Image
-                src="/home/watai.jpg"
-                alt=""
-                width={18}
-                height={18}
-                className="rounded-xs"
-              />
+              <Image src="/home/watai.jpg" alt="" width={18} height={18} className="rounded-xs" />
               <Link href="https://watai.ca" className="font-medium">
                 WAT.ai
               </Link>
@@ -85,13 +76,7 @@ export default function HeroSection() {
             </span>
             {", "}
             <span className="inline-flex items-center gap-1">
-              <Image
-                src="/home/wato.svg"
-                alt=""
-                width={18}
-                height={18}
-                className="rounded-xs"
-              />
+              <Image src="/home/wato.svg" alt="" width={18} height={18} className="rounded-xs" />
               <Link href="https://watonomous.ca" className="font-medium">
                 WATonomous
               </Link>
@@ -100,9 +85,8 @@ export default function HeroSection() {
         </div>
 
         <p className="max-w-2xl text-sm sm:text-base text-foreground mt-4">
-          I love taking slow processes and engineering them down to seconds.
-          Currently focused on high-throughput RAG pipelines and scalable
-          agentic systems.
+          I love taking slow processes and engineering them down to seconds. Currently focused on
+          high-throughput RAG pipelines and scalable agentic systems.
         </p>
 
         <p className="text-sm sm:text-base text-foreground">
@@ -118,12 +102,9 @@ export default function HeroSection() {
         </p>
 
         <p className="text-sm sm:text-base">
-          You can reach out to me via{" "}
-          <Link href={externalLinks.email}>email</Link>,{" "}
+          You can reach out to me via <Link href={externalLinks.email}>email</Link>,{" "}
           <Link href={externalLinks.twitter}>Twitter</Link>,{" "}
-          <Link href={externalLinks.linkedin}>LinkedIn</Link>, and{" "}
-          <ScrollToFooterLink />
-          .
+          <Link href={externalLinks.linkedin}>LinkedIn</Link>, and <ScrollToFooterLink />.
         </p>
       </div>
     </section>

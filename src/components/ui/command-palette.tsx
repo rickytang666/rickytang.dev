@@ -1,24 +1,24 @@
 "use client";
 
-import { useEffect, useRef, useState, useSyncExternalStore } from "react";
-import { createPortal } from "react-dom";
-import { Command } from "cmdk";
-import { useRouter, usePathname } from "next/navigation";
-import { useTheme } from "next-themes";
-import { motion, AnimatePresence } from "framer-motion";
 import {
-  IconSearch,
-  IconHome,
-  IconUser,
-  IconFolder,
   IconBrandGithub,
   IconBrandLinkedin,
-  IconMail,
-  IconFileText,
   IconCalendar,
-  IconSun,
+  IconFileText,
+  IconFolder,
+  IconHome,
+  IconMail,
   IconMoon,
+  IconSearch,
+  IconSun,
+  IconUser,
 } from "@tabler/icons-react";
+import { Command } from "cmdk";
+import { AnimatePresence, domAnimation, LazyMotion, m, useReducedMotion } from "framer-motion";
+import { usePathname, useRouter } from "next/navigation";
+import { useTheme } from "next-themes";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { createPortal } from "react-dom";
 import { externalLinks } from "@/data/links";
 
 const EMAIL = "rickytangdev@gmail.com";
@@ -40,10 +40,31 @@ interface CommandPaletteProps {
   onOpenChange: (open: boolean) => void;
 }
 
-export default function CommandPalette({
-  open,
-  onOpenChange,
-}: CommandPaletteProps) {
+const getPanelVariants = (isMobile: boolean, shouldReduceMotion: boolean | null) => {
+  if (shouldReduceMotion) {
+    return {
+      hidden: { opacity: 0 },
+      visible: { opacity: 1 },
+      exit: { opacity: 0 },
+    };
+  }
+
+  if (isMobile) {
+    return {
+      hidden: { y: "100%" },
+      visible: { y: 0 },
+      exit: { y: "100%" },
+    };
+  }
+
+  return {
+    hidden: { opacity: 0, scale: 0.97, y: -6 },
+    visible: { opacity: 1, scale: 1, y: 0 },
+    exit: { opacity: 0, scale: 0.97, y: -6 },
+  };
+};
+
+export default function CommandPalette({ open, onOpenChange }: CommandPaletteProps) {
   const router = useRouter();
   const pathname = usePathname();
   const { theme, setTheme } = useTheme();
@@ -61,6 +82,7 @@ export default function CommandPalette({
   const onOpenChangeRef = useRef(onOpenChange);
   const isMobile = useIsTouch();
   const isDark = theme === "dark";
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
     routerRef.current = router;
@@ -92,11 +114,7 @@ export default function CommandPalette({
     };
 
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (
-        e.target instanceof HTMLInputElement ||
-        e.target instanceof HTMLTextAreaElement
-      )
-        return;
+      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
       if (e.metaKey || e.ctrlKey || e.altKey || e.repeat) return;
       const key = e.key.toLowerCase();
       if (key === "r") {
@@ -115,7 +133,10 @@ export default function CommandPalette({
     };
 
     window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      if (chordTimerRef.current) clearTimeout(chordTimerRef.current);
+    };
   }, []);
 
   // focus input on desktop
@@ -164,6 +185,7 @@ export default function CommandPalette({
     if (e.key !== "ArrowUp" && e.key !== "ArrowDown") return;
     const list = listRef.current;
     if (!list) return;
+    const scrollBehavior = shouldReduceMotion ? "auto" : "smooth";
     list.querySelectorAll("[cmdk-item], [cmdk-group-heading]").forEach((el) => {
       const element = el as HTMLElement;
       const orig = element.scrollIntoView.bind(element);
@@ -171,24 +193,19 @@ export default function CommandPalette({
         element.scrollIntoView = orig;
         orig(
           typeof opts === "object"
-            ? { ...opts, behavior: "smooth" }
-            : { block: "nearest", behavior: "smooth" },
+            ? { ...opts, behavior: scrollBehavior }
+            : { block: "nearest", behavior: scrollBehavior },
         );
       };
     });
   };
 
-  const panelVariants = isMobile
-    ? {
-        hidden: { y: "100%" },
-        visible: { y: 0 },
-        exit: { y: "100%" },
-      }
-    : {
-        hidden: { opacity: 0, scale: 0.97, y: -6 },
-        visible: { opacity: 1, scale: 1, y: 0 },
-        exit: { opacity: 0, scale: 0.97, y: -6 },
-      };
+  const panelVariants = getPanelVariants(isMobile, shouldReduceMotion);
+  const panelTransition = shouldReduceMotion
+    ? { duration: 0.15 }
+    : { type: "spring" as const, stiffness: 400, damping: 40 };
+  const toastHiddenState = shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 8 };
+  const toastVisibleState = shouldReduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 };
 
   const itemClass =
     "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm cursor-pointer text-foreground/80 aria-selected:bg-primary/10 aria-selected:text-primary transition-colors duration-100 outline-none";
@@ -199,207 +216,201 @@ export default function CommandPalette({
   if (!mounted) return null;
 
   return createPortal(
-    <>
-      <AnimatePresence>
-        {open && (
-          <>
-            {/* backdrop */}
-            <motion.div
-              className="fixed inset-0 z-[200] bg-black/30 backdrop-blur-sm"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.15 }}
-              onClick={close}
-            />
+    <LazyMotion features={domAnimation} strict>
+      <>
+        <AnimatePresence>
+          {open && (
+            <>
+              {/* backdrop */}
+              <m.button
+                type="button"
+                aria-label="Close command palette"
+                className="fixed inset-0 z-[200] bg-black/30 backdrop-blur-sm"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.15 }}
+                onClick={close}
+              />
 
-            {/* panel */}
-            <motion.div
-              className={`fixed z-[201] bg-background border border-border shadow-xl overflow-hidden ${
-                isMobile
-                  ? "bottom-0 left-0 right-0 rounded-t-2xl"
-                  : "top-[18%] left-1/2 -translate-x-1/2 w-full max-w-lg rounded-xl"
-              }`}
-              variants={panelVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-              transition={{ type: "spring", stiffness: 400, damping: 40 }}
-            >
-              {/* mobile drag handle */}
-              {isMobile && (
-                <div className="flex justify-center pt-3 pb-1">
-                  <div className="w-10 h-1 rounded-full bg-foreground/20" />
-                </div>
-              )}
+              {/* panel */}
+              <m.div
+                className={`fixed z-[201] bg-background border border-border shadow-xl overflow-hidden ${
+                  isMobile
+                    ? "bottom-0 left-0 right-0 rounded-t-2xl"
+                    : "top-[18%] left-1/2 -translate-x-1/2 w-full max-w-lg rounded-xl"
+                }`}
+                variants={panelVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                transition={panelTransition}
+              >
+                {/* mobile drag handle */}
+                {isMobile && (
+                  <div className="flex justify-center pt-3 pb-1">
+                    <div className="w-10 h-1 rounded-full bg-foreground/20" />
+                  </div>
+                )}
 
-              <Command onKeyDown={handleCommandKeyDown}>
-                {/* search bar */}
-                <div className="flex items-center gap-2 px-4 border-b border-border">
-                  <IconSearch
-                    stroke={2}
-                    className="w-4 h-4 text-foreground/50 shrink-0"
-                  />
-                  <Command.Input
-                    ref={inputRef}
-                    placeholder="Search..."
-                    className="flex-1 bg-transparent py-4 text-sm outline-none placeholder:text-foreground/40"
-                  />
-                  {!isMobile && (
-                    <kbd className="shrink-0 font-mono text-[11px] text-foreground/70 bg-foreground/15 px-1.5 py-0.5 rounded-sm">
-                      ESC
-                    </kbd>
-                  )}
-                </div>
+                <Command onKeyDown={handleCommandKeyDown}>
+                  {/* search bar */}
+                  <div className="flex items-center gap-2 px-4 border-b border-border">
+                    <IconSearch stroke={2} className="w-4 h-4 text-foreground/50 shrink-0" />
+                    <Command.Input
+                      ref={inputRef}
+                      placeholder="Search..."
+                      className="flex-1 bg-transparent py-4 text-sm outline-none placeholder:text-foreground/40"
+                    />
+                    {!isMobile && (
+                      <kbd className="shrink-0 font-mono text-[11px] text-foreground/70 bg-foreground/15 px-1.5 py-0.5 rounded-sm">
+                        ESC
+                      </kbd>
+                    )}
+                  </div>
 
-                <Command.List
-                  ref={listRef}
-                  className="overflow-y-auto scroll-smooth overscroll-contain scrollbar-thin p-2 max-h-[58vh] sm:max-h-72"
-                  style={{
-                    scrollbarWidth: "thin",
-                    scrollbarColor:
-                      "oklch(from var(--foreground) l c h / 0.15) transparent",
-                  }}
-                >
-                  <Command.Empty className="py-8 text-center text-sm text-foreground/50">
-                    No results found.
-                  </Command.Empty>
+                  <Command.List
+                    ref={listRef}
+                    className="overflow-y-auto scroll-smooth overscroll-contain scrollbar-thin p-2 max-h-[58vh] sm:max-h-72"
+                    style={{
+                      scrollbarWidth: "thin",
+                      scrollbarColor: "oklch(from var(--foreground) l c h / 0.15) transparent",
+                    }}
+                  >
+                    <Command.Empty className="py-8 text-center text-sm text-foreground/50">
+                      No results found.
+                    </Command.Empty>
 
-                  <Command.Group heading="Navigate" className={groupClass}>
-                    {[
-                      {
-                        id: "home",
-                        label: "Home",
-                        icon: IconHome,
-                        href: "/",
-                        shortcut: ["R", "H"],
-                      },
-                      {
-                        id: "about",
-                        label: "About",
-                        icon: IconUser,
-                        href: "/about",
-                        shortcut: ["R", "A"],
-                      },
-                      {
-                        id: "projects",
-                        label: "Projects",
-                        icon: IconFolder,
-                        href: "/projects",
-                        shortcut: ["R", "P"],
-                      },
-                    ].map(({ id, label, icon: Icon, href, shortcut }) => (
-                      <Command.Item
-                        key={id}
-                        value={label}
-                        onSelect={() => navigate(href)}
-                        className={itemClass}
-                      >
-                        <Icon stroke={2} className="w-4 h-4 shrink-0" />
-                        <span className="flex-1">{label}</span>
-                        {pathname === href && (
-                          <span className="w-1.5 h-1.5 rounded-full bg-primary/50 shrink-0" />
-                        )}
-                        {!isMobile && (
-                          <span className="flex items-center gap-1">
-                            <kbd className="font-mono text-xs text-foreground/70 bg-foreground/10 px-1.5 py-0.5 rounded-sm">
-                              {shortcut[0]}
-                            </kbd>
-                            <span className="text-xs text-foreground/50">
-                              then
+                    <Command.Group heading="Navigate" className={groupClass}>
+                      {[
+                        {
+                          id: "home",
+                          label: "Home",
+                          icon: IconHome,
+                          href: "/",
+                          shortcut: ["R", "H"],
+                        },
+                        {
+                          id: "about",
+                          label: "About",
+                          icon: IconUser,
+                          href: "/about",
+                          shortcut: ["R", "A"],
+                        },
+                        {
+                          id: "projects",
+                          label: "Projects",
+                          icon: IconFolder,
+                          href: "/projects",
+                          shortcut: ["R", "P"],
+                        },
+                      ].map(({ id, label, icon: Icon, href, shortcut }) => (
+                        <Command.Item
+                          key={id}
+                          value={label}
+                          onSelect={() => navigate(href)}
+                          className={itemClass}
+                        >
+                          <Icon stroke={2} className="w-4 h-4 shrink-0" />
+                          <span className="flex-1">{label}</span>
+                          {pathname === href && (
+                            <span className="w-1.5 h-1.5 rounded-full bg-primary/50 shrink-0" />
+                          )}
+                          {!isMobile && (
+                            <span className="flex items-center gap-1">
+                              <kbd className="font-mono text-xs text-foreground/70 bg-foreground/10 px-1.5 py-0.5 rounded-sm">
+                                {shortcut[0]}
+                              </kbd>
+                              <span className="text-xs text-foreground/50">then</span>
+                              <kbd className="font-mono text-xs text-foreground/70 bg-foreground/10 px-1.5 py-0.5 rounded-sm">
+                                {shortcut[1]}
+                              </kbd>
                             </span>
-                            <kbd className="font-mono text-xs text-foreground/70 bg-foreground/10 px-1.5 py-0.5 rounded-sm">
-                              {shortcut[1]}
-                            </kbd>
-                          </span>
-                        )}
-                      </Command.Item>
-                    ))}
-                  </Command.Group>
+                          )}
+                        </Command.Item>
+                      ))}
+                    </Command.Group>
 
-                  <Command.Group heading="Links" className={groupClass}>
-                    <Command.Item
-                      value="Copy Email"
-                      onSelect={copyEmail}
-                      className={itemClass}
-                    >
-                      <IconMail stroke={2} className="w-4 h-4 shrink-0" />
-                      Copy Email
-                    </Command.Item>
-                    {[
-                      {
-                        id: "github",
-                        label: "GitHub",
-                        icon: IconBrandGithub,
-                        url: externalLinks.github,
-                      },
-                      {
-                        id: "linkedin",
-                        label: "LinkedIn",
-                        icon: IconBrandLinkedin,
-                        url: externalLinks.linkedin,
-                      },
-                      {
-                        id: "resume",
-                        label: "Resume",
-                        icon: IconFileText,
-                        url: "/Ricky_Tang_resume.pdf",
-                      },
-                      {
-                        id: "calcom",
-                        label: "Book a Call",
-                        icon: IconCalendar,
-                        url: externalLinks.calcom,
-                      },
-                    ].map(({ id, label, icon: Icon, url }) => (
+                    <Command.Group heading="Links" className={groupClass}>
+                      <Command.Item value="Copy Email" onSelect={copyEmail} className={itemClass}>
+                        <IconMail stroke={2} className="w-4 h-4 shrink-0" />
+                        Copy Email
+                      </Command.Item>
+                      {[
+                        {
+                          id: "github",
+                          label: "GitHub",
+                          icon: IconBrandGithub,
+                          url: externalLinks.github,
+                        },
+                        {
+                          id: "linkedin",
+                          label: "LinkedIn",
+                          icon: IconBrandLinkedin,
+                          url: externalLinks.linkedin,
+                        },
+                        {
+                          id: "resume",
+                          label: "Resume",
+                          icon: IconFileText,
+                          url: "/Ricky_Tang_resume.pdf",
+                        },
+                        {
+                          id: "calcom",
+                          label: "Book a Call",
+                          icon: IconCalendar,
+                          url: externalLinks.calcom,
+                        },
+                      ].map(({ id, label, icon: Icon, url }) => (
+                        <Command.Item
+                          key={id}
+                          value={label}
+                          onSelect={() => openLink(url)}
+                          className={itemClass}
+                        >
+                          <Icon stroke={2} className="w-4 h-4 shrink-0" />
+                          {label}
+                        </Command.Item>
+                      ))}
+                    </Command.Group>
+
+                    <Command.Group heading="Appearance" className={groupClass}>
                       <Command.Item
-                        key={id}
-                        value={label}
-                        onSelect={() => openLink(url)}
+                        value={isDark ? "Switch to Light" : "Switch to Dark"}
+                        onSelect={toggleTheme}
                         className={itemClass}
                       >
-                        <Icon stroke={2} className="w-4 h-4 shrink-0" />
-                        {label}
+                        {isDark ? (
+                          <IconSun stroke={2} className="w-4 h-4 shrink-0" />
+                        ) : (
+                          <IconMoon stroke={2} className="w-4 h-4 shrink-0" />
+                        )}
+                        {isDark ? "Switch to Light" : "Switch to Dark"}
                       </Command.Item>
-                    ))}
-                  </Command.Group>
+                    </Command.Group>
+                  </Command.List>
+                </Command>
+              </m.div>
+            </>
+          )}
+        </AnimatePresence>
 
-                  <Command.Group heading="Appearance" className={groupClass}>
-                    <Command.Item
-                      value={isDark ? "Switch to Light" : "Switch to Dark"}
-                      onSelect={toggleTheme}
-                      className={itemClass}
-                    >
-                      {isDark ? (
-                        <IconSun stroke={2} className="w-4 h-4 shrink-0" />
-                      ) : (
-                        <IconMoon stroke={2} className="w-4 h-4 shrink-0" />
-                      )}
-                      {isDark ? "Switch to Light" : "Switch to Dark"}
-                    </Command.Item>
-                  </Command.Group>
-                </Command.List>
-              </Command>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
-
-      {/* copy toast */}
-      <AnimatePresence>
-        {copied && (
-          <motion.div
-            className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[300] bg-foreground/80 text-background text-xs font-medium px-4 py-2 rounded-full shadow-lg whitespace-nowrap"
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 8 }}
-            transition={{ duration: 0.2 }}
-          >
-            email copied!
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>,
+        {/* copy toast */}
+        <AnimatePresence>
+          {copied && (
+            <m.div
+              className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[300] bg-foreground/80 text-background text-xs font-medium px-4 py-2 rounded-full shadow-lg whitespace-nowrap"
+              initial={toastHiddenState}
+              animate={toastVisibleState}
+              exit={toastHiddenState}
+              transition={{ duration: 0.2 }}
+            >
+              email copied!
+            </m.div>
+          )}
+        </AnimatePresence>
+      </>
+    </LazyMotion>,
     document.body,
   );
 }

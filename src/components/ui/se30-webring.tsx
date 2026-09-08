@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
+import { useEffect, useState } from "react";
 import Se30WebringLogo from "@/components/ui/se30-webring-logo";
 
 interface Se30WebringProps {
@@ -9,10 +9,7 @@ interface Se30WebringProps {
   domain?: string; // used for SSR/SEO
 }
 
-export default function Se30Webring({
-  className = "",
-  domain,
-}: Se30WebringProps) {
+export default function Se30Webring({ className = "", domain }: Se30WebringProps) {
   const [currentUrl, setCurrentUrl] = useState(domain || "");
 
   useEffect(() => {
@@ -26,13 +23,9 @@ export default function Se30Webring({
   }, [domain]);
 
   const baseUrl = "https://se30webring.com";
-  
-  const prevHref = currentUrl
-    ? `${baseUrl}?from=${currentUrl}&dir=prev`
-    : baseUrl;
-  const nextHref = currentUrl
-    ? `${baseUrl}?from=${currentUrl}&dir=next`
-    : baseUrl;
+
+  const prevHref = currentUrl ? `${baseUrl}?from=${currentUrl}&dir=prev` : baseUrl;
+  const nextHref = currentUrl ? `${baseUrl}?from=${currentUrl}&dir=next` : baseUrl;
 
   return (
     <div className={`flex items-center justify-center gap-3 ${className}`}>

@@ -4,11 +4,7 @@ interface Se30WebringLogoProps {
   height?: number;
 }
 
-export default function Se30WebringLogo({
-  className = "",
-  width,
-  height,
-}: Se30WebringLogoProps) {
+export default function Se30WebringLogo({ className = "", width, height }: Se30WebringLogoProps) {
   return (
     <svg
       width={width}

@@ -1,6 +1,6 @@
-import React from "react";
-import Image from "next/image";
 import { IconBrandGithub, IconExternalLink } from "@tabler/icons-react";
+import Image from "next/image";
+import React from "react";
 import { Project } from "@/types";
 
 const getLinkIcon = (name: string) => {
@@ -53,9 +53,7 @@ export default function ProjectCard({
           })}
         </div>
       </div>
-      <div className="text-sm text-foreground/80 leading-relaxed">
-        {project.description}
-      </div>
+      <div className="text-sm text-foreground/80 leading-relaxed">{project.description}</div>
     </div>
   );
 }

@@ -1,12 +1,12 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-import { motion, useInView } from "framer-motion";
+import { domAnimation, LazyMotion, m, useInView, useReducedMotion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import CanadaWebring from "@/components/ui/canada-webring";
 import SeWebring from "@/components/ui/se-webring";
 import SeWebringLogo from "@/components/ui/se-webring-logo";
 import Se30Webring from "@/components/ui/se30-webring";
 import WaterlooWebring from "@/components/ui/waterloo-network";
-import CanadaWebring from "@/components/ui/canada-webring";
 
 interface WebringMember {
   name: string;
@@ -17,9 +17,7 @@ interface WebringSwitcherProps {
   waterlooMembers?: WebringMember[];
 }
 
-export default function WebringSwitcher({
-  waterlooMembers,
-}: WebringSwitcherProps) {
+export default function WebringSwitcher({ waterlooMembers }: WebringSwitcherProps) {
   const [index, setIndex] = useState(0);
   const [peek, setPeek] = useState(false);
   const [hovered, setHovered] = useState(false);
@@ -32,7 +30,9 @@ export default function WebringSwitcher({
   // trackpad / wheel logic
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, amount: 0.5 });
+  const shouldReduceMotion = useReducedMotion();
   const cooldownRef = useRef(false);
+  const cooldownTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // keyboard navigation
   useEffect(() => {
@@ -54,17 +54,20 @@ export default function WebringSwitcher({
 
   // peek animation when scrolling into view
   useEffect(() => {
-    if (isInView) {
-      // delay slightly so user sees it settle
-      const timer = setTimeout(() => {
-        setPeek(true);
-        setTimeout(() => {
-          setPeek(false);
-        }, 400); // duration of peek
-      }, 500);
-      return () => clearTimeout(timer);
-    }
-  }, [isInView]);
+    if (!isInView || shouldReduceMotion) return;
+
+    let resetTimer: ReturnType<typeof setTimeout> | null = null;
+    const peekTimer = setTimeout(() => {
+      setPeek(true);
+      resetTimer = setTimeout(() => {
+        setPeek(false);
+      }, 400);
+    }, 500);
+    return () => {
+      clearTimeout(peekTimer);
+      if (resetTimer) clearTimeout(resetTimer);
+    };
+  }, [isInView, shouldReduceMotion]);
 
   // trackpad / wheel logic
   useEffect(() => {
@@ -94,15 +97,17 @@ export default function WebringSwitcher({
 
     const triggerCooldown = () => {
       cooldownRef.current = true;
-      setTimeout(() => {
+      if (cooldownTimerRef.current) clearTimeout(cooldownTimerRef.current);
+      cooldownTimerRef.current = setTimeout(() => {
         cooldownRef.current = false;
-      }, 750); // longer (to handle trackpad inertia)
+      }, 750);
     };
 
     container.addEventListener("wheel", handleWheel, { passive: false });
 
     return () => {
       container.removeEventListener("wheel", handleWheel);
+      if (cooldownTimerRef.current) clearTimeout(cooldownTimerRef.current);
     };
   }, []);
 
@@ -165,37 +170,41 @@ export default function WebringSwitcher({
       onMouseLeave={() => setHovered(false)}
     >
       <div className="w-full overflow-hidden relative">
-        <motion.div
-          className="flex w-full"
-          animate={{ x: xValue }}
-          transition={{ type: "spring", stiffness: 400, damping: 40 }}
-        >
-          {/* se webring */}
-          <div className="min-w-full flex justify-center">
-            <SeWebring
-              prevHref="https://archangelinux.vercel.app/"
-              webringHref="https://se-webring.xyz/"
-              nextHref="https://davidhua.ca/"
-              webringName="SE Webring"
-              logo={<SeWebringLogo width={38} height={38} />}
-            />
-          </div>
+        <LazyMotion features={domAnimation} strict>
+          <m.div
+            className="flex w-full"
+            animate={{ x: xValue }}
+            transition={
+              shouldReduceMotion ? { duration: 0 } : { type: "spring", stiffness: 400, damping: 40 }
+            }
+          >
+            {/* se webring */}
+            <div className="min-w-full flex justify-center">
+              <SeWebring
+                prevHref="https://archangelinux.vercel.app/"
+                webringHref="https://se-webring.xyz/"
+                nextHref="https://davidhua.ca/"
+                webringName="SE Webring"
+                logo={<SeWebringLogo width={38} height={38} />}
+              />
+            </div>
 
-          {/* se30 webring */}
-          <div className="min-w-full flex justify-center">
-            <Se30Webring domain="https://rickytang.dev" />
-          </div>
+            {/* se30 webring */}
+            <div className="min-w-full flex justify-center">
+              <Se30Webring domain="https://rickytang.dev" />
+            </div>
 
-          {/* waterloo webring */}
-          <div className="min-w-full flex justify-center">
-            <WaterlooWebring members={waterlooMembers} />
-          </div>
+            {/* waterloo webring */}
+            <div className="min-w-full flex justify-center">
+              <WaterlooWebring members={waterlooMembers} />
+            </div>
 
-          {/* canada webring */}
-          <div className="min-w-full flex justify-center">
-            <CanadaWebring />
-          </div>
-        </motion.div>
+            {/* canada webring */}
+            <div className="min-w-full flex justify-center">
+              <CanadaWebring />
+            </div>
+          </m.div>
+        </LazyMotion>
       </div>
 
       {/* pagination dots */}
@@ -213,11 +222,13 @@ export default function WebringSwitcher({
               className="p-[7px] group"
               aria-label={label}
             >
-              <span className={`block w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                index === i
-                  ? `${active} scale-110`
-                  : "bg-muted-foreground/30 group-hover:bg-muted-foreground/50 group-hover:scale-110"
-              }`} />
+              <span
+                className={`block w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                  index === i
+                    ? `${active} scale-110`
+                    : "bg-muted-foreground/30 group-hover:bg-muted-foreground/50 group-hover:scale-110"
+                }`}
+              />
             </button>
           ))}
         </div>

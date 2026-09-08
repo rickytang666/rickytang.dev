@@ -1,6 +1,6 @@
-import HeroSection from "@/components/home/hero-section";
-import FeaturedProjects from "@/components/home/featured-projects";
 import type { Metadata } from "next";
+import FeaturedProjects from "@/components/home/featured-projects";
+import HeroSection from "@/components/home/hero-section";
 
 export const metadata: Metadata = {
   description:
@@ -26,13 +26,12 @@ const jsonLd = {
   ],
 };
 
+const jsonLdString = JSON.stringify(jsonLd).replace(/</g, "\\u003c");
+
 export default function Home() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdString }} />
       <main className="flex flex-col gap-20 lg:gap-25">
         <HeroSection />
         <FeaturedProjects />

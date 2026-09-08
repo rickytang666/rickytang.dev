@@ -1,14 +1,12 @@
-import Link from "next/link";
 import { IconDeviceGamepad2 } from "@tabler/icons-react";
+import Link from "next/link";
 
 export default function NotFound() {
   return (
     <main className="w-full max-w-4xl lg:max-w-5xl mx-auto flex flex-col items-center justify-center min-h-[60vh] gap-6">
       <div className="text-center">
         <div className="text-8xl font-bold text-primary mb-4">404</div>
-        <h1 className="text-3xl font-bold text-foreground mb-4">
-          Page not found 🐒
-        </h1>
+        <h1 className="text-3xl font-bold text-foreground mb-4">Page not found 🐒</h1>
       </div>
 
       <Link

@@ -12,7 +12,7 @@ Welcome to my personal website! You can find my side projects, get in touch, and
 
 ## Stack
 
-Next.js + Tailwind CSS + DaisyUI + shadcn/ui
+Next.js 16 + React 19 + TypeScript + Tailwind CSS 4 + shadcn/ui
 
 ## How to run
 
@@ -26,3 +26,12 @@ Next.js + Tailwind CSS + DaisyUI + shadcn/ui
    ```
 
 3. open [http://localhost:3000](http://localhost:3000) to see it.
+
+## Validation
+
+```bash
+pnpm typecheck
+pnpm check
+pnpm react-doctor
+pnpm validate
+```

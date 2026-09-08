@@ -1,5 +1,5 @@
-import WebringSwitcher from "@/components/ui/webring-switcher";
 import FooterIcons from "@/components/layout/footer-icons";
+import WebringSwitcher from "@/components/ui/webring-switcher";
 
 interface WebringMember {
   name: string;
@@ -8,12 +8,9 @@ interface WebringMember {
 
 async function getWaterlooMembers(): Promise<WebringMember[]> {
   try {
-    const res = await fetch(
-      "https://www.uwaterloo.network/api/webring?user=ricky-tang",
-      {
-        next: { revalidate: 3600 }, // cache for 1 hour
-      },
-    );
+    const res = await fetch("https://www.uwaterloo.network/api/webring?user=ricky-tang", {
+      next: { revalidate: 3600 }, // cache for 1 hour
+    });
     if (!res.ok) return [];
     const data = await res.json();
     return data.members || [];
