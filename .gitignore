@@ -54,3 +54,6 @@ next-env.d.ts
 # misc
 *.txt
 *.bak
+
+# workspace
+.workspace/
