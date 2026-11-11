@@ -1,6 +1,6 @@
 allowBuilds:
-  '@tailwindcss/oxide': true
-  '@vercel/speed-insights': true
+  "@tailwindcss/oxide": true
+  "@vercel/speed-insights": true
   sharp: true
   unrs-resolver: true
 
@@ -12,9 +12,9 @@ trustPolicyExclude:
   - undici-types@6.21.0
 
 overrides:
-  '@humanfs/node@<0.16.8': 0.16.8
-  'brace-expansion@<1.1.18': 1.1.18
+  "@humanfs/node@<0.16.8": 0.16.8
+  "brace-expansion@<1.1.18": 1.1.18
   browserslist: 4.28.7
   eslint: 9.39.2
-  'flatted@<3.4.2': 3.4.2
-  'js-yaml@>=4.0.0 <4.3.1': 4.3.1
+  "flatted@<3.4.2": 3.4.2
+  "js-yaml@>=4.0.0 <4.3.1": 4.3.1
